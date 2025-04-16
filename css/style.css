@@ -2270,7 +2270,7 @@ section.header .inner-mobile .hamburger-wrap svg {
   width: 100%;
   overflow: hidden;
   border-radius: 32px;
-  background: url("../../assets/bannerImage.png");
+  background: url("../assets/bannerImage.png");
   min-height: 820px;
   background-position: right center;
 }
@@ -2368,6 +2368,7 @@ section.header .inner-mobile .hamburger-wrap svg {
   padding: 12px 30px;
   border-radius: 32px;
   border: 1px solid var(--forest-depth);
+  text-align: center;
 }
 .banner .inner .image-container .empowering-conatiner .explore-wrapper .button-wrapper .explore-btn.explore-products {
   background-color: var(--forest-depth);
@@ -3304,7 +3305,7 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   }
 }
 .together-for-healtheir-tomorrow .inner {
-  background: url("../../assets/healtheir tomorrow.png");
+  background: url("../assets/healtheir-tomorrow.png");
   background-position: center;
   background-size: cover;
   width: 100%;
