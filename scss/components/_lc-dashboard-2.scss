@@ -1,0 +1,195 @@
+
+.dashboard-content{
+    &.add-new-area-form{    
+        .inner{
+        display: flex;
+        flex-direction: column;
+        max-width: 65%;
+        @include responsive(xl){
+            max-width: 900px;
+        }
+        @include responsive(lg){
+            margin: 0 auto;
+        }
+        .content-main-heading{
+            margin-bottom: 25px;
+        }
+        .lc-form-container{
+            // max-width: 715px;
+            width: 100%;
+            form{
+                display: flex;
+                flex-direction: row;
+                gap: 25px;
+                flex-wrap: wrap;
+                @include responsive(lg){
+                    gap: 20px;
+                }
+                .input-wrap{
+                    width: 100%;
+                    flex-direction: column;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 10px;
+                    label , .type-label, .upload-label{
+                        font-size: var(--text20);
+                        font-family: var(--geist-medium);
+                        text-transform: capitalize;
+                        color: var(--forest-depth);
+                    }
+                    &.name , &.category{
+                        width: calc(50% - 12.5px);
+                        @include responsive(lg){
+                            width: calc(50% - 10px);
+                        }
+                        @include responsive(xs){
+                            width: 100%;
+                        }
+                    }
+                    &.type{
+                        width: calc(50% - 12.5px);
+                        @include responsive(lg){
+                            width: calc(50% - 10px);
+                        }
+                        @include responsive(sm){
+                            justify-content: flex-start;
+                        }
+                        @include responsive(xs){
+                            width: 100%;
+                        }
+                    }
+                    &.price{
+                        width: calc(35.2% - 12.5px);
+                        @include responsive(xs){
+                            width: 100%;
+                        }
+                    }
+                    &.upload{
+                        position: relative;
+                    }
+                    input{                
+                        &[type='radio']{
+                            width: 30px;
+                            height: 30px;
+                            appearance: none;
+                            border: 2px solid var(--forest-depth);
+                            border-radius: 50%;
+                            cursor: pointer;
+                            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+                            padding: 0;
+                            @include responsive(md){
+                                width: 25px;
+                                height: 25px;
+                            }
+                            &:checked{
+                                background-color: var(--forest-depth);
+                                box-shadow: 0 0 0 4px white inset;
+                            }
+                            &:focus {
+                                outline: none;
+                                box-shadow: 0 0 0 4px white inset; // optional focus ring
+                            }
+                        }
+                        &[type='file']{
+                            position: absolute;
+                            opacity: 0;
+                            inset: 0;
+                            pointer-events: none;
+                        }
+                    }
+                    select{
+                        color: var(--light-gray);
+                        option{
+                            font-size: var(--text16);
+                            padding: 10px 25px;
+                            color: var(--forest-depth);
+                            background-color: var(--snow-veil);
+                            &:disabled, &:hover{
+                                background-color: var(--mint-whisper);
+                            }
+                            &:checked{
+                                background-color: var(--forest-depth);
+                                color: var(--soft-cream);
+                            }
+                        }
+                    }
+                    .radio-wrap{
+                        display: flex;
+                        gap: 30px;
+                        align-items: center;
+                        @include responsive(lg){
+                            gap: 20px;
+                        }
+                        @include responsive(md){
+                            gap: 15px;
+                        }
+                        .field-wrap{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                    }
+                    textarea{
+                        min-height: 120px;
+                        max-height: 600px;
+                        max-width: 100%;
+                    }
+                    label.upload{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        gap: 15px;
+                        align-items: center;
+                        padding: 25px 30px;
+                        border: 1px solid var(--forest-depth);
+                        border-radius: 8px;
+                        cursor: pointer;
+                        @include responsive(sm){
+                            padding: 15px 20px;
+                        }
+                        svg{
+                            width: 100%;
+                            max-width: 50px;
+                            @include responsive(sm){
+                                max-width: 40px;
+                            }
+                        }
+                        span{
+                            color: var(--light-gray);
+                            font-size: var(--text16);
+                            text-align: center;
+                        }
+                    }
+                    button{
+                        font-size: var(--text20);
+                        font-family: var(--geist-medium);
+                        width: fit-content;
+                        padding: 12px 40px;
+                        border-radius: 32px;
+                        background-color: var(--forest-depth);
+                        color: var(--snow-veil);
+                        text-transform: capitalize;
+                        border: none;
+                        cursor: pointer;
+                        @include responsive(sm){
+                            padding: 10px 24px;
+                        }
+                    }
+                    input, textarea, select{
+                        font-family: var(--geist-medium);
+                        font-size: var(--text16);
+                        line-height: 100%;
+                        padding: 13px 20px;
+                        border: 1px solid var(--forest-depth);
+                        border-radius: 8px;
+                        background-color: transparent;
+                        @include responsive(sm){
+                            padding: 10px 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

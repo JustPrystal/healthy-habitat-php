@@ -1,0 +1,84 @@
+.terms-and-policies{
+    
+    margin-top: 80px;
+    margin-bottom: 80px;
+    color: var(--forest-depth);
+    padding: 0px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--soft-cream);
+    @include responsive(sm) {
+        padding: 0px 20px;
+        margin-bottom: 50px;
+    }
+
+    .inner {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--forest-depth);
+        .container{          
+              .container {
+                max-width: 900px;
+                margin: auto;
+                padding: 2rem;
+              }
+          
+              h1, h2 {
+                font-family: var(--clash-display);
+              }
+          
+              h1 {
+                font-size: var(--heading48);
+                margin-bottom: 1rem;
+              }
+          
+              h2 {
+                font-size: var(--heading40);
+                margin-top: 2rem;
+                margin-bottom: 0.5rem;
+              }
+              h3{
+                font-size: var(--heading32);
+              }
+              h4{
+                font-size: var(--heading28);
+              }
+              h5{
+                font-size: var(--heading24);
+              }
+              h6{
+                font-size: var(--heading22);
+              }
+          
+              p {
+                font-family: var(--geist-medium);
+                font-size: var(--text20);
+                line-height: 1.7;
+                margin: 0.75rem 0;
+              }
+              li{
+                font-family: var(--geist-medium);
+                font-size: var(--text20);
+                margin-left: 30px;
+              }
+          
+              a {
+                color: var(--forest-depth);
+                text-decoration: none;
+                font-weight: 600;
+              }
+          
+              a:hover {
+                text-decoration: underline;
+              }
+          
+              .section {
+                margin-bottom: 2rem;
+              }
+        }
+    }
+}

@@ -1,0 +1,132 @@
+.banner{
+    width: 100%;
+    margin-bottom: 80px;
+    padding: 0px 40px;
+    @include responsive(lg) {
+        padding: 0px 40px;
+    }
+    @include responsive(sm) {
+        padding: 0px 20px;
+        margin-bottom: 50px;
+    }
+    .inner{
+        width: 100%;
+        max-width: 1320px;
+        margin: 0 auto;
+        .image-container{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 32px;
+            background: url('../../assets/bannerImage.png');
+            min-height: 820px;
+            background-position: right center;
+            &::after{
+                position: absolute;
+                content: "";
+                background-color: rgba(0, 0, 0,0.4);
+                inset: 0;
+                z-index: 1;
+            }
+            @include responsive(md) {
+                min-height: 80vh;
+            }
+
+            .empowering-conatiner{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 60px;
+                position: absolute;
+                width: 100%;
+                max-width: 54%;
+                left: 60px;
+                bottom: 60px;
+                border-radius: 24px;
+                background-color: var(--soft-cream);
+                padding: 40px;
+                z-index: 8576;
+                @include responsive(md){
+                    gap: 40px;
+                    padding: 20px 20px;
+                }
+                @include responsive(sm){
+                    max-width: calc(100% - 80px);
+                    left: 40px;
+                    bottom: 40px;
+                }
+                @include responsive(sm){
+                    max-width: calc(100% - 40px);
+                    left: 20px;
+                    bottom: 20px;
+                }
+    
+                .empowering-heading{
+                    font-family: var(--clash-display);
+                    font-size: var(--heading52);
+                    font-weight: 500;
+                    line-height: 100%;
+                    letter-spacing: 0px;
+                    align-items: left;
+    
+                }
+                .explore-wrapper{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 30px;
+                    @include responsive(md){
+                        gap: 20px;
+                    }
+
+                    .explore-text{
+                        font-family: var(--geist-medium);
+                        font-size: var(--text20);
+                        font-weight: 300;
+                        line-height: 100%;
+                        letter-spacing: 0%;
+
+                    }
+                    .button-wrapper{
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 10px;
+                        @include responsive(xs){
+                            flex-direction: column;
+                        }
+                        .explore-btn{
+                            font-family: var(--geist-medium);
+                            font-size: var(--text20);
+                            font-weight: 400;
+                            line-height: 100%;
+                            letter-spacing: 0%;
+                            width: fit-content;
+                            padding: 12px 30px;
+                            border-radius: 32px;
+                            border: 1px solid var(--forest-depth);
+                            &.explore-products{
+                                background-color: var(--forest-depth);
+                                color: var(--soft-cream);
+                                &:hover{
+                                    background-color: var(--mint-whisper);
+                                    color: var(--forest-depth);
+                                
+                                }
+                            }
+                            &.explore-services{
+                                background-color: var(--soft-cream);
+                                color: var(--forest-depth);
+                                    &:hover{
+                                        background-color: var(--mint-whisper);
+                                        color: var(--forest-depth);
+                                }
+    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

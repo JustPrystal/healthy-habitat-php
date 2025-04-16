@@ -1,0 +1,242 @@
+.register-section{
+    width: 100%;
+    padding: 0 40px;
+    @include responsive(sm) {
+        padding: 0px 20px;
+    }
+    .inner{
+        width: 100%;
+        max-width: 1320px;
+        margin: 0 auto;
+        .content-wrap{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 32px;
+            background: url('../../assets/registration-step-3-banner.png');
+            min-height: 820px;
+            background-position: left center;
+            background-size: cover;
+            display: flex;
+            &::after{
+                position: absolute;
+                content: "";
+                background-color: rgba(0, 0, 0,0.4);
+                inset: 0;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            @include responsive(md) {
+                flex-direction: column;
+            }
+            .heading-wrap{
+                width: 50%;
+                position: relative;
+                z-index: 10;
+                padding: 50px 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                @include responsive(lg){
+                    width: 40%;
+                }
+                @include responsive(md){
+                    width: 100%;
+                    padding: 40px;
+                }
+                @include responsive(md){
+                    padding: 30px;
+                    gap: 20px;
+                }
+                svg{
+                    width: 180px;
+                    height: fit-content;
+                    @include responsive(md){
+                        width: 140px;
+                    }
+                    @include responsive(sm){
+                        width: 100px;
+                    }
+                }
+                .heading{
+                    font-family: var(--clash-display);
+                    font-size: var(--heading48);
+                    font-weight: 500;
+                    line-height: 100%;
+                    letter-spacing: 0px;
+                    text-align: center;
+                    color: var(--soft-cream);
+                }
+            }
+            .form-wrap{
+                position: relative;
+                z-index: 10;
+                width: 50%;
+                padding: 40px 60px;
+                background-color: var(--mint-whisper);
+                border-radius: 32px;
+                @include responsive(lg){
+                    width: 60%;
+                    padding: 40px;
+                }
+                @include responsive(md){
+                    width: 100%;
+                }
+                @include responsive(sm){
+                    padding: 30px;
+                }
+                form{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px 30px;
+                    flex-wrap: wrap;
+                    @include responsive(lg){
+                        gap: 15px 20px;
+                    }
+                    @include responsive(sm){
+                        gap: 15px;
+                    }
+                    .input-wrap{
+                        width: 100%;
+                        flex-direction: column;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 10px;
+                        label , .type-label, .upload-label{
+                            font-size: var(--text16);
+                            font-family: var(--geist-medium);
+                            text-transform: capitalize;
+                            color: var(--forest-depth);
+                        }
+                        &.half{
+                            width: calc(50% - 15px);
+                            @include responsive(xs){
+                                width: 100%;
+                            }
+                        }
+                        &.checkbox{
+                            flex-direction: row;
+                            justify-content: left;
+                            input{
+                                border-radius: 4px;
+                                width: 20px;
+                                height: 20px;
+                                background-color: transparent;
+                                padding: 0;
+                                
+                            }
+                            label{
+                                display: flex;
+                                flex-direction: column;
+                                gap: 5px;
+                            }
+                        }
+                        input{                
+                            &[type='radio']{
+                                width: 30px;
+                                height: 30px;
+                                appearance: none;
+                                border: 2px solid var(--forest-depth);
+                                border-radius: 50%;
+                                cursor: pointer;
+                                transition: background-color 0.2s ease, box-shadow 0.2s ease;
+                                padding: 0;
+                                @include responsive(md){
+                                    width: 25px;
+                                    height: 25px;
+                                }
+                                &:checked{
+                                    background-color: var(--forest-depth);
+                                    box-shadow: 0 0 0 4px white inset;
+                                }
+                                &:focus {
+                                    outline: none;
+                                    box-shadow: 0 0 0 4px white inset; // optional focus ring
+                                }
+                            }
+                            &[type='file']{
+                                position: absolute;
+                                opacity: 0;
+                                inset: 0;
+                                pointer-events: none;
+                            }
+                        }
+                        select{
+                            color: var(--light-gray);
+                            option{
+                                font-size: var(--text16);
+                                padding: 10px 25px;
+                                color: var(--forest-depth);
+                                background-color: var(--snow-veil);
+                                &:disabled, &:hover{
+                                    background-color: var(--mint-whisper);
+                                }
+                                &:checked{
+                                    background-color: var(--forest-depth);
+                                    color: var(--soft-cream);
+                                }
+
+                            }
+                        }
+                        button{
+                            font-size: var(--text20);
+                            font-family: var(--geist-medium);
+                            width: 100%;
+                            padding: 12px 40px;
+                            border-radius: 32px;
+                            background-color: var(--forest-depth);
+                            color: var(--snow-veil);
+                            text-transform: capitalize;
+                            border: none;
+                            cursor: pointer;
+                            @include responsive(sm){
+                                padding: 10px 24px;
+                            }
+                        }
+                        input, select{
+                            font-family: var(--geist-medium);
+                            font-size: var(--text16);
+                            line-height: 100%;
+                            padding: 13px 20px;
+                            border: 1px solid var(--forest-depth);
+                            border-radius: 8px;
+                            background-color: transparent;
+                            @include responsive(sm){
+                                padding: 10px 16px;
+                            }
+                        }
+                        .sub-text{
+                            font-size: var(--text12);
+                            width: 100%;
+                            font-family: var(--geist-medium);
+                            color: var(--forest-depth);
+                        }
+                    }
+                    .text-wrap, .t-and-c-wrap{
+                        display: flex;
+                        justify-content: center;
+                        gap: 8px;
+                        width: 100%;
+                        span, a{
+
+                            font-size: var(--text16);
+                            font-family: var(--geist-medium);
+                            color: var(--forest-depth);
+                            font-weight: 400;
+                            line-height: 100%;
+                        }
+                        a{
+                            white-space: nowrap;
+                        }
+                    }
+                    .t-and-c-wrap{
+                        padding: 15px 15px 0;
+                        border-top: 1px solid var(--forest-depth);
+                    }
+                }
+            }
+        }
+    }
+}

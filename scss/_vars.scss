@@ -1,0 +1,80 @@
+/* @import must be at top of file, otherwise CSS will not work */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Breakpoints Structure
+$custom-breakpoints: (
+    xs: (minSize: 0px, maxSize: 575px, name: 'XS'),
+    sm: (minSize: 576px, maxSize: 767px, name: 'SM'),
+    md: (minSize: 768px, maxSize: 991px, name: 'MD'),
+    lg: (minSize: 992px, maxSize: 1279px, name: 'LG'),
+    xl: (minSize: 1280px, maxSize: 1499px, name: 'XL'),
+    xxl: (minSize: 1500px, maxSize: 0px, name: 'XXL'),
+    xxxl: (minSize: 1599px, maxSize: 2000px, name: 'XXL'),
+);
+
+
+:root {
+        /* Fonts */
+        --clash-display: "Clash Display Variable";
+        --geist-medium: "Geist";
+        /* Colors */
+        --soft-cream:#FCFCF2;
+        --mint-whisper: #E1F7EA;
+        --forest-depth: #134027;
+        --snow-veil: #FEFEFE;
+        --crimson-blaze: #F44336;
+        --leafy-green: #4CAF50;
+        --light-gray: #11111180;
+        --lime-pastel: #E7FFB3;
+        /* Fonts-Sizes */
+        --heading52: 52px;
+        --heading48: 48px;
+        --heading40: 40px;
+        --heading32: 32px;
+        --heading28: 28px;
+        --heading24: 24px;
+        --heading22: 22px;
+        --text20: 20px;
+        --text18: 18px;
+        --text16: 16px;
+        --text14: 14px;
+        --text12: 12px;
+        @include responsive(lg){
+            --heading52: 40px;
+            --heading48: 40px;
+        }
+        @include responsive(md) {
+            --heading52: 36px;
+            --heading48: 36px;    
+            --heading40: 36px;
+            --heading32: 28px;
+            --heading28: 24px;
+            --heading24: 20px;
+            --heading22: 18px;
+            --text20: 16px;
+            --text18: 16px;
+            --text16: 14px;
+            --text14: 12px;
+            --text12: 10px;
+        }
+        @include responsive(sm) {
+            --heading52: 32px;
+            --heading48: 32px;
+            --heading40: 32px;
+            --heading32: 24px;
+            --heading28: 20px;
+            --heading24: 16px;
+            --heading22: 16px;
+            --text20: 14px;
+            --text18: 14px;
+            --text16: 12px;
+            --text14: 10px;
+        }
+        @include responsive(xs) {
+            --heading52: 28px;
+            --heading48: 32px;
+        }
+        
+
+        
+}

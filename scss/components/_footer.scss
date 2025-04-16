@@ -1,0 +1,128 @@
+.footer{
+    color: var(--forest-depth);
+    background-color: var(--mint-whisper);
+    padding: 40px 40px 0px 40px;
+    @include responsive(lg) {
+        padding: 40px 40px 0px 40px;
+    }
+    @include responsive(sm) {
+        padding: 40px 20px 0px 20px;
+    }
+    .inner{
+        width: 100%;
+        max-width: 1320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        .content{    
+            width: 100%;
+            max-width: 1440px;
+            // margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 60px;
+            @include responsive(lg) {
+                padding-bottom: 40px;
+            }
+            @include responsive(sm) {
+                padding-bottom:20px;
+                flex-direction: column;
+                gap: 25px;
+            }
+            .left{
+                width: 100%;
+                max-width: 55%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 30px;
+                @include responsive(md) {
+                    gap: 20px;
+                }
+                @include responsive(sm) {
+                    gap: 15px;
+                    max-width: 100%;
+                }
+                .transforming-lives{
+                    font-family: var(--clash-display);
+                    font-size: var(--heading48);
+                    font-weight: 500;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                }
+                .all-rights{
+                    font-family: var(--geist-medium);
+                    font-size: var(--text20);
+                    font-weight: 300;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                }
+            }
+            .right{
+                width: 100%;
+                max-width: 45%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: start;
+                gap: 100px;
+                @include responsive(lg) {
+                    gap: 80px;
+                }
+                @include responsive(md) {
+                    gap: 60px;
+                }
+                @include responsive(sm) {
+                    max-width: 100%;
+                    justify-content: start;
+                }
+                .link-wrapper{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    @include responsive(sm) {
+                        width: 100%;
+                        max-width: 40%;
+                        justify-content: start;
+                    }
+                    .each-link{
+                        text-decoration: none;
+                        color: inherit;
+                        font-family: var(--geist-medium);
+                        font-size: var(20px);
+                        font-weight: 400;
+                        line-height: 100%;
+                        letter-spacing: 0px;
+                        width: fit-content;
+
+
+                    }
+                    // &.left-links{
+
+                    // }
+                    // &.right-links{
+
+                    // }
+
+                }
+            }
+        }
+        .healthy-habitat-logo{
+            width: 100%;
+            max-width: 1320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg{
+                width: 100%;
+                @include responsive(lg) {
+                    max-width: 100%;
+                    height: 90%;
+                }
+            }
+        }
+    }
+}

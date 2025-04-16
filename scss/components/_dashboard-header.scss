@@ -1,0 +1,62 @@
+.dashboard-content{
+    header.header{
+        margin-bottom: 40px;
+        @include responsive(lg){
+            min-height: 50px;
+        }
+        .inner{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            max-width: unset;
+            flex-direction: row;
+            @include responsive(lg){
+                justify-content: flex-start;
+            }
+            .logo{
+                display: none;
+                width: 120px;
+                @include responsive(lg){
+                    display: block;
+                }
+                @include responsive(sm){
+                    width: 100px;
+                }
+            }
+            .hamburger-wrap{
+                display: none;
+                padding: 8px 10px;
+                border-radius: 8px;
+                background-color: var(--mint-whisper);
+                position: fixed;
+                z-index: 999999;  
+                box-shadow: 0 2px 10px 0 #00000040;
+                @include responsive(lg){
+                    display: flex;
+                    right: 40px;
+                }
+                @include responsive(sm){
+                    right: 20px;
+                }
+                svg{
+                    color: var(--forest-depth);
+                    width: 30px;
+                    height: 30px;
+                    @include responsive(sm){
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+            .author-name{
+                font-family: var(--geist-medium);
+                font-size: var(--heading24);
+                color: var(--forest-depth);
+                width: fit-content;
+                @include responsive(lg){
+                    display: none;
+                }
+            }
+        }
+    }
+}

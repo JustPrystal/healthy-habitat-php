@@ -1,0 +1,206 @@
+.registration-first-step {
+    color: var(--forest-depth);
+    padding: 0px 40px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include responsive(sm) {
+        padding: 0px 20px;
+        margin-bottom: 50px;
+    }
+
+    .inner {
+        position: relative;
+        width: 100%;
+        max-width: 1320px;
+        height: 82vh;
+        background: url('../../assets/registration-step-1-banner.png');
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 32px;
+        overflow: hidden;
+        &::before{
+            position: absolute;
+            content: "";
+            inset: 0;
+            z-index: 1;
+            background-color: rgba($color: black, $alpha: 0.4);
+        }
+
+        .right-role-container {
+            background-color: rgba($color: #FCFCF2, $alpha: 0.7);
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0px;
+            z-index: 999;
+
+            @include responsive(lg) {
+                max-width: 85%;
+            }
+
+            @include responsive(md) {
+                padding: 40px 0px;
+            }
+            @include responsive(sm) {
+                padding: 20px 0px;
+            }
+
+            // @include responsive(xs) {}
+
+
+            .role-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                width: 100%;
+                max-width: 78%;
+                height: 80%;
+                @include responsive(md) {
+                    gap: 30px;
+                    max-width: 90%;
+                }
+                @include responsive(sm) {
+                    gap: 20px;
+                }
+
+
+
+                .role-upper {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 30px;
+                    @include responsive(lg) {
+                        max-width: 95%;
+                        gap: 20px;
+                    }
+                    @include responsive(sm) {
+                        gap: 15px;
+                    }
+                    @include responsive(xs) {
+                        gap: 10px;
+                    }
+
+                    .upper-heading {
+                        font-family: var(--clash-display);
+                        font-size: var(--heading40);
+                        font-weight: 500;
+                        line-height: 100%;
+                        letter-spacing: 0%;
+                        text-align: center;
+                    }
+
+                    .upper-para {
+                        font-family: var(--geist-medium);
+                        font-size: var(--text20);
+                        font-weight: 300;
+                        line-height: 100%;
+                        letter-spacing: 0%;
+                        text-align: center;
+                    }
+                }
+
+                .role-lower {
+                    width: 100%;
+                    max-width: 1000px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: stretch;
+                    gap: 20px;
+                    @include responsive(xs) {
+                        gap: 15px;
+                    }
+                    @include responsive(xs) {
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: stretch;
+                        gap: 10px;
+                    }
+                    .icon-container {
+                        width: 100%;
+                        max-width: calc(33.3% - 40px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--mint-whisper);
+                        padding: 30px 50px;
+                        border-radius: 16px;
+                        border: 1px solid var(--mint-whisper);
+                        &:hover{
+                            transition: 1s;
+                            border: 1px solid var(--forest-depth);
+                        }
+
+                        @include responsive(lg) {
+                            padding: 20px 20px;
+                            max-width: calc(33.3% - 30px);
+                        }
+                        @include responsive(md) {
+                            max-width: calc(33.3% - 20px);
+                        }
+                        @include responsive(sm) {
+                            max-width: calc(33.3% - 10px);
+                        }
+                        @include responsive(xs) {
+                            max-width: 100%;
+                        }
+                        .icon-text-wrapper {
+                            text-decoration: none;
+                            color: inherit;
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            gap: 20px;
+                            @include responsive(xs) {
+                                gap: 15px;
+                            }
+                            svg {
+                                width: 100px;
+                                height: 100px;
+
+                                @include responsive(lg) {
+                                    width: 80px;
+                                    height: 80px;
+                                }
+                                @include responsive(sm) {
+                                    width: 60px;
+                                    height: 60px;
+                                }
+                                @include responsive(sm) {
+                                    width: 50px;
+                                    width: 50px;
+                                }
+                            }
+                            .role-names {
+                                font-family: var(--clash-display);
+                                font-size: var(--heading24);
+                                font-weight: 500;
+                                line-height: 100%;
+                                letter-spacing: 0%;
+                                text-align: center;
+                                text-wrap: wrap;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

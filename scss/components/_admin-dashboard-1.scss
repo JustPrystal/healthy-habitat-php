@@ -1,0 +1,109 @@
+.dashboard-content{
+    &.admin-dashboard-overview{
+        color: var(--forest-depth);
+        // max-width: 800px;
+    }
+    .overview-container{
+        width: 100%;
+        max-width: 90%;
+        @include responsive(xl) {
+            max-width: 950px;
+        }
+        @include responsive(lg) {
+            margin: 0 auto;
+        }
+        .heading-container{
+            margin-bottom: 40px;
+            @include responsive(sm) {
+                margin-bottom: 30px; 
+            }
+            @include responsive(xs){
+                margin-bottom: 20px;
+            }
+            .content-main-heading{
+                font-family: var(--clash-display);
+                font-size: var(--heading40);
+                font-weight: 500;
+                line-height: 100%;
+                letter-spacing: 0%;
+            }
+            .content-text{
+                font-family: var(--geist-medium);
+                font-weight: 300;
+                font-size: var(--heading24);
+                line-height: 100%;
+                letter-spacing: 0%;
+                margin-top: 20px;
+    
+            }
+        }
+        .admin-card-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            @include responsive(sm){
+                gap: 30px;
+            }
+            @include responsive(xs){
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .card{
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+                width:100%;
+                max-width: calc(50% - 20px);
+                background-color: var(--mint-whisper);
+                padding: 30px;
+                border-radius: 16px;
+                gap: 20px;
+                @include responsive(lg) {
+                    padding: 20px;
+                }
+                // @include responsive(md){
+                //     gap: 15px;
+                // }
+
+                @include responsive(xs){
+                    max-width: 100%;
+                }
+
+                .card-heading{
+                    width: 100%;
+                    font-family: var(--clash-display);
+                    font-weight: 500;
+                    font-size: var(--heading28);
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    text-align: center;
+                    max-width: 310px;
+                    margin: 0 auto;
+
+                }
+                .total{
+                    font-family: var(--geist-medium);
+                    font-size: var(--heading24);
+                    font-weight: 300;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    text-align: center;
+                }
+                .count{
+                    margin-top: auto;
+                    font-family: var(--geist-medium);
+                    font-size: var(--heading24);
+                    font-weight: 500;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    text-align: center;
+
+                }
+            }
+        }
+    }
+}

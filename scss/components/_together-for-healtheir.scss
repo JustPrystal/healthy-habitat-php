@@ -1,0 +1,87 @@
+.together-for-healtheir-tomorrow{
+    padding: 0px 40px ;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include responsive(sm) {
+        padding: 0px 20px;
+        margin-bottom: 50px;
+    }
+    .inner{
+        background: url('../../assets/healtheir\ tomorrow.png');
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        max-width: 1320px;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        border-radius: 32px;
+        @include responsive(lg) {
+            padding: 40px 40px 40px 40px;
+        }
+        @include responsive(sm) {
+            padding: 40px 20px 40px 20px;
+            gap: 20px;
+        }
+        @include responsive(xs) {
+            padding: 20px 20px 20px 20px;
+        }
+        .content-wrap
+        {            
+            width: 100%;
+            max-width: 69%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            @include responsive(lg) {
+                max-width: 85%;
+            }
+            @include responsive(sm) {
+                gap: 20px;
+            }
+            .healtheir-heading{
+                font-family: var(--clash-display);
+                font-size: var(--heading48);
+                font-weight: 500;
+                line-height: 100%;
+                letter-spacing: 0%;   
+                text-align: center;
+                color: var(--soft-cream); 
+            }
+            .healtheir-para{
+                font-family: var(--geist-medium);
+                font-size: var(--text20);
+                font-weight: 300;
+                line-height: 100%;
+                letter-spacing: 0%;
+                text-align: center;
+                color: var(--soft-cream);
+            }
+            .register-btn{
+                font-family: var(--geist-medium);
+                font-size: var(--text20);
+                font-weight: 400;
+                line-height: 100%;
+                letter-spacing: 0%;
+                width: fit-content;
+                padding: 12px 30px;
+                border-radius: 32px;
+                border: 1px solid var(--soft-cream);   
+                margin-top: 10px;
+                background-color: var(--forest-depth);
+                color: var(--soft-cream);
+                &:hover{
+                    background-color: var(--mint-whisper);
+                    color: var(--forest-depth);
+                }
+            }
+        }
+    }
+}

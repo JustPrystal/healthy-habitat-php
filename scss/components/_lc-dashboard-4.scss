@@ -1,0 +1,139 @@
+.dashboard-content{
+    &.local-council{
+     .inner{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        @include responsive(sm){
+            gap: 30px;
+        }
+        @include responsive(xs){
+            gap: 20px;
+        }
+    
+        .lc-details-container{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            @include responsive(sm){
+                gap: 15px;
+            }
+            @include responsive(xs){
+                gap: 10px;
+            }
+            .field-value-wrap{
+                display: flex;
+                gap: 15px;
+                @include responsive(xs){
+                    gap: 10px;
+                }
+                .field-name{
+                    font-family: var(--geist-medium);
+                    font-size: var(--heading24);
+                    font-weight: 400;
+                    line-height: 100%;
+                    letter-spacing: 0%;         
+                    @include responsive(xs){
+                        font-size: 14px;
+                    }       
+                }
+                .field-value{
+                    font-family: var(--geist-medium);
+                    font-size: var(--heading24);
+                    font-weight: 500;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    // overflow-wrap: break-word;
+                    word-break: break-all;
+                    @include responsive(xs){
+                        font-size: 14px;
+                    }       
+                    &.bussines-name{
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        .about-studio-container{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .about-studio-heading{
+                font-family: var(--clash-display);
+                font-size: var(--heading32);
+                font-weight: 500;
+                line-height: 100%;
+                letter-spacing: 0%;
+            }
+            .para-wrapper{    
+                display: flex;
+                flex-direction: column;
+                gap: 20px;    
+                @include responsive(sm){
+                    gap: 15px;
+                }
+                @include responsive(xs){
+                    gap: 10px;
+                }
+                .studio-para-1{
+                    font-family: var(--geist-medium);
+                    font-size: var(--text20);
+                    font-weight: 400;
+                    line-height: 100%;
+                    letter-spacing: 0%;            
+                }
+                .studio-para-2{
+                    font-family: var(--geist-medium);
+                    font-size: var(--text20);
+                    font-weight: 500;
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                }
+        }
+        }
+        .certifications{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .certifications-heading{
+                font-family: var(--clash-display);
+                font-size: var(--heading32);
+                font-weight: 500;
+                line-height: 100%;
+                letter-spacing: 0%;
+    
+            }
+            .cards-wrapper{
+                display: flex;
+                justify-content: start;
+                gap: 40px;
+                @include responsive(sm){
+                    gap: 30px;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                }
+                @include responsive(xs){
+                    gap: 20px;
+                    // flex-direction: column;
+                }
+                .each-card{
+                    width: 100%;
+                    max-width: 230px;
+                    background-color: var(--mint-whisper);
+                    border-radius: 16px;
+                    padding: 15px 55px;
+                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+    
+                    }
+                }
+            }
+        }
+    
+    
+     }   }
+    }
