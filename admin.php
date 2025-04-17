@@ -4,12 +4,14 @@
 include_once './Blocks/admin/admin-sidenav.php';
 
 // Default block if none selected
-$block = $_GET['block'] ?? 'admin-dashboard-3';
+$block = $_GET['block'] ?? 'admin-dashboard-1';
 
 // Sanitize allowed blocks (whitelist)
 $allowedBlocks = [
   'admin-dashboard-1',
-  'admin-dashboard-2',
+  'admin-dashboard-2-resident',
+  'admin-dashboard-2-sme',
+  'admin-dashboard-2-lc',
   'admin-dashboard-3',
   'admin-dashboard-4',
   'admin-dashboard-5',
