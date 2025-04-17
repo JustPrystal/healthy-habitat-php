@@ -40,13 +40,13 @@
       </h3>
       <div class="cards-wrapper">
         <div class="each-card certified">
-          <img src="../../assets/certifiedImage.png" alt="certified">
+          <img src="./assets/certifiedImage.png" alt="certified">
         </div>
         <div class="each-card natural">
-          <img src="../../assets/naturalImage.png" alt="natural">
+          <img src="./assets/naturalImage.png" alt="natural">
         </div>
         <div class="each-card organic">
-          <img src="../../assets/organic.png" alt="organic">
+          <img src="./assets/organic.png" alt="organic">
         </div>
       </div>
     </div>

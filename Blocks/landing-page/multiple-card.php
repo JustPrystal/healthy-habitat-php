@@ -149,7 +149,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/ZenGlow Yoga Studio.png" alt="background image">
+                            <img src="./assets/wellness services/ZenGlow Yoga Studio.png" alt="background image">
                             <div class="tags">
                                 <div class="wrap">
                                     <div class="yes">
