@@ -1,8 +1,10 @@
 .register-section{
     width: 100%;
     padding: 0 40px;
+    margin-bottom: 80px;
     @include responsive(sm) {
         padding: 0px 20px;
+        margin-bottom: 50px;
     }
     .inner{
         width: 100%;
