@@ -1,10 +1,24 @@
-<?php
-    include_once './Blocks/sme/sme-sidenav.php';
 
-        include './Blocks/sme/dashboard-1.php';
-        include './Blocks/sme/dashboard-2.php';
-        include './Blocks/sme/dashboard-3.php';
-        include './Blocks/sme/dashboard-4.php';
-        include './Blocks/sme/dashboard-5.php';
-        include './Blocks/sme/dashboard-6.php';
+
+<?php
+include_once './Blocks/sme/sme-sidenav.php';
+
+// Default block if none selected
+$block = $_GET['block'] ?? 'dashboard-1';
+
+// Sanitize allowed blocks (whitelist)
+$allowedBlocks = [
+  'dashboard-1',
+  'dashboard-2',
+  'dashboard-3',
+  'dashboard-4',
+  'dashboard-5',
+  'dashboard-6',
+];
+
+if (in_array($block, $allowedBlocks)) {
+    include "./Blocks/sme/$block.php";
+} else {
+    echo "<p>Block not found or not allowed.</p>";
+}
 ?>
