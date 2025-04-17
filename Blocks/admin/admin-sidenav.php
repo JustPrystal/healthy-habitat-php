@@ -42,13 +42,13 @@
                         User Management
                     </a>    
                     <div class="sub-links">
-                        <a href="admin-dashboard-2.php?block=admin-dashboard-2-resident" class="sublink">
+                        <a href="admin.php?block=admin-dashboard-2-resident" class="sublink">
                             residents
                         </a>
-                        <a href="admin-dashboard-2.php?block=admin-dashboard-2-sme" class="sublink">
+                        <a href="admin.php?block=admin-dashboard-2-sme" class="sublink">
                             SMEs
                         </a>
-                        <a href="admin-dashboard-2.php?block=admin-dashboard-2-lc" class="sublink">
+                        <a href="admin.php?block=admin-dashboard-2-lc" class="sublink">
                             local-council
                         </a>
                     </div>
