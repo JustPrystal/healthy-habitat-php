@@ -11,7 +11,7 @@
                 </div>
                 <div class="role-lower">
                     <div class="icon-container">
-                        <a class="icon-text-wrapper" href="./step-3.html">
+                        <a class="icon-text-wrapper" href="registration.php?block=registration-form.php">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
                                 <rect width="32" height="32" fill="url(#pattern0_41_161)" />
@@ -30,7 +30,7 @@
                         </a>
                     </div>
                     <div class="icon-container">
-                        <a class="icon-text-wrapper" href="./step-3.html">
+                        <a class="icon-text-wrapper" href="registration.php?block=registration-form.php">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
                                 <rect width="32" height="32" fill="url(#pattern0_41_150)" />
@@ -51,7 +51,7 @@
                         </a>
                     </div>
                     <div class="icon-container">
-                        <a class="icon-text-wrapper" href="./step-3.html">   
+                        <a class="icon-text-wrapper" href="registration.php?block=registration-form.php">   
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
                                 <rect width="32" height="32" fill="url(#pattern0_41_159)" />
