@@ -1,13 +1,26 @@
-<?php
-    include_once './Blocks/admin/admin-sidenav.php';
 
-        include './Blocks/admin/admin-dashboard-1.php';
-        include './Blocks/admin/admin-dashboard-2/admin-dashboard-2-resident.php';
-        include './Blocks/admin/admin-dashboard-2/admin-dashboard-2-sme.php';
-        include './Blocks/admin/admin-dashboard-2/admin-dashboard-2-lc.php';
-        include './Blocks/admin/admin-dashboard-4.php';
-        include './Blocks/admin/admin-dashboard-5.php';
-        include './Blocks/admin/admin-dashboard-6.php';
-        include './Blocks/admin/admin-dashboard-7.php';
-        include './Blocks/admin/admin-dashboard-8.php';
+
+<?php
+include_once './Blocks/admin/admin-sidenav.php';
+
+// Default block if none selected
+$block = $_GET['block'] ?? 'admin-dashboard-3';
+
+// Sanitize allowed blocks (whitelist)
+$allowedBlocks = [
+  'admin-dashboard-1',
+  'admin-dashboard-2',
+  'admin-dashboard-3',
+  'admin-dashboard-4',
+  'admin-dashboard-5',
+  'admin-dashboard-6',
+  'admin-dashboard-7',
+  'admin-dashboard-8',
+];
+
+if (in_array($block, $allowedBlocks)) {
+    include "./Blocks/admin/$block.php";
+} else {
+    echo "<p>Block not found or not allowed.</p>";
+}
 ?>

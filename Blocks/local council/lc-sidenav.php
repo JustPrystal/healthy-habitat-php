@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./lc-dashboard-2.html">
+                        <a href="lc.php?block=lc-dashboard-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                 fill="none">
                                 <path
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./lc-dashboard-3.html"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                        <a href="lc.php?block=lc-dashboard-3"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
                                 viewBox="0 0 20 16" fill="none">
                                 <path
                                     d="M5.9201 1H18.7428M5.9201 7.99417H18.7428M5.9201 14.9883H18.7428M1.25732 1V1.01166M1.25732 7.99417V8.00583M1.25732 14.9883V15"
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./lc-dashboard-4.html">
+                        <a href="lc.php?block=lc-dashboard-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                                 fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./dashboard-6.html">
+                        <a href="lc.php?block=dashboard-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
