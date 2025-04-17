@@ -1,6 +1,6 @@
 <?php
 include_once './Blocks/local council/lc-sidenav.php';
-
+include 'header-dashboard.php';
 // Default block if none selected
 $block = $_GET['block'] ?? 'lc-dashboard-1';
 

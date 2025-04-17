@@ -17,18 +17,18 @@ body{
     display: flex;
 }
 .dashboard-content{
-    padding: 60px;
+    padding: 0 60px 60px 60px;
     width: calc(100% - 320px);
     margin: 0 0 0 auto;
     background-color: var(--soft-cream);
     min-height: 100vh;
     color: var(--forest-depth);
     @include responsive(lg) {
-        padding: 40px;
+        padding: 0 40px 40px;
         width: 100%;
     }
     @include responsive(sm) {
-        padding: 40px 20px;
+        padding: 0 20px 40px;
     }
 }
 .content-main-heading{

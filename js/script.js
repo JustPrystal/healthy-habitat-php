@@ -14,7 +14,6 @@ $(document).ready(function () {
         $('.landing-page-header').toggleClass('active');
         $('body').toggleClass('noscroll');
     });
-    console.log('hello');
 
 
 
