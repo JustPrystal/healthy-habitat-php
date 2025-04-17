@@ -26,7 +26,7 @@
                                 <button type="submit">Sign in</button>
                             </div>
                             <div class="text-wrap">
-                                <a href="./step-3.html">Register</a>
+                                <a href="registration.php?block=select-role">Register</a>
                             </div>
                         </form>
                     </div>
