@@ -35,8 +35,8 @@
             <div class="content">
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/EcoSip Stainless Steel Straw.png"
-                            alt="background image">
+                        <img src="./assets/wellness services/EcoSip Stainless Steel Straw.png"
+                            alt="background image"> 
                         <div class="tags">
                             <div class="wrap">
                                 <div class="yes">
@@ -92,7 +92,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/GreenHaven Organic Bedding.png"
+                        <img src="./assets/wellness services/GreenHaven Organic Bedding.png"
                             alt="background image">
                         <div class="tags">
                             <div class="wrap">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/AloeSheer Body Lotion.png" alt="background image">
+                        <img src="./assets/wellness services/AloeSheer Body Lotion.png" alt="background image">
                         <div class="tags">
                             <div class="wrap">
                                 <div class="yes">
@@ -205,7 +205,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/Bamboo Towel Duo by ZenFit.png"
+                        <img src="./assets/wellness services/Bamboo Towel Duo by ZenFit.png"
                             alt="background image">
                         <div class="tags">
                             <div class="wrap">
@@ -262,7 +262,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/Organic Cotton Face Covers.png"
+                        <img src="./assets/wellness services/Organic Cotton Face Covers.png"
                             alt="background image">
                         <div class="tags">
                             <div class="wrap">
@@ -319,7 +319,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/BotaniCare Natural Deodorants.png"
+                        <img src="./assets/wellness services/BotaniCare Natural Deodorants.png"
                             alt="background image">
                         <div class="tags">
                             <div class="wrap">
@@ -376,7 +376,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/PureAir HEPA Filter Purifiers.png"
+                        <img src="./assets/wellness services/PureAir HEPA Filter Purifiers.png"
                             alt="background image">
                         <div class="tags">
                             <div class="wrap">
@@ -433,7 +433,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/NatureMat Cork Yoga Mats.png" alt="background image">
+                        <img src="./assets/wellness services/NatureMat Cork Yoga Mats.png" alt="background image">
                         <div class="tags">
                             <div class="wrap">
                                 <div class="yes">
@@ -489,7 +489,7 @@
                 </div>
                 <div class="card">
                     <div class="image-wrap">
-                        <img src="../assets/wellness services/GreenNest Home Cleaning.png" alt="background image">
+                        <img src="./assets/wellness services/GreenNest Home Cleaning.png" alt="background image">
                         <div class="tags">
                             <div class="wrap">
                                 <div class="yes">
