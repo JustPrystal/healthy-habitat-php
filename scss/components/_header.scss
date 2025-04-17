@@ -60,6 +60,10 @@ section.header{
             @include responsive(lg){
                 min-width: 220px;
             }
+            >a{
+                display: flex;
+                width: fit-content;
+            }
             .logo{
                 width: 120px;
             }

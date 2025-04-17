@@ -2163,6 +2163,10 @@ section.header .inner .logo-wrap {
     min-width: 220px;
   }
 }
+section.header .inner .logo-wrap > a {
+  display: flex;
+  width: fit-content;
+}
 section.header .inner .logo-wrap .logo {
   width: 120px;
 }
