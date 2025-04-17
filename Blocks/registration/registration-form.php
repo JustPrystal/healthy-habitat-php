@@ -77,7 +77,7 @@
             </div>
             <div class="text-wrap">
               <span>Already have an account?</span>
-              <a href="./sign-in.html">Sign in here</a>
+              <a href="registration.php?block=sign-in">Sign in here</a>
             </div>
             <div class="t-and-c-wrap">
               <span>By continuing, you confirm that you agree to our Privacy Policy and <a href="#">Terms of Service.</a></span>

@@ -22,7 +22,7 @@
             </div>
             
             <div class="button-wrap">
-                <a href="../landing-page.html" class="sign-in">
+                <a href="./index.php" class="sign-in">
                     Home
                 </a>
                 <a href="registration.php?block=select-role" class="sign-in">
