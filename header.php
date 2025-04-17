@@ -28,10 +28,10 @@
                 <a href="#products" class="link">Products</a>
             </div>
             <div class="button-wrap">
-                <a href="" class="sign-in">
+                <a href="registration.php?block=sign-in" class="sign-in">
                     Sign in
                 </a>
-                <a href="#" class="button">
+                <a href="registration.php?block=select-role" class="button">
                     Register
                 </a>
             </div>

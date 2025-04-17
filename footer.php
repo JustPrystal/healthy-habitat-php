@@ -24,8 +24,8 @@
                         <a href="#products" class="each-link">Products</a>
                     </div>
                     <div class="link-wrapper right-links">
-                        <a href="./registration/sign-in.html" class="each-link">Sign in</a>
-                        <a href="./registration/step-1.html" class="each-link">Register</a>
+                        <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
+                        <a href="registration.php?block=select-role" class="each-link">Register</a>
                         <a href="./privacy-policy.html" class="each-link">Privacy Policy</a>
                         <a href="./terms-conditions.html" class="each-link">Terms of Service</a>
                     </div>
