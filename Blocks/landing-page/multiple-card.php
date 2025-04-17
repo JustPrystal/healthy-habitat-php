@@ -36,7 +36,7 @@
                 <div class="content">
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/Frame 22.png" alt="background image">
+                            <img src="./assets/wellness services/Frame-22.png" alt="background image">
                             <div class="tags">
                                 <div class="wrap">
                                     <div class="yes">
@@ -92,7 +92,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/MindAnchor Therapy Services.png"
+                            <img src="./assets/wellness services/MindAnchor Therapy Services.png"
                                 alt="background image">
                             <div class="tags">
                                 <div class="wrap">
@@ -205,7 +205,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/WellPlate Meal Prep Coaching.png"
+                            <img src="./assets/wellness services/WellPlate Meal Prep Coaching.png"
                                 alt="background image">
                             <div class="tags">
                                 <div class="wrap">
@@ -262,7 +262,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/GreenNest Home Cleaning.png" alt="background image">
+                            <img src="./assets/wellness services/GreenNest Home Cleaning.png" alt="background image">
                             <div class="tags">
                                 <div class="wrap">
                                     <div class="yes">
@@ -318,7 +318,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/Mental Health.png" alt="background image">
+                            <img src="./assets/wellness services/Mental Health.png" alt="background image">
                             <div class="tags">
                                 <div class="wrap">
                                     <div class="yes">
@@ -374,7 +374,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/PulseFit Personal Training.png"
+                            <img src="./assets/wellness services/PulseFit Personal Training.png"
                                 alt="background image">
                             <div class="tags">
                                 <div class="wrap">
@@ -431,7 +431,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/PlantPure Subscription.png" alt="background image">
+                            <img src="./assets/wellness services/PlantPure Subscription.png" alt="background image">
                             <div class="tags">
                                 <div class="wrap">
                                     <div class="yes">
@@ -487,7 +487,7 @@
                     </div>
                     <div class="card">
                         <div class="image-wrap">
-                            <img src="../assets/wellness services/TeenTalk Mental Wellness.png" alt="background image">
+                            <img src="./assets/wellness services/TeenTalk Mental Wellness.png" alt="background image">
                             <div class="tags">
                                 <div class="wrap">
                                     <div class="yes">
