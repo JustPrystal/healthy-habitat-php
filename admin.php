@@ -2,7 +2,7 @@
 
 <?php
 include_once './Blocks/admin/admin-sidenav.php';
-
+include 'header-dashboard.php';
 // Default block if none selected
 $block = $_GET['block'] ?? 'admin-dashboard-1';
 
