@@ -30,9 +30,9 @@ $(document).ready(function () {
           no: [1200, 900, 1500, 2200, 1100, 2100, 2000]
         },
         monthly: {
-          labels: ['Item X', 'Item Y', 'Item Z'],
-          yes: [5000, 3000, 4000],
-          no: [2500, 2800, 1900]
+          labels: ['Item X', 'Item Y', 'Item Z', 'Item N'],
+          yes: [5000, 3000, 4000, 500],
+          no: [2500, 2800, 1900, 1000]
         }
       };
   
@@ -47,12 +47,12 @@ $(document).ready(function () {
             {
               label: 'Yes',
               data: dataSet.yes,
-              backgroundColor: '#003b1b'
+              backgroundColor: '#102E16',
             },
             {
               label: 'No',
               data: dataSet.no,
-              backgroundColor: '#ccff66'
+              backgroundColor: '#E7FFB3'
             }
           ]
         };
@@ -64,15 +64,22 @@ $(document).ready(function () {
             responsive: true,
             plugins: {
               tooltip: {
+                backgroundColor: '#C6D6B1',
+                titleColor: '#134027',
+                bodyColor: '#555',
+                titleFont: {
+                  size: 10,
+                  weight: 'lighter'
+                },
                 callbacks: {
                   label: function(context) {
                     return ` ${context.dataset.label}: ${context.raw}`;
                   },
                   afterLabel: function(context) {
-                    return 'Last week: 241\nThis week: 274';
+                    return 'Last week: 241\  week: 274';
                   }
                 }
-              }
+              } 
             },
             scales: {
               y: {
