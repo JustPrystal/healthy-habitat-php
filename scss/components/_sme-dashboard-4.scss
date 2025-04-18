@@ -9,6 +9,12 @@
                 border: 1px solid var(--forest-depth);
                 padding: 40px 70px;
                 border-radius: 10px;
+                @include responsive(md){
+                    padding: 40px;
+                }
+                @include responsive(sm){
+                    padding: 20px;
+                }
                 .heading-wrap{
                     display: flex;
                     gap: 20px;
@@ -34,7 +40,15 @@
                 .tabs-wrap{
                     display: flex;
                     gap: 60px;
-                    margin-bottom: 40px;
+                    margin-bottom: 30px;
+                    @include responsive(md){
+                        gap: 40px;
+                        flex-wrap: wrap;
+                    }
+                    @include responsive(sm){
+                        gap: 20px;
+                        margin-bottom: 20px;
+                    }
                     .tabs {
                         display: flex;
                         width: fit-content;
@@ -50,6 +64,12 @@
                             color: var(--forest-depth);
                             line-height: 100%;
                             border-right: 1px solid var(--forest-depth);
+                            @include responsive(md){
+                                padding: 10px 30px;
+                            }
+                            @include responsive(sm){
+                                padding: 8px 20px;
+                            }
                             &:last-child{
                                 border: none;
                             }
@@ -59,37 +79,10 @@
                             }
                         }
                     }
-                    .identifier-wrap{
-                        display: flex;
-                        gap: 20px;
-                        align-items: center;
-                        .identifier{
-                            display: flex;
-                            gap: 5px;
-                            align-items: center;
-                            .yes, .no{
-                                width: 12px;
-                                height: 12px;
-                                border-radius: 2px;
-                            }
-                            .yes{
-                                background-color: var(--forest-depth);
-                            }
-                            .no{
-                                background-color: var(--lime-pastel);
-                            }
-                            span{
-                                font-size: var(--text14);
-                                font-family: var(--geist-medium);
-                                line-height: 100%;
-                                color: var(--forest-depth);
-                                text-transform: capitalize;
-                            }
-                        }
-                    }
 
                 }
-                canvas {
+                #voteChart{
+                    width: 100%;
                 }
             }
         }

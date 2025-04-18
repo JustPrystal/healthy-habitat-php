@@ -24,19 +24,9 @@
           <div class="tab" data-period="weekly">Weekly</div>
           <div class="tab" data-period="monthly">Monthly</div>
         </div>
-        <div class="identifier-wrap">
-          <div class="identifier">
-            <div class="yes"></div>
-            <span>yes</span>
-          </div>
-          <div class="identifier">
-            <div class="no"></div>
-            <span>no</span>
-          </div>
-        </div>
       </div>
 
-      <canvas id="voteChart" width="800" height="400"></canvas>
+      <canvas id="voteChart"></canvas>
     </div>
 
   </div>
