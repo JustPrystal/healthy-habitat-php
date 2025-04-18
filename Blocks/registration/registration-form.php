@@ -1,9 +1,51 @@
+<?php
+include('db.php');
+require_once('utils/helpers.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $role = $_GET['user'];
+
+  error_log("Asdasdasdasd");
+
+  // 1. Get user data
+  $firstName = $_POST['first-name'] ?? '';
+  $lastName = $_POST['last-name'] ?? '';
+  $email = $_POST['email'] ?? '';
+  $password = $_POST['password'] ?? '';
+
+  // 2. Combine names for the 'users' table
+  $fullName = trim($firstName . ' ' . $lastName);
+
+  // 3. Get meta data
+  $meta = [
+    'location' => $_POST['location'] ?? '',
+    'age_group' => $_POST['age-group'] ?? '',
+    'gender' => $_POST['gender'] ?? '',
+    'areas_of_interest' => $_POST['areas-of-interest'] ?? ''
+  ];
+
+  // 4. Create user in DB
+  $user_id = createUser($conn, $fullName, $email, $password, $role);
+
+  // 5. Insert meta data
+  insertUserMeta($conn, $user_id, $meta);
+
+  // 6. Redirect or show success message
+  echo "<script>
+  alert('" . $role . " registered successfully!');
+  </script>";
+}
+?>
+
+
 <section class="registration-step-3 register-section">
   <div class="inner">
     <div class="content-wrap">
       <div class="heading-wrap">
         <svg xmlns="http://www.w3.org/2000/svg" width="179" height="80" viewBox="0 0 179 80" fill="none">
-          <path d="M18.656 41.856V80H0.48V0.895996H18.656V38.912H37.984V0.895996H56.16V80H37.984V41.856H18.656ZM83.281 41.856V80H65.105V0.895996H83.281V38.912H102.609V0.895996H120.785V80H102.609V41.856H83.281ZM132.418 12.928V53.888C132.503 56.0213 133.314 58.0693 134.85 60.032C136.471 61.9093 138.221 63.872 140.098 65.92C141.975 67.968 143.682 70.144 145.218 72.448C146.754 74.6667 147.522 77.184 147.522 80H129.73V0.895996H145.474L175.938 67.2V26.88C175.853 24.7467 174.999 22.7413 173.378 20.864C171.842 18.9013 170.135 16.9387 168.258 14.976C166.381 12.928 164.674 10.7947 163.138 8.576C161.602 6.272 160.834 3.712 160.834 0.895996H178.626V80H163.394L132.418 12.928Z" fill="#FCFCF2" />
+          <path
+            d="M18.656 41.856V80H0.48V0.895996H18.656V38.912H37.984V0.895996H56.16V80H37.984V41.856H18.656ZM83.281 41.856V80H65.105V0.895996H83.281V38.912H102.609V0.895996H120.785V80H102.609V41.856H83.281ZM132.418 12.928V53.888C132.503 56.0213 133.314 58.0693 134.85 60.032C136.471 61.9093 138.221 63.872 140.098 65.92C141.975 67.968 143.682 70.144 145.218 72.448C146.754 74.6667 147.522 77.184 147.522 80H129.73V0.895996H145.474L175.938 67.2V26.88C175.853 24.7467 174.999 22.7413 173.378 20.864C171.842 18.9013 170.135 16.9387 168.258 14.976C166.381 12.928 164.674 10.7947 163.138 8.576C161.602 6.272 160.834 3.712 160.834 0.895996H178.626V80H163.394L132.418 12.928Z"
+            fill="#FCFCF2" />
         </svg>
         <h2 class="heading">
           Welcome to Healthy Habitat Network.
@@ -11,7 +53,7 @@
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form action="">
+          <form method="POST" action="registration.php?block=registration-form&user=resident">
             <div class="input-wrap half">
               <label for="name">First Name </label>
               <input type="text" id="first-name" name="first-name" required>
@@ -61,7 +103,8 @@
               <label for="password">password</label>
               <input type="password" id="password" name="password" required>
               <span class="sub-text">
-                Use 8 or more characters with a mix of letters, numbers and symbols. Must not contain your name or username.
+                Use 8 or more characters with a mix of letters, numbers and symbols. Must not contain your name or
+                username.
               </span>
             </div>
             <div class="input-wrap checkbox">
@@ -80,7 +123,8 @@
               <a href="registration.php?block=sign-in">Sign in here</a>
             </div>
             <div class="t-and-c-wrap">
-              <span>By continuing, you confirm that you agree to our Privacy Policy and <a href="#">Terms of Service.</a></span>
+              <span>By continuing, you confirm that you agree to our Privacy Policy and <a href="#">Terms of
+                  Service.</a></span>
             </div>
           </form>
         </div>
