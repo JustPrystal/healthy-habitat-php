@@ -8,24 +8,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   error_log("Asdasdasdasd");
 
   // 1. Get user data
-  $firstName = $_POST['first-name'] ?? '';
-  $lastName = $_POST['last-name'] ?? '';
+  $councilName = $_POST['council-name'] ?? '';
   $email = $_POST['email'] ?? '';
   $password = $_POST['password'] ?? '';
 
-  // 2. Combine names for the 'users' table
-  $fullName = trim($firstName . ' ' . $lastName);
-
   // 3. Get meta data
   $meta = [
-    'location' => $_POST['location'] ?? '',
-    'age_group' => $_POST['age-group'] ?? '',
-    'gender' => $_POST['gender'] ?? '',
-    'areas_of_interest' => $_POST['areas-of-interest'] ?? ''
+    'contact_person_name' => $_POST['contact-person-name'] ?? '',
+    'phone_number' => $_POST['phone-number'] ?? '',
+    'region' => $_POST['region'] ?? '',
+    'designation' => $_POST['designation'] ?? '',
+    'council_website' => $_POST['council-website'] ?? ''
   ];
 
   // 4. Create user in DB
-  $user_id = createUser($conn, $fullName, $email, $password, $role);
+  $user_id = createUser($conn, $councilName, $email, $password, $role);
 
   // 5. Insert meta data
   insertUserMeta($conn, $user_id, $meta);
@@ -53,10 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form method="POST" action="registration.php?block=registration-form&user=local council">
+          <form method="POST" action="registration.php?block=lc-form&user=council">
             <div class="input-wrap">
               <label for="council-name">Council Name </label>
               <input type="text" id="council-name" name="council-name" required>
+            </div>
+            <div class="input-wrap">
+              <label for="contact-person-name">contact person name </label>
+              <input type="text" id="contact-person-name" name="contact-person-name" required>
             </div>
             <div class="input-wrap half">
               <label for="phone-number">Phone Number </label>
@@ -71,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <input type="text" id="designation" name="designation" required>
             </div>
             <div class="input-wrap half">
-              <label for="website">website </label>
-              <input type="text" id="website" name="website" required>
+              <label for="council-website">council website </label>
+              <input type="url" id="council-website" name="council-website" required>
             </div>
             <div class="input-wrap">
               <label for="email">email</label>

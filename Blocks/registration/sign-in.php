@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <section class="register-section sign-in">
     <div class="inner">
         <div class="content-wrap">
@@ -9,7 +12,13 @@
                     <h3 class="heading">
                         Welcome to Healthy Habitat Network.
                     </h3>
-                    <form action="">
+                    <?php
+                        if (isset($_SESSION['login_error'])) {
+                            echo '<div class="error-message">'.$_SESSION['login_error'].'</div>';
+                            unset($_SESSION['login_error']);
+                        }
+                    ?>
+                    <form method="POST" action="./login-handler.php">
                         <div class="input-wrap">
                             <label for="email">email</label>
                             <input type="email" id="email" name="email" required>
