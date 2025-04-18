@@ -76,8 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="input-wrap">
               <label for="about">about</label>
-              <textarea placeholder="auni" type="text" id="about" name="about" rows="5">
-              </textarea>
+              <textarea placeholder="Tell us about your business" type="text" id="about" name="about" rows="5"></textarea>
             </div>
             <div class="input-wrap">
               <label for="password">password</label>

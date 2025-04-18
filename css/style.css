@@ -3287,6 +3287,7 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap input::placeholder, .register-section .inner .content-wrap .form-wrap form .input-wrap textarea::placeholder, .register-section .inner .content-wrap .form-wrap form .input-wrap select::placeholder {
   color: var(--forest-depth);
+  opacity: 50%;
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap .sub-text {
   font-size: var(--text12);
