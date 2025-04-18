@@ -8,24 +8,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   error_log("Asdasdasdasd");
 
   // 1. Get user data
-  $firstName = $_POST['first-name'] ?? '';
-  $lastName = $_POST['last-name'] ?? '';
+  $businessName = $_POST['business-name'] ?? '';
+//   $lastName = $_POST['last-name'] ?? '';
   $email = $_POST['email'] ?? '';
   $password = $_POST['password'] ?? '';
 
   // 2. Combine names for the 'users' table
-  $fullName = trim($firstName . ' ' . $lastName);
+//   $fullName = trim($firstName . ' ' . $lastName);
 
   // 3. Get meta data
   $meta = [
-    'location' => $_POST['location'] ?? '',
-    'age_group' => $_POST['age-group'] ?? '',
-    'gender' => $_POST['gender'] ?? '',
-    'areas_of_interest' => $_POST['areas-of-interest'] ?? ''
+    'phone' => $_POST['phone-number'] ?? '',
+    'website' => $_POST['website'] ?? '',
+    'address' => $_POST['address'] ?? '',
+    'about' => $_POST['about'] ?? '',
   ];
 
   // 4. Create user in DB
-  $user_id = createUser($conn, $fullName, $email, $password, $role);
+  $user_id = createUser($conn, $businessName, $email, $password, $role);
 
   // 5. Insert meta data
   insertUserMeta($conn, $user_id, $meta);
@@ -53,10 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form method="POST" action="registration.php?block=registration-form&user=bussiness">
+          <form method="POST" action="registration.php?block=sme-form&user=business">
             <div class="input-wrap">
-              <label for="name">Bussiness Name </label>
-              <input type="text" id="bussiness-name" name="bussiness-name" required>
+              <label for="name">business Name </label>
+              <input type="text" id="business-name" name="business-name" required>
             </div>
             <div class="input-wrap half">
               <label for="name">Phone Number </label>

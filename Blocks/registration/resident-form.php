@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form method="POST" action="registration.php?block=registration-form&user=resident">
+          <form method="POST" action="registration.php?block=resident-form&user=resident">
             <div class="input-wrap half">
               <label for="name">First Name </label>
               <input type="text" id="first-name" name="first-name" required>
