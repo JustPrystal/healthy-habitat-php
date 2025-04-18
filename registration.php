@@ -8,7 +8,9 @@ $block = $_GET['block'] ?? 'select-role';
 $allowedBlocks = [
     'select-role',
     'sign-in',
-    'registration-form',
+    'resident-form',
+    'sme-form',
+    'lc-form'
 ];
 
 if (in_array($block, $allowedBlocks)) {
