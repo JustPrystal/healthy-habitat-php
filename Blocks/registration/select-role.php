@@ -10,8 +10,8 @@
                         Habitat Network platform.</p>
                 </div>
                 <div class="role-lower">
-                    <div class="icon-container">
-                        <a class="icon-text-wrapper" href="registration.php?block=registration-form">
+                    <a class="icon-container" href="registration.php?block=registration-form">
+                        <div class="icon-text-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
                                 <rect width="32" height="32" fill="url(#pattern0_41_161)" />
@@ -27,10 +27,10 @@
                             <p class="role-names">
                                 Residents
                             </p>
-                        </a>
-                    </div>
-                    <div class="icon-container">
-                        <a class="icon-text-wrapper" href="registration.php?block=registration-form">
+                        </div>
+                    </a>
+                    <a class="icon-container" href="registration.php?block=registration-form">
+                        <div class="icon-text-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
                                 <rect width="32" height="32" fill="url(#pattern0_41_150)" />
@@ -48,10 +48,10 @@
                                 Businesses
                                 (SMEs)
                             </p>
-                        </a>
-                    </div>
-                    <div class="icon-container">
-                        <a class="icon-text-wrapper" href="registration.php?block=registration-form">   
+                        </div>
+                    </a>
+                    <a class="icon-container" href="registration.php?block=registration-form">
+                        <div class="icon-text-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
                                 <rect width="32" height="32" fill="url(#pattern0_41_159)" />
@@ -67,7 +67,8 @@
                             <p class="role-names">
                                 Local Councils
                             </p>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
