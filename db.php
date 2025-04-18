@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; // no password in XAMPP by default
+$password = "";
 $database = "healthy_habitat";
 
 // Create connection
