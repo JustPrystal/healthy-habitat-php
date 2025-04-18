@@ -10,7 +10,7 @@
                         Habitat Network platform.</p>
                 </div>
                 <div class="role-lower">
-                    <a class="icon-container" href="registration.php?block=registration-form">
+                    <a class="icon-container" href="registration.php?block=resident-form">
                         <div class="icon-text-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -29,7 +29,7 @@
                             </p>
                         </div>
                     </a>
-                    <a class="icon-container" href="registration.php?block=registration-form">
+                    <a class="icon-container" href="registration.php?block=sme-form">
                         <div class="icon-text-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -50,7 +50,7 @@
                             </p>
                         </div>
                     </a>
-                    <a class="icon-container" href="registration.php?block=registration-form">
+                    <a class="icon-container" href="registration.php?block=lc-form">
                         <div class="icon-text-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="32" height="32" viewBox="0 0 32 32" fill="none">
