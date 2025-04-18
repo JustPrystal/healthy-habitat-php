@@ -197,7 +197,7 @@
                                 padding: 10px 24px;
                             }
                         }
-                        input, select{
+                        input,textarea,select{
                             font-family: var(--geist-medium);
                             font-size: var(--text16);
                             line-height: 100%;
@@ -207,6 +207,10 @@
                             background-color: transparent;
                             @include responsive(sm){
                                 padding: 10px 16px;
+                            }
+                            &::placeholder{
+                                color: var(--forest-depth);
+                                opacity: 50%;
                             }
                         }
                         .sub-text{

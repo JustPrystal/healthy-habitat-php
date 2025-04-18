@@ -3271,7 +3271,7 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
     padding: 10px 24px;
   }
 }
-.register-section .inner .content-wrap .form-wrap form .input-wrap input, .register-section .inner .content-wrap .form-wrap form .input-wrap select {
+.register-section .inner .content-wrap .form-wrap form .input-wrap input, .register-section .inner .content-wrap .form-wrap form .input-wrap textarea, .register-section .inner .content-wrap .form-wrap form .input-wrap select {
   font-family: var(--geist-medium);
   font-size: var(--text16);
   line-height: 100%;
@@ -3281,9 +3281,13 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   background-color: transparent;
 }
 @media (max-width: 767px) {
-  .register-section .inner .content-wrap .form-wrap form .input-wrap input, .register-section .inner .content-wrap .form-wrap form .input-wrap select {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap input, .register-section .inner .content-wrap .form-wrap form .input-wrap textarea, .register-section .inner .content-wrap .form-wrap form .input-wrap select {
     padding: 10px 16px;
   }
+}
+.register-section .inner .content-wrap .form-wrap form .input-wrap input::placeholder, .register-section .inner .content-wrap .form-wrap form .input-wrap textarea::placeholder, .register-section .inner .content-wrap .form-wrap form .input-wrap select::placeholder {
+  color: var(--forest-depth);
+  opacity: 50%;
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap .sub-text {
   font-size: var(--text12);
@@ -3702,9 +3706,9 @@ header.header .inner .author-name {
   padding: 30px 50px;
   border-radius: 16px;
   border: 1px solid var(--mint-whisper);
+  transition: border 1s ease initial;
 }
 .registration-first-step .inner .right-role-container .role-content .role-lower .icon-container:hover {
-  transition: 1s;
   border: 1px solid var(--forest-depth);
 }
 @media (max-width: 1279px) {

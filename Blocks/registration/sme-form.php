@@ -8,24 +8,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   error_log("Asdasdasdasd");
 
   // 1. Get user data
-  $firstName = $_POST['first-name'] ?? '';
-  $lastName = $_POST['last-name'] ?? '';
+  $businessName = $_POST['business-name'] ?? '';
+//   $lastName = $_POST['last-name'] ?? '';
   $email = $_POST['email'] ?? '';
   $password = $_POST['password'] ?? '';
 
   // 2. Combine names for the 'users' table
-  $fullName = trim($firstName . ' ' . $lastName);
+//   $fullName = trim($firstName . ' ' . $lastName);
 
   // 3. Get meta data
   $meta = [
-    'location' => $_POST['location'] ?? '',
-    'age_group' => $_POST['age-group'] ?? '',
-    'gender' => $_POST['gender'] ?? '',
-    'areas_of_interest' => $_POST['areas-of-interest'] ?? ''
+    'phone' => $_POST['phone-number'] ?? '',
+    'website' => $_POST['website'] ?? '',
+    'address' => $_POST['address'] ?? '',
+    'about' => $_POST['about'] ?? '',
   ];
 
   // 4. Create user in DB
-  $user_id = createUser($conn, $fullName, $email, $password, $role);
+  $user_id = createUser($conn, $businessName, $email, $password, $role);
 
   // 5. Insert meta data
   insertUserMeta($conn, $user_id, $meta);
@@ -53,51 +53,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form method="POST" action="registration.php?block=registration-form&user=resident">
+          <form method="POST" action="registration.php?block=sme-form&user=business">
             <div class="input-wrap">
-              <label for="name">Bussiness Name </label>
-              <input type="text" id="first-name" name="first-name" required>
+              <label for="name">business Name </label>
+              <input type="text" id="business-name" name="business-name" required>
             </div>
             <div class="input-wrap half">
-              <label for="name">Last Name </label>
-              <input type="text" id="last-name" name="last-name" required>
+              <label for="name">Phone Number </label>
+              <input type="text" id="phone-number" name="phone-number" required>
             </div>
             <div class="input-wrap half">
-              <label for="location">Location</label>
-              <select name="location" id="location" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
+                <label for="location">website</label>
+                <input type="text" name="website" id="website" >
             </div>
-            <div class="input-wrap half">
-              <label for="location">age group</label>
-              <select name="age-group" id="age-group" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="gender">gender</label>
-              <select name="gender" id="gender" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="areas-of-interest">Areas of Interest</label>
-              <select name="areas-of-interest" id="areas-of-interest" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>
-
             <div class="input-wrap">
               <label for="email">email</label>
               <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-wrap">
+              <label for="address">address</label>
+              <input type="text" id="address" name="address">
+            </div>
+            <div class="input-wrap">
+              <label for="about">about</label>
+              <textarea placeholder="Tell us about your business" type="text" id="about" name="about" rows="5"></textarea>
             </div>
             <div class="input-wrap">
               <label for="password">password</label>
