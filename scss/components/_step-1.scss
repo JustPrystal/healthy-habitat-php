@@ -139,9 +139,9 @@
                         padding: 30px 50px;
                         border-radius: 16px;
                         border: 1px solid var(--mint-whisper);
+                        transition: border 1s ease initial;
                         &:hover{
-                            transition: 1s;
-                            border: 1px solid var(--forest-depth);
+                            border: 1px solid var(--forest-depth) ;
                         }
 
                         @include responsive(lg) {
