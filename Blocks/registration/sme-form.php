@@ -53,51 +53,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form method="POST" action="registration.php?block=registration-form&user=resident">
+          <form method="POST" action="registration.php?block=registration-form&user=bussiness">
             <div class="input-wrap">
               <label for="name">Bussiness Name </label>
-              <input type="text" id="first-name" name="first-name" required>
+              <input type="text" id="bussiness-name" name="bussiness-name" required>
             </div>
             <div class="input-wrap half">
-              <label for="name">Last Name </label>
-              <input type="text" id="last-name" name="last-name" required>
+              <label for="name">Phone Number </label>
+              <input type="text" id="phone-number" name="phone-number" required>
             </div>
             <div class="input-wrap half">
-              <label for="location">Location</label>
-              <select name="location" id="location" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
+                <label for="location">website</label>
+                <input type="text" name="website" id="website" >
             </div>
-            <div class="input-wrap half">
-              <label for="location">age group</label>
-              <select name="age-group" id="age-group" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="gender">gender</label>
-              <select name="gender" id="gender" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="areas-of-interest">Areas of Interest</label>
-              <select name="areas-of-interest" id="areas-of-interest" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>
-
             <div class="input-wrap">
               <label for="email">email</label>
               <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-wrap">
+              <label for="address">address</label>
+              <input type="text" id="address" name="address">
+            </div>
+            <div class="input-wrap">
+              <label for="about">about</label>
+              <textarea placeholder="auni" type="text" id="about" name="about" rows="5">
+              </textarea>
             </div>
             <div class="input-wrap">
               <label for="password">password</label>
