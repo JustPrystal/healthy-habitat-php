@@ -3289,6 +3289,10 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   color: var(--forest-depth);
   opacity: 50%;
 }
+.register-section .inner .content-wrap .form-wrap form .input-wrap textarea {
+  max-height: 500px;
+  width: 100%;
+}
 .register-section .inner .content-wrap .form-wrap form .input-wrap .sub-text {
   font-size: var(--text12);
   width: 100%;

@@ -5,6 +5,7 @@
     </h2>
 
     <p class="coming-soon">coming soon</p>
+    <a href="logout.php">Logout</a>
 
   </div>
 </div>

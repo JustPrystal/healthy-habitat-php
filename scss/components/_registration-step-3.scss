@@ -213,6 +213,10 @@
                                 opacity: 50%;
                             }
                         }
+                        textarea{
+                            max-height: 500px;
+                            width: 100%;
+                        }
                         .sub-text{
                             font-size: var(--text12);
                             width: 100%;
