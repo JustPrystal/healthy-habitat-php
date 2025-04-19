@@ -3469,6 +3469,28 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section.sign-in .inner .content-wrap .form-wrap .form-container {
   max-width: 430px;
 }
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap {
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--forest-depth) !important;
+  border-radius: 8px;
+  padding: 13px 20px;
+}
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap input {
+  border: unset;
+  width: 100%;
+  padding: unset;
+}
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap input:focus {
+  outline: unset;
+  box-shadow: unset;
+}
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap svg {
+  display: block;
+  height: 21px;
+}
 .register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap a.forgot-pass {
   font-size: var(--text14);
   color: var(--forest-depth);

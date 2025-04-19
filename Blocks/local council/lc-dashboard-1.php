@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="card-right">
-                    <img src="/assets/mostPopular.png" alt="air Purifier" class="card-image">
+                    <img src="./assets/mostPopular.png" alt="air Purifier" class="card-image">
                 </div>
             </div>
         </div>

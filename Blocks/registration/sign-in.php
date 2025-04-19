@@ -1,5 +1,5 @@
-<?php 
-    session_start();
+<?php
+session_start();
 ?>
 <section class="register-section sign-in">
     <div class="inner">
@@ -19,7 +19,14 @@
                         </div>
                         <div class="input-wrap password">
                             <label for="password">password</label>
-                            <input type="password" id="password" name="password" required>
+                            <div class="password-wrap">
+                                <input type="password" id="password" name="password" required>
+                                <span id="togglePassword">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#134027" d="M11.5 18c4 0 7.46-2.22 9.24-5.5C18.96 9.22 15.5 7 11.5 7s-7.46 2.22-9.24 5.5C4.04 15.78 7.5 18 11.5 18m0-12c4.56 0 8.5 2.65 10.36 6.5C20 16.35 16.06 19 11.5 19S3 16.35 1.14 12.5C3 8.65 6.94 6 11.5 6m0 2C14 8 16 10 16 12.5S14 17 11.5 17S7 15 7 12.5S9 8 11.5 8m0 1A3.5 3.5 0 0 0 8 12.5a3.5 3.5 0 0 0 3.5 3.5a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 11.5 9" />
+                                    </svg>
+                                </span>
+                            </div>
                             <a href="#" class="forgot-pass">
                                 Forgot your passwrord?
                             </a>
@@ -32,16 +39,33 @@
                             <a href="registration.php?block=select-role">Register</a>
                         </div>
                     </form>
+                    <script>
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('togglePassword');
+    const iconSvgPath = toggleIcon.querySelector('path');
+
+    const eye = "M11.5 18c4 0 7.46-2.22 9.24-5.5C18.96 9.22 15.5 7 11.5 7s-7.46 2.22-9.24 5.5C4.04 15.78 7.5 18 11.5 18m0-12c4.56 0 8.5 2.65 10.36 6.5C20 16.35 16.06 19 11.5 19S3 16.35 1.14 12.5C3 8.65 6.94 6 11.5 6m0 2C14 8 16 10 16 12.5S14 17 11.5 17S7 15 7 12.5S9 8 11.5 8m0 1A3.5 3.5 0 0 0 8 12.5a3.5 3.5 0 0 0 3.5 3.5a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 11.5 9";
+    const eyeOff = "M2 4.27L3.28 3 21 20.72 19.73 22l-2.14-2.14C15.61 20.57 13.62 21 11.5 21c-4.56 0-8.5-2.65-10.36-6.5a10.06 10.06 0 0 1 2.33-3.24L2 4.27M11.5 5c4.56 0 8.5 2.65 10.36 6.5a10.057 10.057 0 0 1-2.89 3.49L15.17 12c.22-.5.33-1.03.33-1.5A3.5 3.5 0 0 0 12 7c-.47 0-.93.11-1.33.3L8.2 4.83C9.2 4.58 10.32 5 11.5 5m0 12a3.5 3.5 0 0 0 3.27-2.17l-1.7-1.7A1.5 1.5 0 0 1 11.5 15a1.5 1.5 0 0 1-1.5-1.5c0-.28.08-.54.22-.76l-1.6-1.6c-.38.55-.62 1.22-.62 1.86a3.5 3.5 0 0 0 3.5 3.5Z";
+
+    toggleIcon.addEventListener('click', function () {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        iconSvgPath.setAttribute('d', isPassword ? eyeOff : eye);
+    });
+</script>
+
                     <div class="error-wrap">
                         <?php
-                            if (isset($_SESSION['login_error'])) {
-                                echo '<div class="error-message">'.$_SESSION['login_error'].'</div>';
-                                unset($_SESSION['login_error']);
-                            }
+                        if (isset($_SESSION['login_error'])) {
+                            echo '<div class="error-message">' . $_SESSION['login_error'] . '</div>';
+                            unset($_SESSION['login_error']);
+                        }
                         ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 </section>

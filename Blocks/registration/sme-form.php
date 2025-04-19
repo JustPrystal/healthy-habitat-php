@@ -13,8 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = $_POST['email'] ?? '';
   $password = $_POST['password'] ?? '';
 
-  // 2. Combine names for the 'users' table
-//   $fullName = trim($firstName . ' ' . $lastName);
 
   // 3. Get meta data
   $meta = [
@@ -55,15 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="form-container">
           <form method="POST" action="registration.php?block=sme-form&user=business">
             <div class="input-wrap">
-              <label for="name">business Name </label>
+              <label for="business-name">business Name </label>
               <input type="text" id="business-name" name="business-name" required>
             </div>
             <div class="input-wrap half">
-              <label for="name">Phone Number </label>
+              <label for="phone-number">Phone Number </label>
               <input type="text" id="phone-number" name="phone-number" required>
             </div>
             <div class="input-wrap half">
-                <label for="location">website</label>
+                <label for="website">website</label>
                 <input type="text" name="website" id="website" >
             </div>
             <div class="input-wrap">

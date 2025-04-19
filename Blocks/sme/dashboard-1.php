@@ -74,7 +74,7 @@
               </div>
             </div>
             <div class="card-right">
-              <img src="/assets/highest voted image.png" alt="" class="card-image">
+              <img src="./assets/highest voted image.png" alt="" class="card-image">
             </div>
           </div>
         </div>
