@@ -3475,6 +3475,17 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   font-family: var(--geist-medium);
   text-align: end;
 }
+.register-section.sign-in .inner .content-wrap .form-wrap .error-wrap {
+  display: flex;
+  justify-content: center;
+  min-height: 22px;
+}
+.register-section.sign-in .inner .content-wrap .form-wrap .error-wrap .error-message {
+  color: var(--crimson-blaze);
+  font-size: var(--text16);
+  margin-top: 20px;
+  font-family: var(--geist-medium);
+}
 
 header.header {
   width: calc(100% - 320px);

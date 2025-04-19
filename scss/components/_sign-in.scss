@@ -44,6 +44,17 @@
                             }
                         }
                     }
+                    .error-wrap{
+                        display: flex;
+                        justify-content: center;
+                        min-height: 22px;
+                        .error-message{
+                            color: var(--crimson-blaze);
+                            font-size: var(--text16);
+                            margin-top: 20px;
+                            font-family: var(--geist-medium);
+                        }
+                    }
                 }
             }
         }

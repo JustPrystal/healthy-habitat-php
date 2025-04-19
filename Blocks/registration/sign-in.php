@@ -12,12 +12,6 @@
                     <h3 class="heading">
                         Welcome to Healthy Habitat Network.
                     </h3>
-                    <?php
-                        if (isset($_SESSION['login_error'])) {
-                            echo '<div class="error-message">'.$_SESSION['login_error'].'</div>';
-                            unset($_SESSION['login_error']);
-                        }
-                    ?>
                     <form method="POST" action="./login-handler.php">
                         <div class="input-wrap">
                             <label for="email">email</label>
@@ -38,6 +32,14 @@
                             <a href="registration.php?block=select-role">Register</a>
                         </div>
                     </form>
+                    <div class="error-wrap">
+                        <?php
+                            if (isset($_SESSION['login_error'])) {
+                                echo '<div class="error-message">'.$_SESSION['login_error'].'</div>';
+                                unset($_SESSION['login_error']);
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

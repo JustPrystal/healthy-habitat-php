@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-require_once('./db.php'); // ✅ Use the correct DB connection
+require_once('./db.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 
-    header("Location: login.php");
+    header("Location: registration.php?block=sign-in");
     exit();
 }
 ?>
