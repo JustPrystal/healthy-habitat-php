@@ -1,6 +1,8 @@
-
-
 <?php
+
+require_once('auth.php');
+require_role('business'); 
+
 include_once './Blocks/sme/sme-sidenav.php';
 include 'header-dashboard.php';
 // Default block if none selected
