@@ -114,6 +114,9 @@
                         }
                         &.half{
                             width: calc(50% - 15px);
+                            @include responsive(lg){
+                                width: calc(50% - 10px);
+                            }
                             @include responsive(xs){
                                 width: 100%;
                             }
