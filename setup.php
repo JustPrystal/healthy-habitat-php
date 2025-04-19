@@ -49,6 +49,46 @@ if (!$conn->query($sql_meta)) {
 }
 echo "✅ Table 'user_meta' is ready for action!<br>";
 
+
+// Product table
+$product_sql = "CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(100),
+    price DECIMAL(10,2),
+    description TEXT,
+    benefits TEXT,
+    image_path VARCHAR(255),
+    stock INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)";
+if (!$conn->query($product_sql)) {
+    die("Products table creation failed: " . $conn->error);
+}
+echo "✅ Table 'products' created!<br>";
+
+
+// Services table
+$service_sql = "CREATE TABLE IF NOT EXISTS services (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(100),
+    price DECIMAL(10,2),
+    description TEXT,
+    benefits TEXT,
+    image_path VARCHAR(255),
+    duration VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)";
+if (!$conn->query($service_sql)) {
+    die("Services table creation failed: " . $conn->error);
+}
+echo "✅ Table 'services' created!<br>";
+
 // Done!
 echo "<br>🎉 Setup complete! You're ready to roll.";
 $conn->close();
