@@ -1,7 +1,7 @@
 <?php
 
 require_once('auth.php');
-require_role('council'); 
+require_role('admin'); 
 
 
 include_once './Blocks/admin/admin-sidenav.php';
