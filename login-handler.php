@@ -34,9 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case 'resident':
                     header("Location: index.php");
                     break;
-                default:
-                    header("Location: dashboard.php"); // fallback
-                    break;
             }
             exit();
         } else {
