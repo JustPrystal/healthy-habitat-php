@@ -1,4 +1,8 @@
 <?php
+
+require_once('auth.php');
+require_role('council'); 
+
 include_once './Blocks/local council/lc-sidenav.php';
 include 'header-dashboard.php';
 // Default block if none selected
