@@ -10,7 +10,8 @@ $allowedBlocks = [
     'sign-in',
     'resident-form',
     'sme-form',
-    'lc-form'
+    'lc-form',
+    'admin-form'
 ];
 
 if (in_array($block, $allowedBlocks)) {
