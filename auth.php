@@ -22,6 +22,9 @@ function require_role($requiredRole) {
             case 'resident':
                 $redirectUrl = 'index.php';
                 break;
+            case 'admin':
+                $redirectUrl = 'admin.php';
+                break;
         }
 
         echo "<script>
