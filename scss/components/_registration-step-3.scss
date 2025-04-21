@@ -121,6 +121,33 @@
                                 width: 100%;
                             }
                         }
+                            &.password{
+
+                                .password-wrap{
+                                    display: block;
+                                    width: 100%;
+                                    display: flex;
+                                    // justify-content: center;
+                                    align-items: center;
+                                    border: 1px solid var(--forest-depth) !important;
+                                    border-radius: 8px;
+                                    padding: 13px 20px;
+                                    input{
+                                        border: unset;
+                                        width: 100%;
+                                        padding:unset;
+                                        // &:focus{
+                                        //     outline: unset;
+                                        //     box-shadow: unset;
+                                        // }
+                                    }
+                                    svg{
+                                        display: block;
+                                        height: 21px;
+                                    }
+                                }
+                            }
+
                         &.checkbox{
                             flex-direction: row;
                             justify-content: left;

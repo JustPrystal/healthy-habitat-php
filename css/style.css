@@ -3197,6 +3197,24 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
     width: 100%;
   }
 }
+.register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap {
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--forest-depth) !important;
+  border-radius: 8px;
+  padding: 13px 20px;
+}
+.register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap input {
+  border: unset;
+  width: 100%;
+  padding: unset;
+}
+.register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
+  display: block;
+  height: 21px;
+}
 .register-section .inner .content-wrap .form-wrap form .input-wrap.checkbox {
   flex-direction: row;
   justify-content: left;
@@ -3482,10 +3500,6 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   border: unset;
   width: 100%;
   padding: unset;
-}
-.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap input:focus {
-  outline: unset;
-  box-shadow: unset;
 }
 .register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap svg {
   display: block;
