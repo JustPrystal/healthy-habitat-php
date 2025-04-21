@@ -4,7 +4,7 @@
       Add New Product/Service
     </h2>
     <div class="form-container">
-      <form action="">
+      <form action="./blocks/sme/add_product.php" method="POST" enctype="multipart/form-data">
         <div class="input-wrap name">
           <label for="name">Name of Product/Service </label>
           <input type="text" id="name" name="name" required>
@@ -17,7 +17,7 @@
               <label for="product">product</label>
             </div>
             <div class="field-wrap">
-              <input type="radio" id="service" name="type" value="product" required>
+              <input type="radio" id="service" name="type" value="service" required>
               <label for="service">service</label>
             </div>
           </div>

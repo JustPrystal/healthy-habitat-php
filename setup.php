@@ -53,8 +53,9 @@ echo "✅ Table 'user_meta' is ready for action!<br>";
 // Product table
 $product_sql = "CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT NOT NULL,   
     name VARCHAR(255) NOT NULL,
+    type ENUM('product', 'service') NOT NULL,
     category VARCHAR(100),
     price DECIMAL(10,2),
     description TEXT,
@@ -73,14 +74,15 @@ echo "✅ Table 'products' created!<br>";
 // Services table
 $service_sql = "CREATE TABLE IF NOT EXISTS services (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT NOT NULL,   
     name VARCHAR(255) NOT NULL,
+    type ENUM('product', 'service') NOT NULL,
     category VARCHAR(100),
     price DECIMAL(10,2),
     description TEXT,
     benefits TEXT,
     image_path VARCHAR(255),
-    duration VARCHAR(50),
+    stock INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 )";
