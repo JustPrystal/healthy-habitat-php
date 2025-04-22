@@ -1964,11 +1964,23 @@ body.noscroll {
   text-align: center;
 }
 
-.categories {
+.my-listings .categories {
   margin-top: 40px;
   display: flex;
+  width: 100%;
   justify-content: space-between;
+  row-gap: 20px;
+  gap: 20px;
 }
+@media (max-width: 575px) {
+  .my-listings .categories {
+    flex-direction: column;
+  }
+}
+.my-listings .categories .table-wrap {
+  display: flex;
+}
+
 .dashboard-content.local-council .inner {
   display: flex;
   flex-direction: column;

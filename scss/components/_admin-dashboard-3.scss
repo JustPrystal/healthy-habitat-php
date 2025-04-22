@@ -1,9 +1,18 @@
-.categories{
+.my-listings{
+    .categories{
     margin-top: 40px;
     display: flex;
-    // width: 100%;
+    width: 100%;
+    // overflow-x: hidden;
     justify-content: space-between;
+    row-gap: 20px;
+    gap: 20px;
+    @include responsive(xs){
+        flex-direction: column;
+    }
     .table-wrap{
-
+        display: flex;
     }
 }
+}
+
