@@ -1964,7 +1964,12 @@ body.noscroll {
   text-align: center;
 }
 
-.my-listings .categories {
+.dashboard-content.my-listings.add-new-product.add-new-category .inner .form-container form .input-wrap button:hover {
+  background-color: var(--mint-whisper);
+  color: var(--forest-depth);
+  border: 1px solid var(--forest-depth);
+}
+.dashboard-content.my-listings.add-new-product.add-new-category .inner .categories {
   margin-top: 40px;
   display: flex;
   width: 100%;
@@ -1973,12 +1978,9 @@ body.noscroll {
   gap: 20px;
 }
 @media (max-width: 575px) {
-  .my-listings .categories {
+  .dashboard-content.my-listings.add-new-product.add-new-category .inner .categories {
     flex-direction: column;
   }
-}
-.my-listings .categories .table-wrap {
-  display: flex;
 }
 
 .dashboard-content.local-council .inner {

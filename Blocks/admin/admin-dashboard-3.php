@@ -1,4 +1,4 @@
-<div class="dashboard-content my-listings add-new-product">
+<div class="dashboard-content my-listings add-new-product add-new-category">
   <div class="inner">
     <h2 class="content-main-heading">
       Categories
@@ -7,7 +7,7 @@
       Add Categories
     </h3>
     <div class="form-container">
-      <form action="./blocks/sme/add_product.php" method="POST" enctype="multipart/form-data">
+      <form action="" method="POST" enctype="multipart/form-data">
 
         <div class="input-wrap type">
           <span class="type-label">Type</span>
