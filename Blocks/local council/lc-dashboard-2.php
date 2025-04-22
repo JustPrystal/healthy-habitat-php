@@ -4,21 +4,25 @@
       Add New Area Form
     </h2>
     <div class="lc-form-container">
-      <form action="">
+      <form action="./Blocks/local council/add-locations.php" method="POST">  
         <div class="input-wrap name">
           <label for="name">Area Name </label>
           <input type="text" id="name" name="name" placeholder='e.g., “Northbridge”, “Harrow South”' required>
         </div>
         <div class="input-wrap type">
-          <span class="type-label">Postal Code / Area Code</span>
-          <input type="text" id="name" name="name" required>
+          <label for="zip">Postal Code / Area Code</label>
+          <input type="text" id="zip" name="zip" pattern="[0-9]*" required>
         </div>
         <div class="input-wrap category">
           <label for="category">Region / County / Province</label>
           <select name="category" id="category" required>
             <option value="" disabled selected>E.g., Greater London, West Yorkshire, Lancashire</option>
-            <option value="lorem ipsum">lorem ipsum</option>
-            <option value="lorem ipsum">lorem ipsum</option>
+            <option value="bedfordshire">Bedfordshire</option>
+            <option value="berkshire">Berkshire</option>
+            <option value="bristol">Bristol</option>
+            <option value="buckinghamshire">Buckinghamshire</option>
+            <option value="Cambridgeshire">Cambridgeshire</option>
+            <option value="cheshire">Cheshire</option>
           </select>
         </div>
         <div class="input-wrap">

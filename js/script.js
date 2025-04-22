@@ -3,9 +3,6 @@ $(document).ready(function () {
         $('.sidenav').toggleClass('open');
         $('body').toggleClass('noscroll')
     });
-    $('.table .circle-wrap').on('click', function(){
-        $(this).closest('.row').find('.actions-wrap').first().toggle();
-    });
     $('.sidenav .nav li.has-sublinks').on('click', function() {
         $(this).closest('li').find('.sub-links').slideToggle();
     });
