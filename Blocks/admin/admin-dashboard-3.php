@@ -1,0 +1,415 @@
+<div class="dashboard-content my-listings add-new-product">
+  <div class="inner">
+    <h2 class="content-main-heading">
+      Categories
+    </h2>
+    <h3 class="subheading">
+      Add Categories
+    </h3>
+    <div class="form-container">
+      <form action="./blocks/sme/add_product.php" method="POST" enctype="multipart/form-data">
+
+        <div class="input-wrap type">
+          <span class="type-label">Type</span>
+          <div class="radio-wrap">
+            <div class="field-wrap">
+              <input type="radio" id="product" name="type" value="product" required>
+              <label for="product">product</label>
+            </div>
+            <div class="field-wrap">
+              <input type="radio" id="service" name="type" value="service" required>
+              <label for="service">service</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-wrap name">
+          <label for="category">Category </label>
+          <input type="text" id="category" name="category"  placeholder="Category  e.g., Organic Personal Care" required>
+        </div>
+        <div class="input-wrap">
+          <button type="submit">Add Category</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="categories">
+      <div class="table-wrap">
+        <!-- please add sizes(class) for header-cell and body-cell -->
+        <div class="table">
+          <div class="header">
+            <div class="row">
+              <div class="header-cell small">
+                S No
+              </div>
+              <div class="header-cell extra-large">
+                Product
+              </div>
+              <div class="header-cell extra-small">
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <!-- please add sizes(class) for header-cell and body-cell -->
+        <div class="table">
+          <div class="header">
+            <div class="row">
+              <div class="header-cell small">
+                S No
+              </div>
+              <div class="header-cell extra-large">
+                Service
+              </div>
+              <div class="header-cell extra-small">
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="body-cell small">
+                1
+              </div>
+              <div class="body-cell extra-large">
+                Organic Personal Care
+              </div>
+              <div class="body-cell extra-small">
+                <div class="circle-wrap">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="actions-wrap">
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

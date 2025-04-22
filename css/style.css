@@ -1964,6 +1964,11 @@ body.noscroll {
   text-align: center;
 }
 
+.categories {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
 .dashboard-content.local-council .inner {
   display: flex;
   flex-direction: column;
@@ -3206,6 +3211,16 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   border-radius: 8px;
   padding: 13px 20px;
 }
+@media (max-width: 991px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap {
+    padding: 6px 18px;
+  }
+}
+@media (max-width: 767px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap {
+    padding: 6px 18px;
+  }
+}
 .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap input {
   border: unset;
   width: 100%;
@@ -3218,6 +3233,17 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
   display: block;
   height: 21px;
+}
+@media (max-width: 991px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
+    height: 18px;
+    width: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
+    padding: 7px 18px;
+  }
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap.password a.forgot-pass {
   font-size: var(--text14);
