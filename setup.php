@@ -1,3 +1,10 @@
+<!-- 
+$drop_table_sql = "DROP TABLE IF EXISTS table_name";
+if (!$conn->query($drop_table_sql)) {
+    die("❌ Failed to drop 'table_name' table: " . $conn->error);
+}
+echo "🗑️ Table 'table_name' dropped (if existed).<br>"; -->
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -90,6 +97,24 @@ if (!$conn->query($service_sql)) {
     die("Services table creation failed: " . $conn->error);
 }
 echo "✅ Table 'services' created!<br>";
+
+// Local Councils table 
+
+$locations_sql = "CREATE TABLE IF NOT EXISTS locations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    postal_code VARCHAR(50) NOT NULL,
+    region VARCHAR(100) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+
+if (!$conn->query($locations_sql)) {
+    die("locations table creation failed: " . $conn->error);
+}
+echo "✅ Table 'local_councils' created!<br>";
+
 
 // Done!
 echo "<br>🎉 Setup complete! You're ready to roll.";
