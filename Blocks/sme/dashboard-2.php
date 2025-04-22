@@ -1,3 +1,24 @@
+<?php
+require_once './db.php';
+
+
+$type = 'product'; // or get from query if dynamic: $_GET['type'] ?? 'product'
+
+$sql = "SELECT id, category FROM categories WHERE type = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $type);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$categoryOptions = [];
+while ($row = $result->fetch_assoc()) {
+  $categoryOptions[] = $row;
+}
+
+$stmt->close();
+$conn->close();
+?>
+
 <div class="dashboard-content add-new-product">
   <div class="inner">
     <h2 class="content-main-heading">
@@ -25,9 +46,12 @@
         <div class="input-wrap category">
           <label for="category">Category</label>
           <select name="category" id="category" required>
-            <option value="" disabled selected>Category e.g., Organic Personal Care</option>
-            <option value="lorem ipsum">lorem ipsum</option>
-            <option value="lorem ipsum">lorem ipsum</option>
+            <option value="" disabled selected>Select a category</option>
+            <?php foreach ($categoryOptions as $option): ?>
+              <option value="<?= htmlspecialchars($option['category']) ?>">
+                <?= htmlspecialchars($option['category']) ?>
+              </option>
+            <?php endforeach; ?>
           </select>
         </div>
         <div class="input-wrap price">
@@ -65,3 +89,30 @@
   </div>
 
 </div>
+
+<script>
+  $(document).ready(function () {
+    document.querySelectorAll('input[name="type"]').forEach(radio => {
+      radio.addEventListener('change', function () {
+        const selectedType = this.value;
+
+        // Clear and show loading
+        const categorySelect = document.getElementById('category');
+        categorySelect.innerHTML = '<option disabled selected>Loading...</option>';
+
+        fetch(`./Blocks/admin/get_categories.php?type=${selectedType}&output=options`)
+          .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch categories');
+            return response.text();
+          })
+          .then(optionsHtml => {
+            categorySelect.innerHTML = '<option disabled selected>Select a category</option>' + optionsHtml;
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            categorySelect.innerHTML = '<option disabled selected>Error loading categories</option>';
+          });
+      });
+    });
+  });
+</script> 

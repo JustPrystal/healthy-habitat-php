@@ -113,7 +113,20 @@ $locations_sql = "CREATE TABLE IF NOT EXISTS locations (
 if (!$conn->query($locations_sql)) {
     die("locations table creation failed: " . $conn->error);
 }
-echo "✅ Table 'local_councils' created!<br>";
+echo "✅ Table 'locations' created!<br>";
+
+$categories_sql = "CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    type ENUM('product', 'service') NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+
+if (!$conn->query($categories_sql)) {
+    die("categories table creation failed: " . $conn->error);
+}
+echo "✅ Table 'Categories' created!<br>";
 
 
 // Done!

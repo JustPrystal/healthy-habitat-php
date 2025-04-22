@@ -12,7 +12,8 @@ $block = $_GET['block'] ?? 'dashboard-1';
 $allowedBlocks = [
   'dashboard-1',
   'dashboard-2',
-  'dashboard-3',
+  'dashboard-3-products',
+  'dashboard-3-services',
   'dashboard-4',
   'dashboard-5',
   'dashboard-6',

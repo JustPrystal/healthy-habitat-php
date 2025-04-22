@@ -44,14 +44,24 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
                         Add New Product/Service
                     </a>
                 </li>
-                <li>
-                    <a href="sme.php?block=dashboard-3" class="<?= ($current_block == 'dashboard-3') ? 'active' : '' ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                <li class="has-sublinks">
+                    <a> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
                             viewBox="0 0 20 16" fill="none">
                             <path
                                 d="M5.9201 1H18.7428M5.9201 7.99417H18.7428M5.9201 14.9883H18.7428M1.25732 1V1.01166M1.25732 7.99417V8.00583M1.25732 14.9883V15"
                                 stroke="#134027" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        My Listings</a>
+                        My Listings
+                    </a>
+                    <div class="sub-links">
+                        <a href="sme.php?block=dashboard-3-products" class="sublink <?= ($current_block == 'dashboard-3-products') ? 'active' : '' ?>">
+                            products
+                        </a>
+                        <a href="sme.php?block=dashboard-3-services" class="sublink <?= ($current_block == 'dashboard-3-services') ? 'active' : '' ?>">
+                            services
+                        </a>
+                    </div>
                 </li>
                 <li>
                     <a href="sme.php?block=dashboard-4" class="<?= ($current_block == 'dashboard-4') ? 'active' : '' ?>">

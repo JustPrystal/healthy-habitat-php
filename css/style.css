@@ -1964,6 +1964,12 @@ body.noscroll {
   text-align: center;
 }
 
+.dashboard-content.my-listings.add-new-product.add-new-category .inner {
+  max-width: 940px;
+}
+.dashboard-content.my-listings.add-new-product.add-new-category .inner .form-container form .input-wrap button {
+  border: 1px solid transparent;
+}
 .dashboard-content.my-listings.add-new-product.add-new-category .inner .form-container form .input-wrap button:hover {
   background-color: var(--mint-whisper);
   color: var(--forest-depth);
@@ -1977,9 +1983,15 @@ body.noscroll {
   row-gap: 20px;
   gap: 20px;
 }
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .dashboard-content.my-listings.add-new-product.add-new-category .inner .categories {
     flex-direction: column;
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .dashboard-content.my-listings.add-new-product.add-new-category .inner .categories .table-wrap .table .header {
+    margin-bottom: 15px;
   }
 }
 
