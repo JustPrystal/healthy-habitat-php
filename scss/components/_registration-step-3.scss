@@ -121,32 +121,52 @@
                                 width: 100%;
                             }
                         }
-                            &.password{
+                        &.password{
 
-                                .password-wrap{
-                                    display: block;
+                            .password-wrap{
+                                display: block;
+                                width: 100%;
+                                display: flex;
+                                // justify-content: center;
+                                align-items: center;
+                                border: 1px solid var(--forest-depth) !important;
+                                border-radius: 8px;
+                                padding: 13px 20px;
+                                @include responsive(md ){
+                                    padding: 6px 18px;
+                                }
+                                @include responsive(sm){
+                                    padding: 6px 18px;
+                                }
+                                input{
+                                    border: unset;
                                     width: 100%;
-                                    display: flex;
-                                    // justify-content: center;
-                                    align-items: center;
-                                    border: 1px solid var(--forest-depth) !important;
-                                    border-radius: 8px;
-                                    padding: 13px 20px;
-                                    input{
-                                        border: unset;
-                                        width: 100%;
-                                        padding:unset;
-                                        // &:focus{
-                                        //     outline: unset;
-                                        //     box-shadow: unset;
-                                        // }
-                                    }
-                                    svg{
-                                        display: block;
-                                        height: 21px;
+                                    padding:unset;
+                                    &:focus{
+                                        outline: unset;
+                                        box-shadow: unset;
                                     }
                                 }
+                                svg{
+                                    display: block;
+                                    height: 21px;
+                                    @include responsive(md ){
+                                        height: 18px ;
+                                        width: 18px;
+                                    }
+                                    @include responsive(sm){
+                                        padding: 7px 18px;
+                                    }
+                                }
+
                             }
+                            a.forgot-pass{
+                                font-size: var(--text14);
+                                color: var(--forest-depth);
+                                font-family: var(--geist-medium);
+                                text-align: end;
+                            }
+                        }
 
                         &.checkbox{
                             flex-direction: row;

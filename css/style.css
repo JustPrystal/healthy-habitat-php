@@ -1964,6 +1964,23 @@ body.noscroll {
   text-align: center;
 }
 
+.my-listings .categories {
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  row-gap: 20px;
+  gap: 20px;
+}
+@media (max-width: 575px) {
+  .my-listings .categories {
+    flex-direction: column;
+  }
+}
+.my-listings .categories .table-wrap {
+  display: flex;
+}
+
 .dashboard-content.local-council .inner {
   display: flex;
   flex-direction: column;
@@ -3206,14 +3223,45 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   border-radius: 8px;
   padding: 13px 20px;
 }
+@media (max-width: 991px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap {
+    padding: 6px 18px;
+  }
+}
+@media (max-width: 767px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap {
+    padding: 6px 18px;
+  }
+}
 .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap input {
   border: unset;
   width: 100%;
   padding: unset;
 }
+.register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap input:focus {
+  outline: unset;
+  box-shadow: unset;
+}
 .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
   display: block;
   height: 21px;
+}
+@media (max-width: 991px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
+    height: 18px;
+    width: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
+    padding: 7px 18px;
+  }
+}
+.register-section .inner .content-wrap .form-wrap form .input-wrap.password a.forgot-pass {
+  font-size: var(--text14);
+  color: var(--forest-depth);
+  font-family: var(--geist-medium);
+  text-align: end;
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap.checkbox {
   flex-direction: row;
@@ -3501,7 +3549,7 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   width: 100%;
   padding: unset;
 }
-.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap svg {
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg {
   display: block;
   height: 21px;
 }

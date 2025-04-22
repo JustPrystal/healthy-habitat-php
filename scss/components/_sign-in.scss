@@ -51,14 +51,12 @@
                                         border: unset;
                                         width: 100%;
                                         padding:unset;
-                                        // &:focus{
-                                        //     outline: unset;
-                                        //     box-shadow: unset;
-                                        // }
                                     }
-                                    svg{
-                                        display: block;
-                                        height: 21px;
+                                    #togglePassword{
+                                        svg{
+                                            display: block;
+                                            height: 21px;
+                                        }
                                     }
                                 }
                             }

@@ -54,54 +54,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label for="name">name </label>
               <input type="text" id="name" name="name" required>
             </div>
-            <!-- <div class="input-wrap">
-              <label for="name">Last Name </label>
-              <input type="text" id="last-name" name="last-name" required>
-            </div> -->
-            <!-- <div class="input-wrap half">
-              <label for="location">Location</label>
-              <select name="location" id="location" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div> -->
-            <!-- <div class="input-wrap half">
-              <label for="location">age group</label>
-              <select name="age-group" id="age-group" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div>  -->
-            <!-- <div class="input-wrap half">
-              <label for="gender">gender</label>
-              <select name="gender" id="gender" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div> -->
-            <!-- <div class="input-wrap half">
-              <label for="areas-of-interest">Areas of Interest</label>
-              <select name="areas-of-interest" id="areas-of-interest" required>
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
-              </select>
-            </div> -->
-
             <div class="input-wrap">
               <label for="email">email</label>
               <input type="email" id="email" name="email" required>
             </div>
-            <div class="input-wrap">
+            <div class="input-wrap password">
               <label for="password">password</label>
-              <input type="password" id="password" name="password" required>
-              <span class="sub-text">
-                Use 8 or more characters with a mix of letters, numbers and symbols. Must not contain your name or
-                username.
-              </span>
+              <div class="password-wrap">
+                <input type="password" id="password" name="password" required>
+                <span id="togglePassword">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#134027" d="M12 9.005a4 4 0 1 1 0 8a4 4 0 0 1 0-8M12 5.5c4.613 0 8.596 3.15 9.701 7.564a.75.75 0 1 1-1.455.365a8.504 8.504 0 0 0-16.493.004a.75.75 0 0 1-1.456-.363A10 10 0 0 1 12 5.5" />
+                  </svg>
+                  </svg>
+                </span>
+              </div>
             </div>
             <div class="input-wrap checkbox">
               <input type="checkbox" id="check" name="check" required>
