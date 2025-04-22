@@ -34,7 +34,7 @@ if ($output === 'options') {
 function get_category_options($categories) {
   $output = '';
   foreach ($categories as $cat) {
-    $output .= '<option value="' . htmlspecialchars($cat['id']) . '">' . htmlspecialchars($cat['category']) . '</option>';
+    $output .= '<option value="' . htmlspecialchars($cat['category']) . '">' . htmlspecialchars($cat['category']) . '</option>';
   }
   return $output;
 }

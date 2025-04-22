@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($type === 'product') {
-        $stmt = $conn->prepare("INSERT INTO products (user_id, name, type,  , price, description, benefits, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO products (user_id, name, type,  category, price, description, benefits, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("isssdsss", $user_id, $name, $type, $category, $price, $description, $benefits, $public_path);
     } elseif ($type === 'service') {
         $stmt = $conn->prepare("INSERT INTO services (user_id, name, type, category, price, description, benefits, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
