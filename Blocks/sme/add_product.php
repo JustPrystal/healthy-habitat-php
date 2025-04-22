@@ -53,8 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($stmt->execute()) {
-        // header("Location: ../../sme.php?block=dashboard-2");
-        echo 'submitted successfully';
+        if ($type === 'product') {
+            header("Location: ../../sme.php?block=dashboard-3-products");
+        } elseif ($type === 'service') {
+            header("Location: ../../sme.php?block=dashboard-3-services");
+        }
+        
+        ?>
+        <?php
+        
     } else {
         echo "❌ Error: " . $stmt->error;
     }
