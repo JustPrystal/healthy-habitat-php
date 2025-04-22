@@ -3246,6 +3246,9 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   display: block;
   height: 21px;
 }
+.register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg:hover {
+  cursor: pointer;
+}
 @media (max-width: 991px) {
   .register-section .inner .content-wrap .form-wrap form .input-wrap.password .password-wrap svg {
     height: 18px;
