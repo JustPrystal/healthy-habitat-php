@@ -69,6 +69,8 @@ $product_sql = "CREATE TABLE IF NOT EXISTS products (
     benefits TEXT,
     image_path VARCHAR(255),
     stock INT DEFAULT 0,
+    upvotes INT DEFAULT 0,
+    downvotes INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 )";
