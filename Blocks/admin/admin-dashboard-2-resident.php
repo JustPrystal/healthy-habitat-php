@@ -31,12 +31,12 @@
             </div>
           </div>
         </div>
-        <div class="body" id="residents">
+        <div class="body" id="residents" >
           <!-- <div class="row">
             <div class="body-cell medium">
               Sarah Mitchell
             </div>
-            <div class="body-cell large">
+            <div class="body-cell email large">
               sarah.m@gmail.com
             </div>
             <div class="body-cell medium">
@@ -72,11 +72,14 @@
 
 </div>
 <script>
-    $.get("./Blocks/admin/get_user.php?role=residents", function (data) {
-     $("#residents").html(data);
-    });
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('./Blocks/admin/get_user.php')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('residents').innerHTML = data;
+      });
 
-    // For service categories
+    });
 
     // Actions menu toggle
     $('.table').on('click', '.circle-wrap', function () {

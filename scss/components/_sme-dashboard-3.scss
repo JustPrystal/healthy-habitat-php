@@ -66,6 +66,9 @@
                         }
                         
                         .body-cell{
+                            &.email{
+                                text-transform: lowercase;
+                            }
                             .circle-wrap{
                                 display: flex;
                                 justify-content: center;
