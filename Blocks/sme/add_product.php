@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // --- Image Upload Handling ---
     $base_dir = '../../uploads/';
-    $base_url = '/uploads/';
+    $base_url = './uploads/';
 
     $image_name = time() . '_' . basename($_FILES['img']['name']);
 

@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="body">
-          <div class="row">
+          <!-- <div class="row">
             <div class="body-cell extra-large">
               Camden Borough Council
             </div>
@@ -59,163 +59,10 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="body-cell extra-large">
-              Camden Borough Council
-            </div>
-            <div class="body-cell large">
-              Sarah Thompson
-            </div>
-            <div class="body-cell medium">
-              5
-            </div>
-            <div class="body-cell large">
-              Greater London
-            </div>
-
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell extra-large">
-              Camden Borough Council
-            </div>
-            <div class="body-cell large">
-              Sarah Thompson
-            </div>
-            <div class="body-cell medium">
-              5
-            </div>
-            <div class="body-cell large">
-              Greater London
-            </div>
-
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell extra-large">
-              Camden Borough Council
-            </div>
-            <div class="body-cell large">
-              Sarah Thompson
-            </div>
-            <div class="body-cell medium">
-              5
-            </div>
-            <div class="body-cell large">
-              Greater London
-            </div>
-
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell extra-large">
-              Camden Borough Council
-            </div>
-            <div class="body-cell large">
-              Sarah Thompson
-            </div>
-            <div class="body-cell medium">
-              5
-            </div>
-            <div class="body-cell large">
-              Greater London
-            </div>
-
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell extra-large">
-              Camden Borough Council
-            </div>
-            <div class="body-cell large">
-              Sarah Thompson
-            </div>
-            <div class="body-cell medium">
-              5
-            </div>
-            <div class="body-cell large">
-              Greater London
-            </div>
-
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </div> -->
+          <?php include __DIR__ . '/create_council_table.php'; 
+          ?>
+      </div>
       </div>
     </div>
   </div>

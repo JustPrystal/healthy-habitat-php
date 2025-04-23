@@ -96,6 +96,13 @@ $conn->close();
       radio.addEventListener('change', function () {
         const selectedType = this.value;
 
+        // modify price label
+        const priceLabel = document.querySelector('label[for="price"]');
+        if (selectedType === 'service') {
+          priceLabel.innerHTML = 'Price <span style="font-size: 12px; opacity: 0.6;">/week</span>';
+        } else {
+          priceLabel.innerHTML = 'Price';
+        }
         // Clear and show loading
         const categorySelect = document.getElementById('category');
         categorySelect.innerHTML = '<option disabled selected>Loading...</option>';

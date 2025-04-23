@@ -861,6 +861,9 @@ body.noscroll {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+.dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.email {
+  text-transform: lowercase;
+}
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap {
   display: flex;
   justify-content: center;
