@@ -16,9 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("issss", $user_id, $name, $postal_code, $region, $description);
 
     if ($stmt->execute()) {
-        echo "✅ Area added successfully!";
-        // Optionally redirect or return JSON
-        // header("Location: lc.php?success=1");
+        header("Location: ../../lc.php?block=lc-dashboard-3");
     } else {
         echo "❌ Error: " . $stmt->error;
     }
