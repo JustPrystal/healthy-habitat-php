@@ -65,6 +65,9 @@
               </div>
             </div>
           </div> -->
+          <?php include __DIR__ . '/create_resident_table.php'; 
+          ?>
+          
         </div>
       </div>
     </div>
@@ -72,15 +75,6 @@
 
 </div>
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch('./Blocks/admin/get_user.php')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('residents').innerHTML = data;
-      });
-
-    });
-
     // Actions menu toggle
     $('.table').on('click', '.circle-wrap', function () {
       $(this).closest('.row').find('.actions-wrap').first().toggle();

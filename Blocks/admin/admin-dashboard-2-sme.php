@@ -14,7 +14,7 @@
             <div class="header-cell large">
               Business Name
             </div>
-            <div class="header-cell large">
+            <div class="header-cell extra-large">
               Email
             </div>
             <div class="header-cell large">
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="body">
-          <div class="row">
+          <!-- <div class="row">
             <div class="body-cell large">
               ZenGlow Yoga Studio
             </div>
@@ -70,187 +70,9 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="body-cell large">
-              ZenGlow Yoga Studio
-            </div>
-            <div class="body-cell large">
-              support@zenglow.co.uk
-            </div>
-            <div class="body-cell large">
-              4
-            </div>
-            <div class="body-cell medium">
-              388
-            </div>
-            <div class="body-cell small">
-              255
-            </div>
-            <div class="body-cell small">
-              113
-            </div>
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell large">
-              ZenGlow Yoga Studio
-            </div>
-            <div class="body-cell large">
-              support@zenglow.co.uk
-            </div>
-            <div class="body-cell large">
-              4
-            </div>
-            <div class="body-cell medium">
-              388
-            </div>
-            <div class="body-cell small">
-              255
-            </div>
-            <div class="body-cell small">
-              113
-            </div>
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell large">
-              ZenGlow Yoga Studio
-            </div>
-            <div class="body-cell large">
-              support@zenglow.co.uk
-            </div>
-            <div class="body-cell large">
-              4
-            </div>
-            <div class="body-cell medium">
-              388
-            </div>
-            <div class="body-cell small">
-              255
-            </div>
-            <div class="body-cell small">
-              113
-            </div>
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell large">
-              ZenGlow Yoga Studio
-            </div>
-            <div class="body-cell large">
-              support@zenglow.co.uk
-            </div>
-            <div class="body-cell large">
-              4
-            </div>
-            <div class="body-cell medium">
-              388
-            </div>
-            <div class="body-cell small">
-              255
-            </div>
-            <div class="body-cell small">
-              113
-            </div>
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="body-cell large">
-              ZenGlow Yoga Studio
-            </div>
-            <div class="body-cell large">
-              support@zenglow.co.uk
-            </div>
-            <div class="body-cell large">
-              4
-            </div>
-            <div class="body-cell medium">
-              388
-            </div>
-            <div class="body-cell small">
-              255
-            </div>
-            <div class="body-cell small">
-              113
-            </div>
-            <div class="body-cell extra-small">
-              <div class="circle-wrap">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="actions-wrap">
-                  <div class="edit">
-                    <p>edit</p>
-                  </div>
-                  <div class="line"></div>
-                  <div class="delete">
-                    <p>delete</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> -->
+          <?php include __DIR__ . '/create_business_table.php'; 
+          ?>
         </div>
       </div>
     </div>
