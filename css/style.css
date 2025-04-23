@@ -3980,4 +3980,78 @@ header.header .inner .author-name {
   margin-bottom: 2rem;
 }
 
+.logout-modal {
+  padding: 20px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999999999;
+  font-family: var(--clash-display);
+}
+.logout-modal.hidden {
+  display: none;
+}
+
+.logout-card {
+  background-color: var(--soft-cream);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+.logout-card h2 {
+  margin-bottom: 1.5rem;
+  color: var(--forest-depth);
+  font-weight: 500;
+}
+.logout-card .logout-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.logout-card .logout-buttons .btn {
+  cursor: pointer;
+  font-family: var(--geist-medium);
+  font-size: var(--text20);
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: fit-content;
+  padding: 10px 30px;
+  border-radius: 32px;
+  border: 1px solid var(--forest-depth);
+  text-align: center;
+}
+.logout-card .logout-buttons .btn.logout {
+  background-color: var(--crimson-blaze);
+  color: var(--soft-cream);
+}
+.logout-card .logout-buttons .btn.cancel {
+  background-color: var(--leafy-green);
+  color: var(--soft-cream);
+}
+.logout-card .logout-buttons .btn:hover {
+  background-color: var(--mint-whisper);
+  color: var(--forest-depth);
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

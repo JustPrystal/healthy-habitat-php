@@ -122,4 +122,7 @@ $(document).ready(function () {
           passwordInput.type = isPassword ? 'text' : 'password';
           iconSvgPath.setAttribute('d', isPassword ? eyeOff : eye);
       });
+
+      
+
 });

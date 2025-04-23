@@ -107,7 +107,7 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                     </a>
                 </li>
                 <li>
-                    <a href="logout.php" class="<?= ($current_block == 'admin-dashboard-8') ? 'active' : '' ?>">
+                    <a href="#" id="logout-link" class="btn <?= ($current_block == 'admin-dashboard-8') ? 'active' : '' ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd"
