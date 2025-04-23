@@ -43,6 +43,10 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                                 fill="#134027" />
                         </svg>
                         User Management
+
+                        <svg class="dropdown-icon" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.3953 6.7002L6.69767 1.3002L1 6.7002" stroke="#134027" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </a>
                     <div class="sub-links">
                         <a href="admin.php?block=admin-dashboard-2-resident" class="sublink <?= ($current_block == 'admin-dashboard-2-resident') ? 'active' : '' ?>">
@@ -107,7 +111,7 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                     </a>
                 </li>
                 <li>
-                    <a href="logout.php" class="<?= ($current_block == 'admin-dashboard-8') ? 'active' : '' ?>">
+                    <a href="#" id="logout-link" class="btn <?= ($current_block == 'admin-dashboard-8') ? 'active' : '' ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd"
