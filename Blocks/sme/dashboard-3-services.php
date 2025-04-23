@@ -89,7 +89,7 @@
 
 <script>
   $(document).ready(function () {
-    $.get("./Blocks/sme /get_product.php?type=service", function (data) {
+    $.get("./Blocks/sme /get_product_list.php?type=service&auth_required=true", function (data) {
       $("#services-body").html(data);
     });
     $('.table').on('click', '.circle-wrap', function () {

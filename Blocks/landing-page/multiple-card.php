@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="image-wrap">
                             <img src="./assets/wellness services/MindAnchor Therapy Services.png"
                                 alt="background image">
@@ -540,7 +540,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
