@@ -5,17 +5,17 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
 <html lang="en">
 
 <head>
-  <title>Dashboard</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document</title>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/script.js"></script>
 </head>
 
-<body>  
+<body>
     <div class=" sidenav">
         <div class="inner">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="113" height="50" viewBox="0 0 113 50" fill="none">
@@ -45,7 +45,7 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
                     </a>
                 </li>
                 <li class="has-sublinks">
-                    <a> 
+                    <a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
                             viewBox="0 0 20 16" fill="none">
                             <path
@@ -53,6 +53,11 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
                                 stroke="#134027" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         My Listings
+
+                        <svg class="dropdown-icon" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.3953 6.7002L6.69767 1.3002L1 6.7002" stroke="#134027" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
                     </a>
                     <div class="sub-links">
                         <a href="sme.php?block=dashboard-3-products" class="sublink <?= ($current_block == 'dashboard-3-products') ? 'active' : '' ?>">
@@ -100,4 +105,5 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
         </div>
     </div>
 </body>
+
 </html>

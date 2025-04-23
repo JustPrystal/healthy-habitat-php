@@ -2,9 +2,11 @@ $(document).ready(function () {
     $('header .hamburger-wrap svg').click(function () {
         $('.sidenav').toggleClass('open');
         $('body').toggleClass('noscroll')
-    });
-    $('.sidenav .nav li.has-sublinks').on('click', function() {
+      });
+      $('.sidenav .nav li.has-sublinks').on('click', function() {
         $(this).closest('li').find('.sub-links').slideToggle();
+        $('.has-sublinks .dropdown-icon').toggleClass('rotate');
+        
     });
     $('.landing-page-header .hamburger-wrap').click(function(){
         $('.landing-page-header .inner').toggleClass('open');
