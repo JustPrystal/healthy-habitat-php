@@ -35,7 +35,20 @@ session_start(); // make sure session is started
             
             <div class="button-wrap">
                 <?php if (isset($_SESSION['user_name'])): ?>
-                    <a>
+                    <a 
+                    href="
+                        <?php
+                        if ($_SESSION['user_role'] == 'business') {
+                            echo 'sme.php';
+                        } elseif ($_SESSION['user_role'] == 'admin') {
+                            echo 'admin.php';
+                        } elseif ($_SESSION['user_role'] == 'council') {
+                            echo 'lc.php';
+                        } else {
+                            echo 'index.php';
+                        }
+                        ?>                    
+                    ">
                        <?php echo htmlspecialchars($_SESSION['user_name']); ?>
                     </a>
 

@@ -46,7 +46,7 @@ $conn->close();
         <div class="input-wrap category">
           <label for="category">Category</label>
           <select name="category" id="category" required>
-            <option value="" disabled selected>Select a category</option>
+            <option value >Select a category</option>
             <?php foreach ($categoryOptions as $option): ?>
               <option value="<?= htmlspecialchars($option['category']) ?>">
                 <?= htmlspecialchars($option['category']) ?>
@@ -133,11 +133,11 @@ $conn->close();
             return response.text();
           })
           .then(optionsHtml => {
-            categorySelect.innerHTML = '<option disabled selected>Select a category</option>' + optionsHtml;
+            categorySelect.innerHTML = '<option value >Select a category</option>' + optionsHtml;
           })
           .catch(error => {
             console.error('Error:', error);
-            categorySelect.innerHTML = '<option disabled selected>Error loading categories</option>';
+            categorySelect.innerHTML = '<option value >Error loading categories</option>';
           });
       });
     });

@@ -69,6 +69,19 @@
                             &.email{
                                 text-transform: lowercase;
                             }
+                            &.status{
+                                text-transform: uppercase;
+                                text-align: center;
+                                padding: 4px 16px;
+                                border-radius: 45px;
+                                width: max-content !important; 
+                                &.pending{
+                                    background: #fffc98;
+                                }
+                                &.live{
+                                    background: #a0fab3;
+                                }                              
+                            }
                             .circle-wrap{
                                 display: flex;
                                 justify-content: center;

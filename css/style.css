@@ -875,6 +875,19 @@ body.noscroll {
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.email {
   text-transform: lowercase;
 }
+.dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 4px 16px;
+  border-radius: 45px;
+  width: max-content !important;
+}
+.dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status.pending {
+  background: #fffc98;
+}
+.dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status.live {
+  background: #a0fab3;
+}
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap {
   display: flex;
   justify-content: center;
