@@ -24,7 +24,7 @@ function get_user_items($type, $auth_required = false)
     }
 
     global $conn;
-    $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes 
+    $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id 
           FROM $table";
     
     if ($auth_required) {

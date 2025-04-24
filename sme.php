@@ -17,6 +17,7 @@ $allowedBlocks = [
   'dashboard-4',
   'dashboard-5',
   'dashboard-6',
+  'add_certificate_form',
 ];
 
 if (in_array($block, $allowedBlocks)) {

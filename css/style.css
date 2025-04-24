@@ -1236,12 +1236,33 @@ body.noscroll {
   flex-direction: column;
   gap: 20px;
 }
-.dashboard-content.bussinues-info-managment .inner .certifications .certifications-heading {
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap {
+  display: flex;
+  gap: 20px;
+}
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap .certifications-heading {
   font-family: var(--clash-display);
   font-size: var(--heading32);
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 0%;
+}
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap .certifications-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap .certifications-btn-wrapper a {
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: var(--forest-depth);
+  color: #fff;
+  font-family: var(--geist-medium);
+  font-size: var(--text16);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 .dashboard-content.bussinues-info-managment .inner .certifications .cards-wrapper {
   display: flex;
@@ -2582,7 +2603,6 @@ section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap bu
 }
 section.multiple-cards-section .inner .content-wrap .content {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 40px;
   margin-bottom: 30px;
@@ -2737,6 +2757,9 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  font-family: var(--geist-medium);
+  color: var(--forest-depth);
+  font-size: var(--text20);
 }
 section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap span.text {
   font-size: var(--text20);
@@ -2766,6 +2789,13 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes, section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .no {
     padding: 8px 20px;
   }
+}
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes.disabled, section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .no.disabled {
+  background-color: var(--gray-light);
+  opacity: 0.6;
+}
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes.disabled .btn-wrapper .btn-vote-count, section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .no.disabled .btn-wrapper .btn-vote-count {
+  color: var(--gray-dark);
 }
 section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes {
   margin-right: 20px;

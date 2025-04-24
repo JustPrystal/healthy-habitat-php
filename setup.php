@@ -92,7 +92,7 @@ $service_sql = "CREATE TABLE IF NOT EXISTS services (
     benefits TEXT,
     image_path VARCHAR(255),
     stock INT DEFAULT 0,
-        upvotes INT DEFAULT 0,
+    upvotes INT DEFAULT 0,
     downvotes INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -131,6 +131,22 @@ if (!$conn->query($categories_sql)) {
     die("categories table creation failed: " . $conn->error);
 }
 echo "✅ Table 'Categories' created!<br>";
+
+// Certifications table
+$certifications_sql = "CREATE TABLE IF NOT EXISTS certifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    issuer VARCHAR(255) NOT NULL,
+    image_path VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)";
+
+if (!$conn->query($certifications_sql)) {
+    die("Certifications table creation failed: " . $conn->error);
+}
+echo "✅ Table 'certifications' created!<br>";
 
 
 // Done!
