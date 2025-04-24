@@ -34,11 +34,6 @@
             <div id="product-card-grid" class="content">
 
             </div>
-            <div class="view-all-wrap">
-                <a href="#" class="view-all">
-                    View all Products
-                </a>
-            </div>
         </div>
     </div>
 </section>

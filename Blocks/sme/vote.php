@@ -8,9 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $user_id = $_SESSION['user_id'] ?? null;
+$user_role = $_SESSION['user_role'] ?? null;
+
 if (!$user_id) {
   http_response_code(401);
   echo json_encode(['error' => 'Not logged in']);
+  exit;
+}
+
+if ($user_role !== 'resident') {
+  http_response_code(403);
+  echo json_encode(['error' => 'Only residents can vote']);
   exit;
 }
 

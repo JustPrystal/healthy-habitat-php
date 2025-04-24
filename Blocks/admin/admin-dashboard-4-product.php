@@ -18,7 +18,7 @@ $all_items = get_user_items('product');
 <div class="dashboard-content my-listings">
   <div class="inner">
     <h2 class="content-main-heading">
-      Product & Service Management
+      Product Management
     </h2>
     <div class="table-wrap">
       <!-- please add sizes(class) for header-cell and body-cell -->
@@ -42,6 +42,9 @@ $all_items = get_user_items('product');
             </div>
             <div class="header-cell medium">
               Yes/No Votes
+            </div>
+            <div class="header-cell medium">
+              Status
             </div>
             <div class="header-cell xs">
 
@@ -97,6 +100,9 @@ $all_items = get_user_items('product');
               <div class="body-cell small">£<?= htmlspecialchars($item['price']) ?></div>
               <div class="body-cell large"><?= htmlspecialchars($sme_name) ?></div>
               <div class="body-cell medium"><?= intval($item['upvotes']) ?> / <?= intval($item['downvotes']) ?></div>
+              <div class="body-cell medium status <?= htmlspecialchars($item['status']) ?>">
+                <?= htmlspecialchars($item['status']) ?>
+              </div>
               <div class="body-cell extra-small">
                 <div class="circle-wrap">
                   <div class="circle"></div>

@@ -12,13 +12,13 @@ foreach ($businesses as $biz) {
 }
 
 
-$all_items = get_user_items('service'); 
+$all_items = get_user_items('service');
 ?>
 
 <div class="dashboard-content my-listings">
   <div class="inner">
     <h2 class="content-main-heading">
-      Product & Service Management
+      Service Management
     </h2>
     <div class="table-wrap">
       <!-- please add sizes(class) for header-cell and body-cell -->
@@ -42,6 +42,9 @@ $all_items = get_user_items('service');
             </div>
             <div class="header-cell medium">
               Yes/No Votes
+            </div>
+            <div class="header-cell medium">
+              Status
             </div>
             <div class="header-cell xs">
 
@@ -87,8 +90,8 @@ $all_items = get_user_items('service');
           </div> -->
           <?php foreach ($all_items as $item): ?>
             <?php
-              // Get SME name by user_id (you may want to JOIN this in SQL instead)
-              $sme_name = $business_map[$item['user_id']] ?? 'Unknown';
+            // Get SME name by user_id (you may want to JOIN this in SQL instead)
+            $sme_name = $business_map[$item['user_id']] ?? 'Unknown';
             ?>
             <div class="row">
               <div class="body-cell large"><?= htmlspecialchars($item['name']) ?></div>
@@ -97,15 +100,22 @@ $all_items = get_user_items('service');
               <div class="body-cell small">£<?= htmlspecialchars($item['price']) ?></div>
               <div class="body-cell large"><?= htmlspecialchars($sme_name) ?></div>
               <div class="body-cell medium"><?= intval($item['upvotes']) ?> / <?= intval($item['downvotes']) ?></div>
+              <div class="body-cell medium status <?= htmlspecialchars($item['status']) ?>">
+                <?= htmlspecialchars($item['status']) ?>
+              </div>
               <div class="body-cell extra-small">
                 <div class="circle-wrap">
                   <div class="circle"></div>
                   <div class="circle"></div>
                   <div class="circle"></div>
                   <div class="actions-wrap">
-                    <div class="edit"><p>edit</p></div>
+                    <div class="edit">
+                      <p>edit</p>
+                    </div>
                     <div class="line"></div>
-                    <div class="delete"><p>delete</p></div>
+                    <div class="delete">
+                      <p>delete</p>
+                    </div>
                   </div>
                 </div>
               </div>

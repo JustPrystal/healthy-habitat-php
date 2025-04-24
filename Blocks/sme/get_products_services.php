@@ -26,14 +26,15 @@ function get_user_items($type, $auth_required = false)
     }
 
     global $conn;
-    $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id 
+    $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id, status 
           FROM $table";
     
     if ($auth_required) {
-        $sql .= " WHERE user_id = ?";
+        $sql .= " WHERE user_id = ? ORDER BY created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
     } else {
+        $sql .= " ORDER BY created_at DESC";
         $stmt = $conn->prepare($sql);
     }
 

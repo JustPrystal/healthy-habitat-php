@@ -49,7 +49,7 @@ function get_items_rows($items)
         <?= htmlspecialchars($row['downvotes']) ?>
       </div>
       <div class="body-cell small">
-        Pending
+        <?= htmlspecialchars($row['status']) ?>
       </div>
       <div class="body-cell extra-small">
         <div class="circle-wrap">
@@ -57,9 +57,13 @@ function get_items_rows($items)
           <div class="circle"></div>
           <div class="circle"></div>
           <div class="actions-wrap">
-            <div class="edit"><p>edit</p></div>
+            <div class="edit">
+              <p>edit</p>
+            </div>
             <div class="line"></div>
-            <div class="delete"><p>delete</p></div>
+            <div class="delete">
+              <p>delete</p>
+            </div>
           </div>
         </div>
       </div>
