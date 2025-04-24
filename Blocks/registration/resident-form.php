@@ -2,6 +2,28 @@
 include('db.php');
 require_once('utils/helpers.php');
 
+// Fetch locations
+$locations = [];
+$locationSql = "SELECT id, name FROM locations";
+$locationResult = $conn->query($locationSql);
+if ($locationResult && $locationResult->num_rows > 0) {
+  while ($row = $locationResult->fetch_assoc()) {
+    $locations[] = $row;
+  }
+}
+
+// Fetch categories
+$categories = [];
+$categorySql = "SELECT id, category FROM categories";
+$categoryResult = $conn->query($categorySql);
+if ($categoryResult && $categoryResult->num_rows > 0) {
+  while ($row = $categoryResult->fetch_assoc()) {
+    $categories[] = $row;
+  }
+}
+
+
+
 // Initialize error array
 $errors = [
     'first-name' => '',
@@ -156,17 +178,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label for="location">Location</label>
               <select name="location" id="location">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum" <?php echo (($_POST['location'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
-                <option value="lorem ipsum" <?php echo (($_POST['location'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <?php foreach ($locations as $location): ?>
+                  <option value="<?= htmlspecialchars($location['name']) ?>">
+                    <?= htmlspecialchars($location['name']) ?>
+                  </option>
+                <?php endforeach; ?>
               </select>
               <span class="error-message"><?php echo $errors['location']; ?></span>
             </div>
             <div class="input-wrap half">
               <label for="location">age group</label>
-              <select name="age-group" id="age-group">
-                <option value="" disabled selected></option>
-                <option value="lorem ipsum" <?php echo (($_POST['age-group'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
-                <option value="lorem ipsum" <?php echo (($_POST['age-group'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+              <select name="age-group" id="age-group" required>
+              <option value="under-18">Under 18</option>
+              <option value="18-24">18 - 24</option>
+              <option value="25-34">25 - 34</option>
+              <option value="35-44">35 - 44</option>
+              <option value="45-54">45 - 54</option>
+              <option value="55-64">55 - 64</option>
+              <option value="65-plus">65+</option>
+              <option value="not-given">Prefer not to say</option>
               </select>
               <span class="error-message"><?php echo $errors['age-group']; ?></span>
             </div>
@@ -174,8 +204,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label for="gender">gender</label>
               <select name="gender" id="gender">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum" <?php echo (($_POST['gender'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
-                <option value="lorem ipsum" <?php echo (($_POST['gender'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <option value="male">Male</option>
+                <option value="female">female</option>
+                <option value="not-given">Prefer not to say</option>
               </select>
               <span class="error-message"><?php echo $errors['gender']; ?></span>
             </div>
@@ -183,8 +214,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label for="areas-of-interest">Areas of Interest</label>
               <select name="areas-of-interest" id="areas-of-interest">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum" <?php echo (($_POST['areas-of-interest'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
-                <option value="lorem ipsum" <?php echo (($_POST['areas-of-interest'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <?php foreach ($categories as $category): ?>
+                  <option value="<?= htmlspecialchars($category['category']) ?>">
+                    <?= htmlspecialchars($category['category']) ?>
+                  </option>
+                <?php endforeach; ?>
               </select>
               <span class="error-message"><?php echo $errors['areas-of-interest']; ?></span>
             </div>

@@ -17,6 +17,7 @@ $allowedBlocks = [
   'dashboard-4',
   'dashboard-5',
   'dashboard-6',
+  'add_certificate_form',
 ];
 
 if (in_array($block, $allowedBlocks)) {
@@ -24,4 +25,6 @@ if (in_array($block, $allowedBlocks)) {
 } else {
     echo "<p>Block not found or not allowed.</p>";
 }
+
+include './Blocks/logout-modal.php'; 
 ?>
