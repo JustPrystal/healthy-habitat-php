@@ -1,38 +1,143 @@
 <?php
 require_once 'db.php';
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Products
-$queryproduct = "SELECT COUNT(*) AS total_product FROM products";
-$resultproduct = $conn->query($queryproduct);
-$totalproducts = ($resultproduct) ? $resultproduct->fetch_assoc()['total_product'] : 0;
+try {
+    // Helper to fetch a single integer scalar (e.g. COUNT(*))
+    function fetchScalar(mysqli $conn, string $sql, string $types = '', array $params = []): int
+    {
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            throw new RuntimeException("Prepare failed: " . $conn->error);
+        }
+        if ($types !== '') {
+            $stmt->bind_param($types, ...$params);
+        }
+        $stmt->execute();
+        $stmt->bind_result($value);
+        $stmt->fetch();
+        $stmt->close();
+        return (int)$value;
+    }
 
-// Services
-$queryservice = "SELECT COUNT(*) AS total_services FROM services";
-$resultservice = $conn->query($queryservice);
-$totalservices = ($resultservice) ? $resultservice->fetch_assoc()['total_services'] : 0;
+    // Helper to fetch total up/down-votes for a table
+    function fetchVotesStats(mysqli $conn, string $table): array
+    {
+        $sql = "
+            SELECT
+                COALESCE(SUM(upvotes), 0)   AS yes_votes,
+                COALESCE(SUM(downvotes), 0) AS no_votes
+            FROM `$table`
+        ";
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            throw new RuntimeException("Prepare failed: " . $conn->error);
+        }
+        $stmt->execute();
+        $stmt->bind_result($yes, $no);
+        $stmt->fetch();
+        $stmt->close();
+        return ['yes' => (int)$yes, 'no' => (int)$no];
+    }
 
-$totalProductsandServices = $totalproducts + $totalservices;
+    // Helper to fetch the top-voted item from a table (global)
+    function fetchTopGlobal(mysqli $conn, string $table): array
+    {
+        $sql = "
+            SELECT
+                name            AS item_name,
+                upvotes         AS item_votes,
+                downvotes       AS item_downvotes,
+                image_path      AS item_image
+            FROM `$table`
+            WHERE upvotes = (
+                SELECT COALESCE(MAX(upvotes), 0)
+                FROM `$table`
+            )
+            LIMIT 1
+        ";
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            throw new RuntimeException("Prepare failed: " . $conn->error);
+        }
+        $stmt->execute();
+        $stmt->bind_result($name, $votes, $down, $img);
+        if (!$stmt->fetch()) {
+            // no rows
+            $name = null; $votes = 0; $down = 0; $img = null;
+        }
+        $stmt->close();
+        return [
+            'item_name'      => $name,
+            'item_votes'     => (int)$votes,
+            'item_downvotes' => (int)$down,
+            'item_image'     => $img,
+        ];
+    }
 
-// Residents
-$queryresidents = "SELECT COUNT(*) AS total_residents FROM users WHERE role='resident'";
-$resultresidents = $conn->query($queryresidents);
-$totalresidents = ($resultresidents) ? $resultresidents->fetch_assoc()['total_residents'] : 0;
+    // 1) Global totals
+    $totalProducts = fetchScalar($conn, "SELECT COUNT(*) FROM products");
+    $totalServices = fetchScalar($conn, "SELECT COUNT(*) FROM services");
+    
+    $totalResidents = fetchScalar(
+        $conn,
+        "SELECT COUNT(*) FROM users WHERE role = ?",
+        's',
+        ['resident']
+    );
+    $totalSMEs = fetchScalar(
+        $conn,
+        "SELECT COUNT(*) FROM users WHERE role = ?",
+        's',
+        ['business']
+    );
+    $totalCouncils = fetchScalar(
+        $conn,
+        "SELECT COUNT(*) FROM users WHERE role = ?",
+        's',
+        ['council']
+    );
 
-// SMEs
-$querysme = "SELECT COUNT(*) AS total_smes FROM users WHERE role='business'";
-$resultsme = $conn->query($querysme);
-$totalsmes = ($resultsme) ? $resultsme->fetch_assoc()['total_smes'] : 0;
+    // 2) Global vote sums
+    $prodVotes = fetchVotesStats($conn, 'products');
+    $svcVotes  = fetchVotesStats($conn, 'services');
+    $totalYesVotes = $prodVotes['yes'] + $svcVotes['yes'];
+    $totalNoVotes  = $prodVotes['no']  + $svcVotes['no'];
 
-// Councils
-$querylc = "SELECT COUNT(*) AS total_lc FROM users WHERE role='council'";
-$resultlc = $conn->query($querylc);
-$totallcs = ($resultlc) ? $resultlc->fetch_assoc()['total_lc'] : 0;
+    // Add these two lines:
+    $totalItems      = $totalProducts + $totalServices;    // total products & services
+    $totalVotes      = $totalYesVotes + $totalNoVotes; 
 
-$conn->close();
+
+    // 3) Top-voted product & service (global)
+    $topProduct = fetchTopGlobal($conn, 'products');
+    $topService = fetchTopGlobal($conn, 'services');
+
+    // 4) Decide overall “highest-voted” between product & service
+    if ($topService['item_votes'] >= $topProduct['item_votes']) {
+        $winner     = $topService;
+        $winnerType = 'service';
+    } else {
+        $winner     = $topProduct;
+        $winnerType = 'product';
+    }
+
+    $conn->close();
+
+} catch (RuntimeException $e) {
+    // In production, log $e->getMessage()
+    echo '<p>Sorry, something went wrong.</p>';
+    exit;
+}
+
+// Now you have:
+//   $totalProducts, $totalServices, $totalResidents, $totalSMEs, $totalCouncils
+//   $totalYesVotes, $totalNoVotes
+//   $winner['item_name'], $winner['item_votes'], $winner['item_downvotes'], $winner['item_image']
+//   $winnerType ('product' or 'service')
+
 ?>
 
 
@@ -54,7 +159,7 @@ $conn->close();
                     Registered individuals who vote on products/services
                 </p>
                 <h4 class="count">
-                <?php echo $totalresidents; ?>
+                <?= $totalResidents ?>
                 </h4>
             </div>
             <div class="card total-smes">
@@ -65,7 +170,7 @@ $conn->close();
                     Approved wellness product and service providers
                 </p>
                 <h4 class="count">
-                <?php echo $totalsmes; ?>
+                <?= $totalSMEs ?>
                 </h4>
             </div>
             <div class="card total-coucil">
@@ -76,7 +181,7 @@ $conn->close();
                     Local councils that have onboarded and added areas
                 </p>
                 <h4 class="count">
-                <?php echo $totallcs; ?>
+                <?= $totalCouncils ?>
                 </h4>
             </div>
             <div class="card total-products">
@@ -87,7 +192,7 @@ $conn->close();
                     Combined number of listed wellness offerings
                 </p>
                 <h4 class="count">
-                <?php echo $totalProductsandServices; ?>
+                <?php echo $totalItems; ?>
                 </h4>
             </div>
             <div class="card total-votes">
@@ -98,7 +203,7 @@ $conn->close();
                     All Yes/No votes cast by residents so far
                 </p>
                 <h4 class="count">
-                    15,874
+                <?= $totalVotes ?> 
                 </h4>
             </div>
             <div class="card total-top">
@@ -106,10 +211,10 @@ $conn->close();
                     Top Voted Product
                 </h3>
                 <p class="total-412 total">
-                    With 412 Yes votes and 39 No votes
+                    With <?= $winner['item_votes'] ?> Yes votes and <?= $winner['item_downvotes'] ?> No votes
                 </p>
                 <h4 class="count">
-                    PureAir HEPA Filter Purifier
+                <?= htmlspecialchars($winner['item_name']) ?>
                 </h4>
             </div>
         </div>
