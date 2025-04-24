@@ -80,6 +80,9 @@ $conn->close();
             <span>Upload high quality images to present your product/service.</span>
           </label>
           <input type="file" id="img" name="img" accept="image/*" required>
+          <div id="imagePreview" style="margin-top: 15px; display: none;">
+            <img id="previewImage" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; border-radius: 4px;"/>
+          </div>
         </div>
         <div class="input-wrap">
           <button type="submit">submit</button>
@@ -92,6 +95,23 @@ $conn->close();
 
 <script>
   $(document).ready(function () {
+
+      // Image preview functionality
+      document.getElementById('img').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(event) {
+          const preview = document.getElementById('previewImage');
+          preview.src = event.target.result;
+          document.getElementById('imagePreview').style.display = 'block';
+        }
+        
+        reader.readAsDataURL(file);
+      }
+    });
+
     document.querySelectorAll('input[name="type"]').forEach(radio => {
       radio.addEventListener('change', function () {
         const selectedType = this.value;

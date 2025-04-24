@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <h3 class="heading">
                         Welcome to Healthy Habitat Network.
                     </h3>
-                    <form method="POST" action="./login-handler.php">
+                    <form method="POST" action="./handlers/login-handler.php">
                         <div class="input-wrap">
                             <label for="email">email</label>
                             <input type="email" id="email" name="email" required>
@@ -32,7 +32,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     </svg>
                                 </span>
                             </div>
-                            <a href="#" class="forgot-pass">
+                            <a href="registration.php?block=forgot-password" class="forgot-pass">
                                 Forgot your passwrord?
                             </a>
                         </div>
