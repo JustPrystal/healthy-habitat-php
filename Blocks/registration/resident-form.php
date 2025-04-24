@@ -1,6 +1,9 @@
 <?php
+session_start();
 include('db.php');
 require_once('utils/helpers.php');
+
+include('./Blocks/registration/is_logged_in.php');
 
 require_once("./helpers.php");
 // Fetch locations
