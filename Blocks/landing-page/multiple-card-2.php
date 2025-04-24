@@ -19,8 +19,9 @@
                                 stroke="#134027" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg></label>
                 </div>
+                <!-- <div class="dropdown-wrap" id="product-category-dropdown" style="display: none;">HEllo</div> -->
                 <div class="button-wrap">
-                    <button class="filter">
+                    <button class="filter" id="product-filter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                             <path d="M1.5 1H16.5M4 6H14M7 11H11" stroke="#134027" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
@@ -45,6 +46,47 @@
     $(document).ready(function () {
         $.get("./Blocks/sme /get_product_cards.php?type=product", function (data) {
             $("#product-card-grid").html(data);
+
+            // Once cards are loaded, enable filtering
+            $('#catgories').on('input', function () {
+                const search = $(this).val().toLowerCase();
+
+                $('#product-card-grid .card').each(function () {
+                    const title = $(this).find('.heading').text().toLowerCase();
+                    const description = $(this).find('.text').text().toLowerCase();
+                    const category = $(this).find('.category').text().toLowerCase();
+
+                    const match = title.includes(search) || description.includes(search) || category.includes(search);
+
+                    $(this).toggle(match);
+                });
+            });
         });
+
+        //  // Toggle dropdown visibility
+        // $('#product-filter').on('click', function (e) {
+        //     e.preventDefault();
+        //     $('#product-category-dropdown').toggle();
+        //     fetchCategories('product'); // change to 'service' if needed
+        // });
+
+        // // Fetch categories from PHP and populate dropdown
+        // function fetchCategories(type = 'product') {
+        //     $.get(`./Blocks/sme/get_categories.php?type=${type}`, function (data) {
+        //     const categories = JSON.parse(data);
+        //     const dropdown = $('#product-category-dropdown');
+        //     dropdown.empty(); // clear existing
+        //     categories.forEach(cat => {
+        //         dropdown.append(`<div class="dropdown-item">${cat}</div>`);
+        //     });
+        //     });
+        // }
+
+        // // Populate input field when a category is clicked
+        // $(document).on('click', '.dropdown-item', function () {
+        //     const selected = $(this).text();
+        //     $('#catgories').val(selected);
+        //     $('#product-category-dropdown').hide();
+        // });
     });
 </script>
