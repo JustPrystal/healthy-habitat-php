@@ -1,3 +1,43 @@
+<?php
+require_once 'db.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Products
+$queryproduct = "SELECT COUNT(*) AS total_product FROM products";
+$resultproduct = $conn->query($queryproduct);
+$totalproducts = ($resultproduct) ? $resultproduct->fetch_assoc()['total_product'] : 0;
+
+// Services
+$queryservice = "SELECT COUNT(*) AS total_services FROM services";
+$resultservice = $conn->query($queryservice);
+$totalservices = ($resultservice) ? $resultservice->fetch_assoc()['total_services'] : 0;
+
+$totalProductsandServices = $totalproducts + $totalservices;
+
+// Residents
+$queryresidents = "SELECT COUNT(*) AS total_residents FROM users WHERE role='resident'";
+$resultresidents = $conn->query($queryresidents);
+$totalresidents = ($resultresidents) ? $resultresidents->fetch_assoc()['total_residents'] : 0;
+
+// SMEs
+$querysme = "SELECT COUNT(*) AS total_smes FROM users WHERE role='business'";
+$resultsme = $conn->query($querysme);
+$totalsmes = ($resultsme) ? $resultsme->fetch_assoc()['total_smes'] : 0;
+
+// Councils
+$querylc = "SELECT COUNT(*) AS total_lc FROM users WHERE role='council'";
+$resultlc = $conn->query($querylc);
+$totallcs = ($resultlc) ? $resultlc->fetch_assoc()['total_lc'] : 0;
+
+$conn->close();
+?>
+
+
+
+
 <div class="dashboard-content admin-dashboard-overview">
     <div class="overview-container">
         <div class="heading-container">
@@ -14,7 +54,7 @@
                     Registered individuals who vote on products/services
                 </p>
                 <h4 class="count">
-                    2,412
+                <?php echo $totalresidents; ?>
                 </h4>
             </div>
             <div class="card total-smes">
@@ -25,7 +65,7 @@
                     Approved wellness product and service providers
                 </p>
                 <h4 class="count">
-                    67
+                <?php echo $totalsmes; ?>
                 </h4>
             </div>
             <div class="card total-coucil">
@@ -36,7 +76,7 @@
                     Local councils that have onboarded and added areas
                 </p>
                 <h4 class="count">
-                    28
+                <?php echo $totallcs; ?>
                 </h4>
             </div>
             <div class="card total-products">
@@ -47,7 +87,7 @@
                     Combined number of listed wellness offerings
                 </p>
                 <h4 class="count">
-                    213
+                <?php echo $totalProductsandServices; ?>
                 </h4>
             </div>
             <div class="card total-votes">

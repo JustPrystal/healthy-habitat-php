@@ -1,7 +1,6 @@
 <?php
-require_once './db.php';
+require_once 'db.php';
 
-// Make sure user is logged in
 $user_id = $_SESSION['user_id'] ?? null;
 if (!$user_id) {
   // You can redirect or show an error
@@ -9,22 +8,41 @@ if (!$user_id) {
   return;
 }
 
-// Fetch all certifications for this business
-$stmt = $conn->prepare("
+$stmt = $conn->prepare("SELECT meta_key, meta_value FROM user_meta WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$userMeta = [];
+while ($row = $result->fetch_assoc()) {
+    $userMeta[$row['meta_key']] = $row['meta_value'];
+}
+
+$stmt2 = $conn->prepare("SELECT name, email FROM users WHERE id = ?");
+$stmt2->bind_param("i", $user_id);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+$user = [];
+while ($row = $result2->fetch_assoc()) {
+    $user[] = $row;
+}
+
+
+$stmt3 = $conn->prepare("
   SELECT title, image_path, issuer, DATE_FORMAT(created_at, '%M %Y') AS issued
     FROM certifications
    WHERE user_id = ?
    ORDER BY created_at DESC
 ");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmt3->bind_param("i", $user_id);
+$stmt3->execute();
+$result3 = $stmt3->get_result();
 
-$certs = $result->fetch_all(MYSQLI_ASSOC);
-$stmt->close();
+$certs = $result3->fetch_all(MYSQLI_ASSOC);
+$stmt3->close();
 $conn->close();
 ?>
-
 <div class="dashboard-content bussinues-info-managment">
   <div class="inner">
     <h2 class="content-main-heading">
@@ -33,23 +51,23 @@ $conn->close();
     <div class="details-container">
       <div class="bussines-name field-value-wrap">
         <p class="field-name">Business Name:</p>
-        <p class="field-value">BreatheWell Studio</p>
+        <p class="field-value"><?php echo $user[0]['name'] ?? 'N/A'; ?></p>
       </div>
       <div class="email field-value-wrap">
         <p class="field-name">Email:</p>
-        <p class="field-value">info@breathewellstudio.com</p>
+        <p class="field-value"><?php echo $user[0]['email'] ?? 'N/A'; ?></p>
       </div>
       <div class="phone field-value-wrap">
         <p class="field-name">Phone:</p>
-        <p class="field-value">+44 20 7946 0322</p>
+        <p class="field-value"><?php echo $userMeta['phone'] ?? 'N/A'; ?></p>
       </div>
       <div class="website field-value-wrap">
         <p class="field-name">Website:</p>
-        <p class="field-value"> www.breathewellstudio.com</p>
+        <p class="field-value"><?php echo $userMeta['website'] ?? 'N/A'; ?></p>
       </div>
       <div class="address field-value-wrap">
         <p class="field-name">Address:</p>
-        <p class="field-value">18 Willow Lane, Camden, London, NW1 7JD, UK</p>
+        <p class="field-value"><?php echo $userMeta['address'] ?? 'N/A'; ?></p>
       </div>
     </div>
     <div class="about-studio-container">
@@ -57,11 +75,7 @@ $conn->close();
         About BreatheWell Studio
       </h3>
       <div class="para-wrapper">
-        <p class="studio-para-1">BreatheWell Studio is a holistic wellness space dedicated to helping individuals find
-          balance through mindful movement and breathing. Offering both in-person and online yoga and meditation
-          classes, our programs are designed to support mental clarity, physical flexibility, and emotional resilience.
-          Whether you're a beginner or an experienced practitioner, BreatheWell provides inclusive, expert-led sessions
-          in a serene environment tailored for all levels.</p>
+        <p class="studio-para-1"><?php echo $userMeta['about'] ?? 'N/A'; ?></p>
         <p class="studio-para-2">Our mission is to make mindful living accessible to everyone—anytime, anywhere.</p>
       </div>
     </div>

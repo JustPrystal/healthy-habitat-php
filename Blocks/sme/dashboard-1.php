@@ -1,3 +1,41 @@
+<?php
+require_once 'db.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Products count
+$queryproduct = "SELECT COUNT(*) AS total_product FROM products";
+$resultproduct = $conn->query($queryproduct);
+
+$totalproducts = 0; // default in case query fails
+if ($resultproduct) {
+    $row = $resultproduct->fetch_assoc();
+    $totalproducts = $row['total_product'];
+} else {
+    echo "Product query failed: " . $conn->error;
+}
+
+// Services count
+$queryservice = "SELECT COUNT(*) AS total_services FROM services";
+$resultservice = $conn->query($queryservice);
+
+$totalservices = 0; // default in case query fails
+if ($resultservice) {
+    $row = $resultservice->fetch_assoc();
+    $totalservices = $row['total_services'];
+} else {
+    echo "Service query failed: " . $conn->error;
+}
+
+$totalProductsandServices = $totalproducts + $totalservices;
+
+$conn->close();
+?>
+
+
+
 <div class="dashboard-content dashboard-overview">
       
       <div class="overview-container">
@@ -15,11 +53,11 @@
               Total Products/ Services Listed
             </h3>
             <p class="total-products total">
-              Total Products/ Service: 8
+              Total Products/ Service: <?php echo $totalProductsandServices; ?>
             </p>
             <div class="product-stats">
-              <p class="stats-text products-count">Products: 4</p>
-              <p class="stats-text services-count">Services: 4</p>
+              <p class="stats-text products-count">Products: <?php echo $totalproducts; ?></p>
+              <p class="stats-text services-count">Services: <?php echo $totalservices; ?></p>
             </div>
           </div>
           <div class="card total-votes">
