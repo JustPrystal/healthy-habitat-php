@@ -26,7 +26,7 @@ function get_items_rows($items)
   ob_start();
   foreach ($items as $row) {
     ?>
-    <div class="row">
+    <div class="row" data-id="<?= $row['id'] ?>">
       <div class="body-cell medium">
         <?= htmlspecialchars($row['name']) ?>
       </div>

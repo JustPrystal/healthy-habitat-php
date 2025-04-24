@@ -154,4 +154,7 @@
     $(document).on('click', function () {
       $('.actions-wrap').hide();
     });
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+      alert('Category has been added.')
+    <?php endif; ?>
 </script>
