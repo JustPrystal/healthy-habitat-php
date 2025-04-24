@@ -1,9 +1,75 @@
-/* Error: Can't find stylesheet to import.
- *    ,
- * 29 | @import './components/logout-confirmation';
- *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   scss\_style.scss 29:9  root stylesheet */
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  /* Fonts */
+  --clash-display: "Clash Display Variable";
+  --geist-medium: "Geist";
+  /* Colors */
+  --soft-cream:#FCFCF2;
+  --mint-whisper: #E1F7EA;
+  --forest-depth: #134027;
+  --snow-veil: #FEFEFE;
+  --crimson-blaze: #F44336;
+  --leafy-green: #4CAF50;
+  --light-gray: #11111180;
+  --lime-pastel: #E7FFB3;
+  /* Fonts-Sizes */
+  --heading52: 52px;
+  --heading48: 48px;
+  --heading40: 40px;
+  --heading32: 32px;
+  --heading28: 28px;
+  --heading24: 24px;
+  --heading22: 22px;
+  --text20: 20px;
+  --text18: 18px;
+  --text16: 16px;
+  --text14: 14px;
+  --text12: 12px;
+}
+@media (max-width: 1279px) {
+  :root {
+    --heading52: 40px;
+    --heading48: 40px;
+  }
+}
+@media (max-width: 991px) {
+  :root {
+    --heading52: 36px;
+    --heading48: 36px;
+    --heading40: 36px;
+    --heading32: 28px;
+    --heading28: 24px;
+    --heading24: 20px;
+    --heading22: 18px;
+    --text20: 16px;
+    --text18: 16px;
+    --text16: 14px;
+    --text14: 12px;
+    --text12: 10px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --heading52: 32px;
+    --heading48: 32px;
+    --heading40: 32px;
+    --heading32: 24px;
+    --heading28: 20px;
+    --heading24: 16px;
+    --heading22: 16px;
+    --text20: 14px;
+    --text18: 14px;
+    --text16: 12px;
+    --text14: 10px;
+  }
+}
+@media (max-width: 575px) {
+  :root {
+    --heading52: 28px;
+    --heading48: 32px;
+  }
+}
 
 * {
   padding: 0;
@@ -497,10 +563,15 @@ body.noscroll {
 }
 .dashboard-content .overview-container .highest-voted .card-content-wrapper .card-right .card-image {
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a    \2577 \a 29 \2502  @import './components/logout-confirmation';\d\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   scss\\_style.scss 29:9  root stylesheet";
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 0px 0px 0px;
+}
+@media (max-width: 575px) {
+  .dashboard-content .overview-container .highest-voted .card-content-wrapper .card-right .card-image {
+    border-radius: 0px;
+  }
 }
 
 .dashboard-content.add-new-product .inner {
@@ -3143,6 +3214,9 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   padding: 40px 60px;
   background-color: var(--mint-whisper);
   border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 1279px) {
   .register-section .inner .content-wrap .form-wrap {
@@ -3396,6 +3470,29 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section .inner .content-wrap .form-wrap form .t-and-c-wrap {
   padding: 15px 15px 0;
   border-top: 1px solid var(--forest-depth);
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in p, .register-section .inner .content-wrap .form-wrap .already-logged-in a {
+  font-size: var(--text20);
+  font-family: var(--geist-medium);
+  line-height: 100%;
+  text-align: center;
+  width: fit-content;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in p {
+  color: black;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in a {
+  color: var(--crimson-blaze);
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in a.redirect {
+  color: var(--leafy-green);
 }
 
 .together-for-healtheir-tomorrow {
