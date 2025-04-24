@@ -87,10 +87,10 @@ if (!$conn->query($product_sql)) {
 echo "✅ Table 'products' created!<br>";
 
 
-$drop_services_sql = "DROP TABLE IF EXISTS products";
-if (!$conn->query($drop_product_sql)) {
-    die("❌ Failed to drop 'products' table: " . $conn->error);
-}
+// $drop_services_sql = "DROP TABLE IF EXISTS products";
+// if (!$conn->query($drop_product_sql)) {
+//     die("❌ Failed to drop 'products' table: " . $conn->error);
+// }
 echo "🗑️ Table 'products' dropped.<br>"; 
 
 // Services table

@@ -1,3 +1,33 @@
+<?php
+require_once 'db.php';
+
+$user_id = $_SESSION['user_id'] ; // or get this from session: $_SESSION['user_id']
+
+$stmt = $conn->prepare("SELECT meta_key, meta_value FROM user_meta WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$userMeta = [];
+while ($row = $result->fetch_assoc()) {
+    $userMeta[$row['meta_key']] = $row['meta_value'];
+}
+
+$stmt2 = $conn->prepare("SELECT name, email FROM users WHERE id = ?");
+$stmt2->bind_param("i", $user_id);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+$user = [];
+while ($row = $result2->fetch_assoc()) {
+    $user[] = $row;
+}
+
+
+$conn->close();
+?>
+
+
 <div class="dashboard-content local-council">
     <div class="inner">
         <h2 class="content-main-heading">

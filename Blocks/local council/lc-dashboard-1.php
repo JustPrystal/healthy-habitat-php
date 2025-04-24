@@ -1,3 +1,32 @@
+<?php
+require_once 'db.php'; // adjust path if needed
+
+// Optional: Start session if you're using session data
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Query to count rows in the locations table
+$query = "SELECT COUNT(*) AS total_locations FROM locations";
+$result = $conn->query($query);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $totalLocations = $row['total_locations'];
+    echo "Total rows in locations table: " . $totalLocations;
+} else {
+    echo "Query failed: " . $conn->error;
+}
+
+
+
+
+$conn->close();
+?>
+
+
+
+
 <div class="dashboard-content lc-dashboard-overview">
     <div class="overview-container">
         <div class="heading-container">
@@ -14,7 +43,7 @@
                     Total Areas Added
                 </h3>
                 <p class="total-areas total">
-                    Total Areas Added: 12
+                    Total Areas Added:<?php echo $totalLocations; ?>
                 </p>
             </div>
             <div class="card total-votes">
@@ -47,7 +76,7 @@
                 <div class="card-left">
                     <div class="card total-votes">
                         <h3 class="card-heading">
-                            Top Interest Area Among <br class="word-break"> Residents
+                        Most Popular Product/Service <br class="word-break">in Your Areas
                         </h3>
                         <p class="total-votes total">
                             Top Voted Item: PureAir HEPA Filter Purifiers (182 votes)
