@@ -18,13 +18,6 @@
           Vote Stats <span class="subtext">(for each product/service)</span>
         </h3>
       </div>
-      <div class="tabs-wrap">
-        <div class="tabs">
-          <div class="tab active" data-period="today">Today</div>
-          <div class="tab" data-period="weekly">Weekly</div>
-          <div class="tab" data-period="monthly">Monthly</div>
-        </div>
-      </div>
 
       <canvas id="voteChart"></canvas>
     </div>

@@ -1,7 +1,12 @@
 <?php
 require_once 'db.php';
 
-$user_id = $_SESSION['user_id'] ; // or get this from session: $_SESSION['user_id']
+$user_id = $_SESSION['user_id'] ?? null;
+if (!$user_id) {
+  // You can redirect or show an error
+  echo '<p>Please <a href="/registration.php?block=sign-in">sign in</a> to view your certifications.</p>';
+  return;
+}
 
 $stmt = $conn->prepare("SELECT meta_key, meta_value FROM user_meta WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
@@ -24,10 +29,20 @@ while ($row = $result2->fetch_assoc()) {
 }
 
 
+$stmt3 = $conn->prepare("
+  SELECT title, image_path, issuer, DATE_FORMAT(created_at, '%M %Y') AS issued
+    FROM certifications
+   WHERE user_id = ?
+   ORDER BY created_at DESC
+");
+$stmt3->bind_param("i", $user_id);
+$stmt3->execute();
+$result3 = $stmt3->get_result();
+
+$certs = $result3->fetch_all(MYSQLI_ASSOC);
+$stmt3->close();
 $conn->close();
 ?>
-
-
 <div class="dashboard-content bussinues-info-managment">
   <div class="inner">
     <h2 class="content-main-heading">
@@ -65,22 +80,29 @@ $conn->close();
       </div>
     </div>
     <div class="certifications">
-      <h3 class="certifications-heading">
-        Certifications
-      </h3>
-      <div class="cards-wrapper">
-        <div class="each-card certified">
-          <img src="./assets/certifiedImage.png" alt="certified">
-        </div>
-        <div class="each-card natural">
-          <img src="./assets/naturalImage.png" alt="natural">
-        </div>
-        <div class="each-card organic">
-          <img src="./assets/organic.png" alt="organic">
+      <div class="wrap" style="">
+        <h3 class="certifications-heading">
+          Certifications
+        </h3>
+        <div class="certifications-btn-wrapper" >
+          <a href="sme.php?block=add_certificate_form" class="add-certification-btn">
+            Add Certification
+          </a>
         </div>
       </div>
+
+      <?php if (count($certs) === 0): ?>
+        <p>No certifications added yet.</p>
+      <?php else: ?>
+        <div class="cards-wrapper">
+          <?php foreach ($certs as $cert): ?>
+            <div class="each-card">
+              <img src="<?= htmlspecialchars($cert['image_path']) ?>" alt="<?= htmlspecialchars($cert['title']) ?>">
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
     </div>
 
   </div>
-
 </div>

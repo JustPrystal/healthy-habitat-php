@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-require_once('./db.php'); 
+require_once('db.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['user_role'] = $user['role'];
+            $_SESSION['user_logged_in'] = true;
 
             //Redirect based on role
             switch ($user['role']) {
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header("Location: sme.php");
                     break;
                 case 'admin':
-                    header("Location: admin.php");
+                    header("Location: ./admin.php");
                     break;
                 case 'resident':
                     header("Location: index.php");

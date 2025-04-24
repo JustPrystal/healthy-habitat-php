@@ -880,6 +880,7 @@ body.noscroll {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 5px 8px;
   gap: 4px;
   position: relative;
   cursor: pointer;
@@ -1247,12 +1248,33 @@ body.noscroll {
   flex-direction: column;
   gap: 20px;
 }
-.dashboard-content.bussinues-info-managment .inner .certifications .certifications-heading {
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap {
+  display: flex;
+  gap: 20px;
+}
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap .certifications-heading {
   font-family: var(--clash-display);
   font-size: var(--heading32);
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 0%;
+}
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap .certifications-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.dashboard-content.bussinues-info-managment .inner .certifications .wrap .certifications-btn-wrapper a {
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: var(--forest-depth);
+  color: #fff;
+  font-family: var(--geist-medium);
+  font-size: var(--text16);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 .dashboard-content.bussinues-info-managment .inner .certifications .cards-wrapper {
   display: flex;
@@ -2593,7 +2615,6 @@ section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap bu
 }
 section.multiple-cards-section .inner .content-wrap .content {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 40px;
   margin-bottom: 30px;
@@ -2748,6 +2769,9 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  font-family: var(--geist-medium);
+  color: var(--forest-depth);
+  font-size: var(--text20);
 }
 section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap span.text {
   font-size: var(--text20);
@@ -2777,6 +2801,13 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes, section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .no {
     padding: 8px 20px;
   }
+}
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes.disabled, section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .no.disabled {
+  background-color: var(--gray-light);
+  opacity: 0.6;
+}
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes.disabled .btn-wrapper .btn-vote-count, section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .no.disabled .btn-wrapper .btn-vote-count {
+  color: var(--gray-dark);
 }
 section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .vote-wrap .yes {
   margin-right: 20px;
@@ -3183,6 +3214,9 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   padding: 40px 60px;
   background-color: var(--mint-whisper);
   border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 1279px) {
   .register-section .inner .content-wrap .form-wrap {
@@ -3203,7 +3237,7 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section .inner .content-wrap .form-wrap form {
   display: flex;
   flex-direction: row;
-  gap: 15px 30px;
+  gap: 5px 30px;
   flex-wrap: wrap;
 }
 @media (max-width: 1279px) {
@@ -3222,6 +3256,8 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  position: relative;
+  padding-bottom: 20px;
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap label, .register-section .inner .content-wrap .form-wrap form .input-wrap .type-label, .register-section .inner .content-wrap .form-wrap form .input-wrap .upload-label {
   font-size: var(--text16);
@@ -3295,8 +3331,13 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   text-align: end;
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap.checkbox {
-  flex-direction: row;
-  justify-content: left;
+  display: block;
+  margin-bottom: 5px;
+}
+.register-section .inner .content-wrap .form-wrap form .input-wrap.checkbox .wrap-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .register-section .inner .content-wrap .form-wrap form .input-wrap.checkbox input {
   border-radius: 4px;
@@ -3401,6 +3442,15 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   font-family: var(--geist-medium);
   color: var(--forest-depth);
 }
+.register-section .inner .content-wrap .form-wrap form .input-wrap .error-message {
+  color: #ff0000;
+  font-size: 0.8em;
+  margin-top: 5px;
+  display: block;
+  font-family: var(--geist-medium);
+  position: absolute;
+  bottom: 0;
+}
 .register-section .inner .content-wrap .form-wrap form .text-wrap, .register-section .inner .content-wrap .form-wrap form .t-and-c-wrap {
   display: flex;
   justify-content: center;
@@ -3420,6 +3470,29 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section .inner .content-wrap .form-wrap form .t-and-c-wrap {
   padding: 15px 15px 0;
   border-top: 1px solid var(--forest-depth);
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in p, .register-section .inner .content-wrap .form-wrap .already-logged-in a {
+  font-size: var(--text20);
+  font-family: var(--geist-medium);
+  line-height: 100%;
+  text-align: center;
+  width: fit-content;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in p {
+  color: black;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in a {
+  color: var(--crimson-blaze);
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in a.redirect {
+  color: var(--leafy-green);
 }
 
 .together-for-healtheir-tomorrow {
@@ -3596,6 +3669,96 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   min-height: 22px;
 }
 .register-section.sign-in .inner .content-wrap .form-wrap .error-wrap .error-message {
+  color: var(--crimson-blaze);
+  font-size: var(--text16);
+  margin-top: 20px;
+  font-family: var(--geist-medium);
+}
+.register-section.forgot-password .inner .content-wrap {
+  justify-content: flex-end;
+}
+@media (max-width: 991px) {
+  .register-section.forgot-password .inner .content-wrap {
+    flex-direction: row;
+  }
+}
+@media (max-width: 767px) {
+  .register-section.forgot-password .inner .content-wrap {
+    flex-direction: column;
+  }
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+@media (max-width: 1279px) {
+  .register-section.forgot-password .inner .content-wrap .form-wrap {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .register-section.forgot-password .inner .content-wrap .form-wrap {
+    width: 100%;
+  }
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .logo {
+  max-width: 120px;
+  margin-bottom: 20px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .heading {
+  font-family: var(--clash-display);
+  font-size: var(--heading24);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--forest-depth);
+  margin-bottom: 40px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container {
+  max-width: 430px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap {
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--forest-depth) !important;
+  border-radius: 8px;
+  padding: 13px 20px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap input {
+  border: unset;
+  width: 100%;
+  padding: unset;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg {
+  display: block;
+  height: 21px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap a.forgot-pass {
+  font-size: var(--text14);
+  color: var(--forest-depth);
+  font-family: var(--geist-medium);
+  text-align: end;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .message {
+  color: var(--leafy-green);
+  font-size: var(--text16);
+  margin-top: 20px;
+  font-family: var(--geist-medium);
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .message a {
+  text-decoration: underline;
+  color: black;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .error-wrap {
+  display: flex;
+  justify-content: center;
+  min-height: 22px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .error-wrap .error-message {
   color: var(--crimson-blaze);
   font-size: var(--text16);
   margin-top: 20px;
