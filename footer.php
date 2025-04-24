@@ -20,11 +20,10 @@
                     <div class="link-wrapper left-links ">
                         <a href="#Home" class="each-link">Home</a>
                         <a href="#About" class="each-link">About</a>
-                        <a href="#services" class="each-link">Services</a>
-                        <a href="#products" class="each-link">Products</a>
+                        <a href="#solutions" class="each-link">Solutions</a>
+                        <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
                     </div>
                     <div class="link-wrapper right-links">
-                        <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
                         <a href="registration.php?block=select-role" class="each-link">Register</a>
                         <a href="./privacy-policy.php" class="each-link">Privacy Policy</a>
                         <a href="./terms-and-condition.php" class="each-link">Terms of Service</a>

@@ -2549,7 +2549,7 @@ section.multiple-cards-section .inner .content-wrap .filter-wrap {
     margin-bottom: 30px;
   }
 }
-@media (max-width: 575px) {
+@media (max-width: 991px) {
   section.multiple-cards-section .inner .content-wrap .filter-wrap {
     flex-direction: column;
     gap: 20px;
@@ -2581,6 +2581,7 @@ section.multiple-cards-section .inner .content-wrap .filter-wrap .input-wrap inp
 }
 section.multiple-cards-section .inner .content-wrap .filter-wrap .input-wrap input:focus-visible {
   border: none;
+  outline: none;
 }
 section.multiple-cards-section .inner .content-wrap .filter-wrap .input-wrap input::placeholder {
   color: rgba(19, 64, 39, 0.7019607843);
@@ -2613,8 +2614,24 @@ section.multiple-cards-section .inner .content-wrap .filter-wrap .dropdown-wrap 
 }
 section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap {
   width: fit-content;
+  display: flex;
+  align-items: center;
 }
-section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap button.filter {
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .checkbox-wrap {
+  margin-right: 15px;
+}
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .checkbox-wrap input[type=checkbox] {
+  accent-color: var(--soft-cream);
+}
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .checkbox-wrap input[type=checkbox]:checked {
+  accent-color: var(--leafy-green);
+}
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .checkbox-wrap label {
+  color: var(--forest-depth);
+  font-size: var(--text18);
+  font-family: var(--geist-medium);
+}
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .filter {
   background-color: transparent;
   border: 1px solid var(--forest-depth);
   padding: 12px 20px;
@@ -2625,17 +2642,27 @@ section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap bu
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap button.filter {
+  section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .filter {
     padding: 10px 16px;
   }
 }
-section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap button.filter svg {
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .filter svg {
   width: 15px;
 }
-section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap button.filter span {
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .filter span {
   color: var(--forest-depth);
   font-size: var(--text20);
   font-family: var(--geist-medium);
+}
+section.multiple-cards-section .inner .content-wrap .filter-wrap .button-wrap .filter .select-filter {
+  cursor: pointer;
+  color: var(--forest-depth);
+  font-size: var(--text18);
+  font-family: var(--geist-medium);
+  background-color: var(--soft-cream);
+  border: none;
+  outline: none;
+  padding: 2px 5px;
 }
 section.multiple-cards-section .inner .content-wrap .content {
   display: flex;
@@ -2767,11 +2794,32 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
     padding: 20px;
   }
 }
-section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .heading {
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .heading-type-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .heading-type-wrap .heading {
   font-size: var(--heading24);
   text-align: left;
-  margin-bottom: 20px;
   text-transform: capitalize;
+  margin: 0;
+}
+section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .heading-type-wrap .type {
+  height: fit-content;
+  color: var(--forest-depth);
+  font-size: var(--text18);
+  font-weight: 400;
+  border: 1px solid var(--forest-depth);
+  text-transform: capitalize;
+  border-radius: 24px;
+  padding: 4px 10px;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .heading-type-wrap .type {
+    padding: 6px 14px;
+  }
 }
 section.multiple-cards-section .inner .content-wrap .content .card .content-wrap .text {
   font-size: var(--text18);

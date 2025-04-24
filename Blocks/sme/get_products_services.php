@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-function get_user_items($type, $auth_required = false)
+function get_user_items($auth_required = false)
 {
     if ($auth_required) {
         if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'business') {
@@ -14,29 +14,32 @@ function get_user_items($type, $auth_required = false)
     }
 
 
-    switch ($type) {
-        case 'product':
-            $table = 'products';
-            break;
-        case 'service':
-            $table = 'services';
-            break;
-        default:
-            return ['error' => 'invalid_type'];
-    }
-
     global $conn;
-    $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id 
-          FROM $table";
+
+    $params = [];
+    $types = "";
+
+    $sql1 = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id 
+          FROM products";
+    $sql2 = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id 
+          FROM services";
     
     if ($auth_required) {
-        $sql .= " WHERE user_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $user_id);
-    } else {
-        $stmt = $conn->prepare($sql);
+        $sql1 .= " WHERE user_id = ?";
+        $sql2 .= " WHERE user_id = ?";
+        $params[] = $_SESSION['user_id'];
+        $params[] = $_SESSION['user_id'];
+        $types = "ii";
     }
+    $final_query = "$sql1 UNION ALL $sql2";
 
+    $stmt = $conn->prepare($final_query);
+
+    // Bind parameters if needed
+    if ($auth_required) {
+        $stmt->bind_param($types, ...$params);
+    }
+    
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -48,4 +51,3 @@ function get_user_items($type, $auth_required = false)
     $stmt->close();
     return $items;
 }
-?>

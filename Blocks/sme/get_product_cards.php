@@ -28,7 +28,7 @@ function get_items_cards($items, $type)
   ob_start();
   foreach ($items as $row) {
     ?>
-    <div class="card">
+    <div class="card" data-type="<?= htmlspecialchars($row['type']) ?>" data-price="<?= htmlspecialchars($row['price']) ?>" >
       <div class="image-wrap">
         <img src="<?= htmlspecialchars($row['image_path']) ?>" alt="background image">
         <div class="tags">
@@ -58,10 +58,15 @@ function get_items_cards($items, $type)
         </div>
       </div>
       <div class="content-wrap">
-        <h4 class="heading">
-          <?= htmlspecialchars($row['name']) ?>
-        </h4>
-        <p class="text">
+        <div class="heading-type-wrap">
+          <h4 class="heading">
+            <?= htmlspecialchars($row['name']) ?>
+          </h4>
+          <p class="text type">
+            <?= htmlspecialchars($row['type']) ?>
+          </p>
+        </div>
+        <p class="text description">
           <?= htmlspecialchars($row['description']) ?>
         </p>
         <p class="price text">

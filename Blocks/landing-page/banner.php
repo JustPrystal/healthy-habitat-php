@@ -9,8 +9,7 @@
                     <p class="explore-text">Discover wellness-focused products and services tailored for your
                         well-being. Cast your vote and help shape a healthier habitat.</p>
                     <div class="button-wrapper">
-                        <a href="#products" class="explore-btn explore-products">Explore Products</a>
-                        <a href="#services" class="explore-btn explore-services">Explore Services</a>
+                        <a href="#solutions" class="explore-btn explore-products">Explore Solutions</a>
                     </div>
                 </div>
             </div>
