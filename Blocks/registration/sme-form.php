@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 include('./Blocks/registration/is_logged_in.php');

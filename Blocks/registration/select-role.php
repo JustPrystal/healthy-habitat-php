@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include('./Blocks/registration/is_logged_in.php');
+?>
+
 <section class="registration-first-step">
     <div class="inner">
         <div class="right-role-container">
