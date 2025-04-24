@@ -30,8 +30,7 @@ session_start(); // make sure session is started
             <div class="link-wrap">
                 <a href="#Home" class="link">Home</a>
                 <a href="#About" class="link">About</a>
-                <a href="#services" class="link">Services</a>
-                <a href="#products" class="link">Products</a>
+                <a href="#solutions" class="link">Solutions</a>
             </div>
             
             <div class="button-wrap">

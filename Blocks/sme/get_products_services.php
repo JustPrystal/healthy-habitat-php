@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-function get_user_items($type, $auth_required = false)
+function get_user_items($auth_required = false)
 {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -49,7 +49,15 @@ function get_user_items($type, $auth_required = false)
         $sql .= " WHERE status = 'live' ORDER BY created_at DESC";
         $stmt = $conn->prepare($sql);
     }
+    $final_query = "$sql1 UNION ALL $sql2";
 
+    $stmt = $conn->prepare($final_query);
+
+    // Bind parameters if needed
+    if ($auth_required) {
+        $stmt->bind_param($types, ...$params);
+    }
+    
     $stmt->execute();
     $result = $stmt->get_result();
 
