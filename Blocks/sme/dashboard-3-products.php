@@ -82,30 +82,7 @@
           </div> -->
         </div>
       </div>
-      <!-- Edit Popup Modal -->
-      <div id="edit-modal" class="modal hidden">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <h3>Edit Product/Service</h3>
-          <form id="edit-form">
-            <input type="hidden" name="id" id="edit-id">
-            <input type="text" name="name" id="edit-name" placeholder="Name" required>
-            <input type="text" name="category" id="edit-category" placeholder="Category" required>
-            <input type="number" name="price" id="edit-price" placeholder="Price" required>
-            <textarea name="description" id="edit-description" placeholder="Description" required></textarea>
-            <button type="submit">Save Changes</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Simple Delete Confirmation -->
-      <div id="delete-modal" class="modal hidden">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <p>Are you sure you want to delete this item?</p>
-          <button id="confirm-delete">Yes</button>
-        </div>
-      </div>
+      
     </div>
   </div>
 
@@ -137,56 +114,5 @@
     <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
       alert('Product has been submitted for review.')
     <?php endif; ?>
-
-
-    /*Edit logic*/
-    let currentId = null;
-
-  // Show edit modal
-  $('.edit').click(function () {
-    const row = $(this).closest('.row');
-    currentId = row.data('id');
-
-    $('#edit-id').val(currentId);
-    $('#edit-name').val(row.find('.body-cell').eq(0).text().trim());
-    $('#edit-category').val(row.find('.body-cell').eq(2).text().trim());
-    $('#edit-price').val(row.find('.body-cell').eq(3).text().trim());
-    $('#edit-description').val(row.find('.body-cell').eq(4).text().trim() || '');
-
-    $('#edit-modal').addClass('show');
-  });
-
-  // Show delete modal
-  $('.delete').click(function () {
-    const row = $(this).closest('.row');
-    currentId = row.data('id');
-
-    $('#delete-modal').addClass('show');
-  });
-
-  // Close modal
-  $('.close').click(function () {
-    $('.modal').removeClass('show');
-  });
-
-  // Handle edit form submit
-  $('#edit-form').submit(function (e) {
-    e.preventDefault();
-
-    $.post('./update_item.php', $(this).serialize(), function (res) {
-      location.reload(); // refresh after edit
-    }).fail(function () {
-      alert('❌ Update failed');
-    });
-  });
-
-  // Handle delete confirm
-  $('#confirm-delete').click(function () {
-    $.post('./delete_item.php', { id: currentId }, function (res) {
-      location.reload(); // refresh after delete
-    }).fail(function () {
-      alert('❌ Delete failed');
-    });
-  }); 
   });
 </script>
