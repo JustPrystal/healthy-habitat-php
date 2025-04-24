@@ -2,42 +2,130 @@
 include('db.php');
 require_once('utils/helpers.php');
 
+// Initialize error array
+$errors = [
+    'first-name' => '',
+    'last-name' => '',
+    'email' => '',
+    'password' => '',
+    'location' => '',
+    'age-group' => '',
+    'gender' => '',
+    'areas-of-interest' => '',
+    'check' => ''
+];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $role = $_GET['user'];
+    $role = $_GET['user'];
+    $valid = true;
 
-  error_log("Asdasdasdasd");
+    // Validate each field
+    $firstName = trim($_POST['first-name'] ?? '');
+    if (empty($firstName)) {
+        $errors['first-name'] = 'First name is required';
+        $valid = false;
+    }
 
-  // 1. Get user data
-  $firstName = $_POST['first-name'] ?? '';
-  $lastName = $_POST['last-name'] ?? '';
-  $email = $_POST['email'] ?? '';
-  $password = $_POST['password'] ?? '';
+    $lastName = trim($_POST['last-name'] ?? '');
+    if (empty($lastName)) {
+        $errors['last-name'] = 'Last name is required';
+        $valid = false;
+    }
 
-  // 2. Combine names for the 'users' table
-  $fullName = trim($firstName . ' ' . $lastName);
+    $email = trim($_POST['email'] ?? '');
+    if (empty($email)) {
+        $errors['email'] = 'Email is required';
+        $valid = false;
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'Please enter a valid email address';
+        $valid = false;
+    } else {
+        // Check if email already exists in database
+        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+        
+        if ($stmt->num_rows > 0) {
+            $errors['email'] = 'This email is already registered';
+            $valid = false;
+        }
+        $stmt->close();
+    }
 
-  // 3. Get meta data
-  $meta = [
-    'location' => $_POST['location'] ?? '',
-    'age_group' => $_POST['age-group'] ?? '',
-    'gender' => $_POST['gender'] ?? '',
-    'areas_of_interest' => $_POST['areas-of-interest'] ?? ''
-  ];
+    $password = $_POST['password'] ?? '';
+    if (empty($password)) {
+        $errors['password'] = 'Password is required';
+        $valid = false;
+    } elseif (strlen($password) < 8) {
+        $errors['password'] = 'Password must be at least 8 characters';
+        $valid = false;
+    }
 
-  // 4. Create user in DB
-  $user_id = createUser($conn, $fullName, $email, $password, $role);
+    $location = $_POST['location'] ?? '';
+    if (empty($location)) {
+        $errors['location'] = 'Location is required';
+        $valid = false;
+    }
 
-  // 5. Insert meta data
-  insertUserMeta($conn, $user_id, $meta);
+    $ageGroup = $_POST['age-group'] ?? '';
+    if (empty($ageGroup)) {
+        $errors['age-group'] = 'Age group is required';
+        $valid = false;
+    }
 
-  // 6. Redirect or show success message
-  echo "<script>
-  alert('" . $role . " registered successfully!');
-  </script>";
+    $gender = $_POST['gender'] ?? '';
+    if (empty($gender)) {
+        $errors['gender'] = 'Gender is required';
+        $valid = false;
+    }
+
+    $areasOfInterest = $_POST['areas-of-interest'] ?? '';
+    if (empty($areasOfInterest)) {
+        $errors['areas-of-interest'] = 'Areas of interest are required';
+        $valid = false;
+    }
+
+    $check = $_POST['check'] ?? '';
+    if (empty($check)) {
+        $errors['check'] = 'You must agree to receive updates';
+        $valid = false;
+    }
+
+    // If all validation passed
+    if ($valid) {
+        // 1. Get user data
+        $firstName = $_POST['first-name'] ?? '';
+        $lastName = $_POST['last-name'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        // 2. Combine names for the 'users' table
+        $fullName = trim($firstName . ' ' . $lastName);
+
+        // 3. Get meta data
+        $meta = [
+            'location' => $_POST['location'] ?? '',
+            'age_group' => $_POST['age-group'] ?? '',
+            'gender' => $_POST['gender'] ?? '',
+            'areas_of_interest' => $_POST['areas-of-interest'] ?? ''
+        ];
+
+        // 4. Create user in DB
+        $user_id = createUser($conn, $fullName, $email, $password, $role);
+
+        // 5. Insert meta data
+        insertUserMeta($conn, $user_id, $meta);
+
+        // 6. Redirect or show success message
+        echo "<script>
+        alert('" . $role . " registered successfully!');
+        </script>";
+    }
 }
 ?>
 
-
+<!-- The rest of your HTML form remains the same as in the previous answer -->
 <section class="registration-step-3 register-section">
   <div class="inner">
     <div class="content-wrap">
@@ -56,67 +144,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <form method="POST" action="registration.php?block=resident-form&user=resident">
             <div class="input-wrap half">
               <label for="name">First Name </label>
-              <input type="text" id="first-name" name="first-name" required>
+              <input type="text" id="first-name" name="first-name" value="<?php echo htmlspecialchars($_POST['first-name'] ?? ''); ?>" >
+              <span class="error-message"><?php echo $errors['first-name']; ?></span>
             </div>
             <div class="input-wrap half">
               <label for="name">Last Name </label>
-              <input type="text" id="last-name" name="last-name" required>
+              <input type="text" id="last-name" name="last-name" value="<?php echo htmlspecialchars($_POST['last-name'] ?? ''); ?>" >
+              <span class="error-message"><?php echo $errors['last-name']; ?></span>
             </div>
             <div class="input-wrap half">
               <label for="location">Location</label>
-              <select name="location" id="location" required>
+              <select name="location" id="location">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['location'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['location'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
               </select>
+              <span class="error-message"><?php echo $errors['location']; ?></span>
             </div>
             <div class="input-wrap half">
               <label for="location">age group</label>
-              <select name="age-group" id="age-group" required>
+              <select name="age-group" id="age-group">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['age-group'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['age-group'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
               </select>
+              <span class="error-message"><?php echo $errors['age-group']; ?></span>
             </div>
             <div class="input-wrap half">
               <label for="gender">gender</label>
-              <select name="gender" id="gender" required>
+              <select name="gender" id="gender">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['gender'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['gender'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
               </select>
+              <span class="error-message"><?php echo $errors['gender']; ?></span>
             </div>
             <div class="input-wrap half">
               <label for="areas-of-interest">Areas of Interest</label>
-              <select name="areas-of-interest" id="areas-of-interest" required>
+              <select name="areas-of-interest" id="areas-of-interest">
                 <option value="" disabled selected></option>
-                <option value="lorem ipsum">lorem ipsum</option>
-                <option value="lorem ipsum">lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['areas-of-interest'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
+                <option value="lorem ipsum" <?php echo (($_POST['areas-of-interest'] ?? '') === 'lorem ipsum' ? 'selected' : ''); ?>>lorem ipsum</option>
               </select>
+              <span class="error-message"><?php echo $errors['areas-of-interest']; ?></span>
             </div>
 
             <div class="input-wrap">
               <label for="email">email</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+              <span class="error-message"><?php echo $errors['email']; ?></span>
             </div>
             <div class="input-wrap password">
               <label for="password">password</label>
               <div class="password-wrap">
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" >
                 <span id="togglePassword">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path fill="#134027" d="M12 9.005a4 4 0 1 1 0 8a4 4 0 0 1 0-8M12 5.5c4.613 0 8.596 3.15 9.701 7.564a.75.75 0 1 1-1.455.365a8.504 8.504 0 0 0-16.493.004a.75.75 0 0 1-1.456-.363A10 10 0 0 1 12 5.5" />
                   </svg>
                 </span>
               </div>
+              <span class="error-message"><?php echo $errors['password']; ?></span>
             </div>
             <div class="input-wrap checkbox">
-              <input type="checkbox" id="check" name="check" required>
-              <label for="check">Send me updates and offers.
-                <span class="sub-text">
-                  You can unsubscribe at any time.
-                </span>
-              </label>
+              <div class="wrap-checkbox">
+                <input type="checkbox" id="check" name="check" <?php echo isset($_POST['check']) ? 'checked' : ''; ?> >
+                <label for="check">Send me updates and offers.
+                  <span class="sub-text">
+                    You can unsubscribe at any time.
+                  </span>
+                </label>
+              </div>
+              <span class="error-message"><?php echo $errors['check']; ?></span>
             </div>
             <div class="input-wrap">
               <button type="submit">create account</button>

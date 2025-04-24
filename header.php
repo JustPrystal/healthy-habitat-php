@@ -10,6 +10,10 @@
 </head>
 <body>
 
+<?php
+session_start(); // make sure session is started
+
+?>
 
 <section class="header landing-page-header">
         <div class="inner">
@@ -29,13 +33,22 @@
                 <a href="#services" class="link">Services</a>
                 <a href="#products" class="link">Products</a>
             </div>
+            
             <div class="button-wrap">
-                <a href="registration.php?block=sign-in" class="sign-in">
-                    Sign in
-                </a>
-                <a href="registration.php?block=select-role" class="button">
-                    Register
-                </a>
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <a>
+                       <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                    </a>
+
+                    <a href="logout.php" class="button">Logout</a>
+                <?php else: ?>
+                    <a href="registration.php?block=sign-in" class="sign-in">
+                        Sign in
+                    </a>
+                    <a href="registration.php?block=select-role" class="button">
+                        Register
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
         <div class="inner-mobile">
@@ -55,7 +68,7 @@
                 </svg>
             </div>
         </div>
-    </section>
+</section>
     
 </body>
 </html>

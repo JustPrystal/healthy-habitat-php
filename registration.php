@@ -11,7 +11,9 @@ $allowedBlocks = [
     'resident-form',
     'sme-form',
     'lc-form',
-    'admin-form'
+    'admin-form',
+    'forgot-password',
+    'reset-password'
 ];
 
 if (in_array($block, $allowedBlocks)) {
