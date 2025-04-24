@@ -93,7 +93,7 @@ $all_items = get_user_items('service');
             // Get SME name by user_id (you may want to JOIN this in SQL instead)
             $sme_name = $business_map[$item['user_id']] ?? 'Unknown';
             ?>
-            <div class="row">
+            <div class="row" key="<?= htmlspecialchars($item['id']) ?>">
               <div class="body-cell large"><?= htmlspecialchars($item['name']) ?></div>
               <div class="body-cell small"><?= ucfirst($item['type']) ?></div>
               <div class="body-cell large"><?= htmlspecialchars($item['category']) ?></div>
@@ -116,6 +116,12 @@ $all_items = get_user_items('service');
                     <div class="delete">
                       <p>delete</p>
                     </div>
+                    <?php if ($item['status'] == "pending") { ?>
+                      <div class="line"></div>
+                      <div class="approve">
+                        <p>approve</p>
+                      </div>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
@@ -147,6 +153,24 @@ $all_items = get_user_items('service');
     // Close all popups when clicking outside
     $(document).on('click', function () {
       $('.actions-wrap').hide();
+    });
+
+    $('.approve').click(function (e) {
+      e.stopPropagation();
+
+      const $row = $(this).closest('.row');
+      const itemId = $row.attr('key');
+
+      $.post('./Blocks/admin/approve.php', { id: itemId, type: "service" })
+        .done(function (response) {
+          console.log(response);
+          alert("Item approved!");
+          location.reload();
+        })
+        .fail(function (xhr) {
+          console.error(xhr.responseText);
+          alert("Failed to approve item.");
+        });
     });
   });
 </script>

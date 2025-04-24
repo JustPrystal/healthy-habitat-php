@@ -7,9 +7,12 @@
                     businesses. By casting simple "Yes/No" votes, residents help promote what truly matters healthy
                     eating, mental well-being, sustainable living, and active lifestyles. Your voice helps local
                     councils and businesses make smarter decisions to support community well-being.</p>
-                <a href="registration.php?block=select-role" class="register-btn">
-                    Register
-                </a>
+                    <?php if (!isset($_SESSION['user_id'])){ ?>
+                        <a href="registration.php?block=select-role" class="register-btn">
+                            Register
+                        </a>
+                    <?php } ?>
+
             </div>
             <div class="right">
                 <div class="roles smes">

@@ -6,13 +6,21 @@ if (session_status() === PHP_SESSION_NONE) {
 
 function get_user_items($type, $auth_required = false)
 {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    global $conn;
+
+    $user_id = null;
+    $user_role = $_SESSION['user_role'] ?? null;
+
     if ($auth_required) {
-        if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'business') {
+        if (!isset($_SESSION['user_id']) || !in_array($user_role, ['business', 'admin'])) {
             return ['error' => 'unauthorized'];
         }
         $user_id = $_SESSION['user_id'];
     }
-
 
     switch ($type) {
         case 'product':
@@ -25,16 +33,20 @@ function get_user_items($type, $auth_required = false)
             return ['error' => 'invalid_type'];
     }
 
-    global $conn;
     $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes, user_id, status 
-          FROM $table";
-    
-    if ($auth_required) {
+            FROM $table";
+
+    // Conditions based on role
+    if ($user_role === 'business') {
         $sql .= " WHERE user_id = ? ORDER BY created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
-    } else {
+    } elseif ($user_role === 'admin') {
         $sql .= " ORDER BY created_at DESC";
+        $stmt = $conn->prepare($sql);
+    } else {
+        // Public view — only live items
+        $sql .= " WHERE status = 'live' ORDER BY created_at DESC";
         $stmt = $conn->prepare($sql);
     }
 
@@ -49,4 +61,5 @@ function get_user_items($type, $auth_required = false)
     $stmt->close();
     return $items;
 }
+
 ?>
