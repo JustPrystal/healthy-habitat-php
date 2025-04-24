@@ -36,11 +36,11 @@ $conn->close();
         <div class="lc-details-container">
             <div class="council-name field-value-wrap">
                 <p class="field-name">Admin Name:</p>
-                <p class="field-value">Rachel Ahmed</p>
+                <p class="field-value"><?php echo $user[0]['name']; ?></p>
             </div>
             <div class="email field-value-wrap">
                 <p class="field-name">Email:</p>
-                <p class="field-value">r.ahmed@healthyhabitat.org</p>
+                <p class="field-value"><?php echo $user[0]['email']; ?></p>
             </div>
             <div class="password field-value-wrap">
                 <p class="field-name">Password Change:</p>
