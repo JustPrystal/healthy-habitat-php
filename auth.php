@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role'])) {
     exit();
 }
 
+
 // Optional: restrict access based on role
 function require_role($requiredRole) {
     if ($_SESSION['user_role'] !== $requiredRole) {
