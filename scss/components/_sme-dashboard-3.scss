@@ -69,6 +69,19 @@
                             &.email{
                                 text-transform: lowercase;
                             }
+                            &.status{
+                                text-transform: uppercase;
+                                text-align: center;
+                                justify-content: center;
+                                padding: 4px 16px;
+                                border-radius: 45px;
+                                &.pending{
+                                    background: #fffc98;
+                                }
+                                &.live{
+                                    background: #a0fab3;
+                                }                              
+                            }
                             .circle-wrap{
                                 display: flex;
                                 justify-content: center;
@@ -99,33 +112,32 @@
                                     flex-direction: column;
                                     background-color: var(--snow-veil);
                                     border-radius: 8px;
-                                    padding: 8px 10px;
                                     box-shadow: 0 2px 8px 0 var(--light-gray);
                                     left: 15px;
                                     bottom: 12px;
                                     display: none;
+                                    overflow: hidden;
                                     z-index: 99;
                                     @include responsive(sm){
                                         padding: 6px 8px;
                                     }
-                                    .edit,.delete{
-                                        width: fit-content;
+                                    .edit,.delete, .approve{
+                                        padding: 4px 10px;
+                                        transition: 0.2s ease-in-out;
                                         p{
                                             font-size: var(--text14);
                                             text-transform: capitalize;
                                             font-family: var(--geist-medium);
                                             width: fit-content;
                                         }
-                                    
-                                    }
-                                    .edit{
-                                        padding-bottom: 4px;
-                                    }
-                                    .delete{
-                                        padding-top: 4px;
+                                        &:hover{
+                                            background-color: var(--mint-whisper);
+                                            color: var(--forest-depth);
+                                        }
                                     }
                                     .line{
                                         width: 100%;
+                                        opacity: 0.25;
                                         height: 1px;
                                         background-color: var(--forest-depth);
                                     }
