@@ -75,8 +75,23 @@
     $.get("./Blocks/admin/get_locations.php", function (data) {
       $("#location-area").html(data);
     });
-    $('.table').on('click', '.circle-wrap', function () {
-      $(this).closest('.row').find('.actions-wrap').first().toggle();
+    $('.table').on('click', '.circle-wrap', function (e) {
+      e.stopPropagation(); // Prevent bubbling to document
+
+      const $popup = $(this).closest('.row').find('.actions-wrap').first();
+
+      // If the clicked popup is already visible, hide it
+      if ($popup.is(':visible')) {
+        $popup.hide();
+      } else {
+        $('.actions-wrap').hide(); // Hide others
+        $popup.show(); // Show the current one
+      }
+    });
+
+    // Close all popups when clicking outside
+    $(document).on('click', function () {
+      $('.actions-wrap').hide();
     });
   });
 </script>
