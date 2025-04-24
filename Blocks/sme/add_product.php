@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         if ($type === 'product') {
-            header("Location: ../../sme.php?block=dashboard-3-products");
+            header("Location: ../../sme.php?block=dashboard-3-products&status=success");
         } elseif ($type === 'service') {
-            header("Location: ../../sme.php?block=dashboard-3-services");
+            header("Location: ../../sme.php?block=dashboard-3-services&status=success");
         }
         
         ?>

@@ -2,6 +2,12 @@
 include('db.php');
 require_once('utils/helpers.php');
 
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+$is_logged_in = isset($_SESSION['user_id']);
+
 // Fetch locations
 $locations = [];
 $locationSql = "SELECT id, name FROM locations";
@@ -124,95 +130,128 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
-          <form method="POST" action="registration.php?block=resident-form&user=resident">
-            <div class="input-wrap half">
-              <label for="name">First Name </label>
-              <input type="text" id="first-name" name="first-name" required>
-            </div>
-            <div class="input-wrap half">
-              <label for="name">Last Name </label>
-              <input type="text" id="last-name" name="last-name" required>
-            </div>
-            <div class="input-wrap half">
-              <label for="location">Location</label>
-              <select name="location" id="location" required>
-                <option value="" disabled selected></option>
-                <?php foreach ($locations as $location): ?>
-                  <option value="<?= htmlspecialchars($location['name']) ?>">
-                    <?= htmlspecialchars($location['name']) ?>
-                  </option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="location">age group</label>
-              <select name="age-group" id="age-group" required>
-              <option value="under-18">Under 18</option>
-              <option value="18-24">18 - 24</option>
-              <option value="25-34">25 - 34</option>
-              <option value="35-44">35 - 44</option>
-              <option value="45-54">45 - 54</option>
-              <option value="55-64">55 - 64</option>
-              <option value="65-plus">65+</option>
-              <option value="not-given">Prefer not to say</option>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="gender">gender</label>
-              <select name="gender" id="gender" required>
-                <option value="" disabled selected></option>
-                <option value="male">Male</option>
-                <option value="female">female</option>
-                <option value="not-given">Prefer not to say</option>
-              </select>
-            </div>
-            <div class="input-wrap half">
-              <label for="areas-of-interest">Areas of Interest</label>
-              <select name="areas-of-interest" id="areas-of-interest" required>
-                <option value="" disabled selected></option>
-                <?php foreach ($categories as $category): ?>
-                  <option value="<?= htmlspecialchars($category['category']) ?>">
-                    <?= htmlspecialchars($category['category']) ?>
-                  </option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-
-            <div class="input-wrap">
-              <label for="email">email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="input-wrap password">
-              <label for="password">password</label>
-              <div class="password-wrap">
-                <input type="password" id="password" name="password" required>
-                <span id="togglePassword">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="#134027" d="M12 9.005a4 4 0 1 1 0 8a4 4 0 0 1 0-8M12 5.5c4.613 0 8.596 3.15 9.701 7.564a.75.75 0 1 1-1.455.365a8.504 8.504 0 0 0-16.493.004a.75.75 0 0 1-1.456-.363A10 10 0 0 1 12 5.5" />
-                  </svg>
-                </span>
+          <?php if (!$is_logged_in): ?>
+            <form method="POST" action="registration.php?block=resident-form&user=resident">
+              <div class="input-wrap half">
+                <label for="name">First Name </label>
+                <input type="text" id="first-name" name="first-name" required>
               </div>
+              <div class="input-wrap half">
+                <label for="name">Last Name </label>
+                <input type="text" id="last-name" name="last-name" required>
+              </div>
+              <div class="input-wrap half">
+                <label for="location">Location</label>
+                <select name="location" id="location" required>
+                  <option value="" disabled selected></option>
+                  <?php foreach ($locations as $location): ?>
+                    <option value="<?= htmlspecialchars($location['name']) ?>">
+                      <?= htmlspecialchars($location['name']) ?>
+                    </option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="input-wrap half">
+                <label for="location">age group</label>
+                <select name="age-group" id="age-group" required>
+                <option value="under-18">Under 18</option>
+                <option value="18-24">18 - 24</option>
+                <option value="25-34">25 - 34</option>
+                <option value="35-44">35 - 44</option>
+                <option value="45-54">45 - 54</option>
+                <option value="55-64">55 - 64</option>
+                <option value="65-plus">65+</option>
+                <option value="not-given">Prefer not to say</option>
+                </select>
+              </div>
+              <div class="input-wrap half">
+                <label for="gender">gender</label>
+                <select name="gender" id="gender" required>
+                  <option value="" disabled selected></option>
+                  <option value="male">Male</option>
+                  <option value="female">female</option>
+                  <option value="not-given">Prefer not to say</option>
+                </select>
+              </div>
+              <div class="input-wrap half">
+                <label for="areas-of-interest">Areas of Interest</label>
+                <select name="areas-of-interest" id="areas-of-interest" required>
+                  <option value="" disabled selected></option>
+                  <?php foreach ($categories as $category): ?>
+                    <option value="<?= htmlspecialchars($category['category']) ?>">
+                      <?= htmlspecialchars($category['category']) ?>
+                    </option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+
+              <div class="input-wrap">
+                <label for="email">email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="input-wrap password">
+                <label for="password">password</label>
+                <div class="password-wrap">
+                  <input type="password" id="password" name="password" required>
+                  <span id="togglePassword">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="#134027" d="M12 9.005a4 4 0 1 1 0 8a4 4 0 0 1 0-8M12 5.5c4.613 0 8.596 3.15 9.701 7.564a.75.75 0 1 1-1.455.365a8.504 8.504 0 0 0-16.493.004a.75.75 0 0 1-1.456-.363A10 10 0 0 1 12 5.5" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="input-wrap checkbox">
+                <input type="checkbox" id="check" name="check" required>
+                <label for="check">Send me updates and offers.
+                  <span class="sub-text">
+                    You can unsubscribe at any time.
+                  </span>
+                </label>
+              </div>
+              <div class="input-wrap">
+                <button type="submit">create account</button>
+              </div>
+              <div class="text-wrap">
+                <span>Already have an account?</span>
+                <a href="registration.php?block=sign-in">Sign in here</a>
+              </div>
+              <div class="t-and-c-wrap">
+                <span>By continuing, you confirm that you agree to our Privacy Policy and <a href="#">Terms of
+                    Service.</a></span>
+              </div>
+            </form>
+          <?php else: ?>
+            <!-- 🔒 Show this message if logged in -->
+            <div class="already-logged-in">
+              <p>You are already logged in.</p>
+
+              <a href="./logout.php" class="log-out">Log out</a>
+              <?php 
+                $dashboard_url = '#'; // Default/fallback
+                if (isset($_SESSION['user_role'])) {
+                  switch ($_SESSION['user_role']) {
+                    case 'council':
+                      $dashboard_url = 'lc.php';
+                      break;
+                    case 'business':
+                      $dashboard_url = 'sme.php';
+                      break;
+                    case 'admin':
+                      $dashboard_url = 'admin.php';
+                      break;
+                    case 'resident':
+                      $dashboard_url = 'index.php';
+                      break;
+                  }
+                }
+              ?>
+              <a href="<?= $dashboard_url ?>" class="redirect"><?php if ($_SESSION['user_role'] === 'resident') {
+                  echo 'Go to Site.';
+                } else {
+                  echo 'Go to dashboard';
+                }?></a>
             </div>
-            <div class="input-wrap checkbox">
-              <input type="checkbox" id="check" name="check" required>
-              <label for="check">Send me updates and offers.
-                <span class="sub-text">
-                  You can unsubscribe at any time.
-                </span>
-              </label>
-            </div>
-            <div class="input-wrap">
-              <button type="submit">create account</button>
-            </div>
-            <div class="text-wrap">
-              <span>Already have an account?</span>
-              <a href="registration.php?block=sign-in">Sign in here</a>
-            </div>
-            <div class="t-and-c-wrap">
-              <span>By continuing, you confirm that you agree to our Privacy Policy and <a href="#">Terms of
-                  Service.</a></span>
-            </div>
-          </form>
+          <?php endif; ?>
         </div>
       </div>
     </div>

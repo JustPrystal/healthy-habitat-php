@@ -56,14 +56,6 @@ if (!$conn->query($sql_meta)) {
 }
 echo "✅ Table 'user_meta' is ready for action!<br>";
 
-
-
-$drop_product_sql = "DROP TABLE IF EXISTS products";
-if (!$conn->query($drop_product_sql)) {
-    die("❌ Failed to drop 'products' table: " . $conn->error);
-}
-echo "🗑️ Table 'products' dropped.<br>"; 
-
 // Product table
 $product_sql = "CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -85,13 +77,6 @@ if (!$conn->query($product_sql)) {
     die("Products table creation failed: " . $conn->error);
 }
 echo "✅ Table 'products' created!<br>";
-
-
-$drop_services_sql = "DROP TABLE IF EXISTS products";
-if (!$conn->query($drop_product_sql)) {
-    die("❌ Failed to drop 'products' table: " . $conn->error);
-}
-echo "🗑️ Table 'products' dropped.<br>"; 
 
 // Services table
 $service_sql = "CREATE TABLE IF NOT EXISTS services (

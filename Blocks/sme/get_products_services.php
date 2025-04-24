@@ -1,6 +1,8 @@
 <?php
-require_once '../../db.php';
-session_start();
+require_once __DIR__ . '/../../db.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 function get_user_items($type, $auth_required = false)
 {
@@ -24,7 +26,7 @@ function get_user_items($type, $auth_required = false)
     }
 
     global $conn;
-    $sql = "SELECT id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes 
+    $sql = "SELECT id, user_id, name, type, category, price, description, benefits, image_path, created_at, upvotes, downvotes 
           FROM $table";
     
     if ($auth_required) {

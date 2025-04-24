@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("issss", $user_id, $name, $postal_code, $region, $description);
 
     if ($stmt->execute()) {
-        header("Location: ../../lc.php?block=lc-dashboard-3");
+        header("Location: ../../lc.php?block=lc-dashboard-3&status=success");
     } else {
         echo "❌ Error: " . $stmt->error;
     }

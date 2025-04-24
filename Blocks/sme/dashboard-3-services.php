@@ -86,7 +86,6 @@
   </div>
 
 </div>
-
 <script>
   $(document).ready(function () {
     $.get("./Blocks/sme /get_product_list.php?type=service&auth_required=true", function (data) {
@@ -95,5 +94,8 @@
     $('.table').on('click', '.circle-wrap', function () {
       $(this).closest('.row').find('.actions-wrap').first().toggle();
     });
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+      alert('Service has been submitted for review.')
+    <?php endif; ?>
   });
 </script>

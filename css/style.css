@@ -3172,6 +3172,9 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   padding: 40px 60px;
   background-color: var(--mint-whisper);
   border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 1279px) {
   .register-section .inner .content-wrap .form-wrap {
@@ -3409,6 +3412,29 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section .inner .content-wrap .form-wrap form .t-and-c-wrap {
   padding: 15px 15px 0;
   border-top: 1px solid var(--forest-depth);
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in p, .register-section .inner .content-wrap .form-wrap .already-logged-in a {
+  font-size: var(--text20);
+  font-family: var(--geist-medium);
+  line-height: 100%;
+  text-align: center;
+  width: fit-content;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in p {
+  color: blac;
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in a {
+  color: var(--crimson-blaze);
+}
+.register-section .inner .content-wrap .form-wrap .already-logged-in a.redirect {
+  color: var(--leafy-green);
 }
 
 .together-for-healtheir-tomorrow {

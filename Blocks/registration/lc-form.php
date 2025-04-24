@@ -2,6 +2,14 @@
 include('db.php');
 require_once('utils/helpers.php');
 
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+$is_logged_in = isset($_SESSION['user_id']);
+
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $role = $_GET['user'];
 
@@ -99,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-wrap">
         <div class="form-container">
+        <?php if (!$is_logged_in): ?>
           <form method="POST" action="registration.php?block=lc-form&user=council">
             <div class="input-wrap">
               <label for="council-name">Council Name </label>
@@ -159,7 +168,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   Service.</a></span>
             </div>
           </form>
+          <?php else: ?>
+            <!-- 🔒 Show this message if logged in -->
+            <div class="already-logged-in">
+              <p>You are already logged in.</p>
 
+              <a href="./logout.php" class="log-out">Log out</a>
+              <?php 
+                $dashboard_url = '#'; // Default/fallback
+                if (isset($_SESSION['user_role'])) {
+                  switch ($_SESSION['user_role']) {
+                    case 'council':
+                      $dashboard_url = 'lc.php';
+                      break;
+                    case 'business':
+                      $dashboard_url = 'sme.php';
+                      break;
+                    case 'admin':
+                      $dashboard_url = 'admin.php';
+                      break;
+                    case 'resident':
+                      $dashboard_url = 'index.php';
+                      break;
+                  }
+                }
+              ?>
+              <a href="<?= $dashboard_url ?>" class="redirect"><?php if ($_SESSION['user_role'] === 'resident') {
+                  echo 'Go to Site.';
+                } else {
+                  echo 'Go to dashboard';
+                }?></a>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>

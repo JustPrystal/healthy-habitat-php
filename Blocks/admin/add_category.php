@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("iss", $user_id, $type, $category);
 
     if ($stmt->execute()) {
-        echo "✅ Category added successfully!";
+        header("Location: ../../admin.php?block=admin-dashboard-3&status=success");
     } else {
         echo "❌ Error: " . $stmt->error;
     }

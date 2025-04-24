@@ -81,5 +81,8 @@
     $('.table').on('click', '.circle-wrap', function () {
       $(this).closest('.row').find('.actions-wrap').first().toggle();
     });
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+      alert('Area has been added.')
+    <?php endif; ?>
   });
 </script>
