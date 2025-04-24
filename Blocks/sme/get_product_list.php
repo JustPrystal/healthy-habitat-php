@@ -40,7 +40,7 @@ function get_items_rows($items)
         <?= htmlspecialchars($row['price']) ?>
       </div>
       <div class="body-cell small">
-        <?= htmlspecialchars($row['upvotes'] - $row['downvotes']) ?>
+        <?= htmlspecialchars($row['upvotes'] + $row['downvotes']) ?>
       </div>
       <div class="body-cell small">
         <?= htmlspecialchars($row['upvotes']) ?>

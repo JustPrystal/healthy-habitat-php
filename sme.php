@@ -25,4 +25,6 @@ if (in_array($block, $allowedBlocks)) {
 } else {
     echo "<p>Block not found or not allowed.</p>";
 }
+
+include './Blocks/logout-modal.php'; 
 ?>
