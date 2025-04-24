@@ -2,6 +2,7 @@
 include('db.php');
 require_once('utils/helpers.php');
 
+require_once("./helpers.php");
 // Fetch locations
 $locations = [];
 $locationSql = "SELECT id, name FROM locations";
@@ -140,8 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         insertUserMeta($conn, $user_id, $meta);
 
         // 6. Redirect or show success message
-        echo "<script>
-        alert('" . $role . " registered successfully!');
+        echo "
+        <script>alert('" . $role . " registered successfully!');
+          window.location.href = '" . get_project_root_url() . "registration.php?block=sign-in';
         </script>";
     }
 }

@@ -2,6 +2,8 @@
 include('db.php');
 require_once('utils/helpers.php');
 
+require_once("./helpers.php");
+
 // Initialize errors
 $errors = [
     'council-name' => '',
@@ -107,7 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = createUser($conn, $councilName, $email, $password, $role);
         insertUserMeta($conn, $user_id, $meta);
 
-        echo "<script>alert('" . $role . " registered successfully!');</script>";
+        echo "
+        <script>alert('" . $role . " registered successfully!');
+          window.location.href = '" . get_project_root_url() . "registration.php?block=sign-in';
+        </script>";
     }
 }
 ?>

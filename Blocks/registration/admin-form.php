@@ -71,8 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // insertUserMeta($conn, $user_id, $meta);
 
         // 4. Redirect or show success message
-        echo "<script>
-        alert('" . $role . " registered successfully!');
+        echo "
+        <script>alert('" . $role . " registered successfully!');
+          window.location.href = '" . get_project_root_url() . "registration.php?block=sign-in';
         </script>";
     }
 }
