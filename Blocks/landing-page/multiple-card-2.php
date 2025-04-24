@@ -21,7 +21,7 @@
                 </div>
                 <div class="button-wrap">
                     <div class="checkbox-wrap">
-                        <input id="price-check" name="price-range" type="checkbox" value="price" >
+                        <input id="price-check" name="price-range" type="checkbox" value="price">
                         <label for="price-range">Under £200</label>
                     </div>
                     <div class="filter" id="product-filter">
@@ -29,8 +29,8 @@
                             <path d="M1.5 1H16.5M4 6H14M7 11H11" stroke="#134027" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <select name="filter-type" class="select-filter" id="type-filter" >
-                            <option value="all" selected >Filters</option>
+                        <select name="filter-type" class="select-filter" id="type-filter">
+                            <option value="all" selected>Filters</option>
                             <option value="product">Products</option>
                             <option value="service">Services</option>
                         </select>
@@ -64,16 +64,7 @@
             });
         }
 
-        $.get("./Blocks/sme /get_product_cards.php?type=product", function (data) {
-            $("#product-card-grid").html(data);
-
-            filterCards(); // run filters after load
-
-            // Trigger on filter change
-            select.addEventListener('change', filterCards);
-            priceCheck.addEventListener('change', filterCards);
-
-            // Once cards are loaded, enable filtering
+        function setupSearchFilter() {
             $('#catgories').on('input', function () {
                 const search = $(this).val().toLowerCase();
 
@@ -87,6 +78,22 @@
                     $(this).toggle(match);
                 });
             });
+        }
+
+        // Load products and services
+        $.get("./Blocks/sme/get_product_cards.php?type=product", function (productData) {
+            $("#product-card-grid").html(productData); // Load products first
+
+            $.get("./Blocks/sme/get_product_cards.php?type=service", function (serviceData) {
+                $("#product-card-grid").append(serviceData); // Append services after
+
+                filterCards(); // Apply filters
+                setupSearchFilter(); // Activate search
+            });
         });
+
+        select.addEventListener('change', filterCards);
+        priceCheck.addEventListener('change', filterCards);
     });
+
 </script>
