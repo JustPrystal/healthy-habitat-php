@@ -33,6 +33,9 @@ require_once './db.php';
             <span>Upload high quality images to present your product/service.</span>
           </label>
           <input type="file" id="certificate_img" name="certificate_img" accept="image/*" required>
+          <div id="certificateImage" style="margin-top: 15px; display: none;">
+            <img id="certificatePreview" src="#" alt="Preview" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; border-radius: 4px;"/>
+          </div>
         </div>
 
         <div class="input-wrap">
@@ -43,3 +46,23 @@ require_once './db.php';
   </div>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // For Certificate Image Preview
+    document.getElementById('certificate_img').addEventListener('change', function (e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+          const preview = document.getElementById('certificatePreview');
+          preview.src = event.target.result;
+          document.getElementById('certificateImage').style.display = 'block';
+        }
+
+        reader.readAsDataURL(file);
+      }
+    })
+  })
+</script>
