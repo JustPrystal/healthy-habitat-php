@@ -844,7 +844,7 @@ body.noscroll {
   }
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   overflow: hidden;
   background-color: var(--snow-veil);
 }
