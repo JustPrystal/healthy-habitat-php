@@ -79,6 +79,17 @@
 
 body {
   background-color: var(--soft-cream);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.0666666667) rgba(0, 0, 0, 0.0666666667);
+}
+body::-webkit-scrollbar {
+  width: 2px;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: black;
 }
 body a {
   text-decoration: none;
@@ -1002,6 +1013,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-small {
   width: 10px;
+  overflow: auto;
 }
 @media (max-width: 1279px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-small {
@@ -1015,6 +1027,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.small {
   width: 85px;
+  overflow: auto;
 }
 @media (max-width: 767px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.small {
@@ -1023,6 +1036,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.medium {
   width: 105px;
+  overflow: auto;
 }
 @media (max-width: 767px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.medium {
@@ -1031,6 +1045,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.large {
   width: 175px;
+  overflow: auto;
 }
 @media (max-width: 1499px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.large {
@@ -1044,6 +1059,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-large {
   width: 190px;
+  overflow: auto;
 }
 @media (max-width: 1499px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-large {
