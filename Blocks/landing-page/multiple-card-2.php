@@ -21,7 +21,7 @@
                 </div>
                 <div class="button-wrap">
                     <div class="checkbox-wrap">
-                        <input id="price-check" name="price-range" type="checkbox" value="price" >
+                        <input id="price-check" name="price-range" type="checkbox" value="price">
                         <label for="price-range">Under £200</label>
                     </div>
                     <div class="filter" id="product-filter">
@@ -29,8 +29,8 @@
                             <path d="M1.5 1H16.5M4 6H14M7 11H11" stroke="#134027" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <select name="filter-type" class="select-filter" id="type-filter" >
-                            <option value="all" selected >Filters</option>
+                        <select name="filter-type" class="select-filter" id="type-filter">
+                            <option value="all" selected>Filters</option>
                             <option value="product">Products</option>
                             <option value="service">Services</option>
                         </select>
@@ -48,45 +48,55 @@
     document.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('type-filter');
         const priceCheck = document.getElementById('price-check');
+        const searchInput = document.getElementById('catgories');
 
-        function filterCards() {
+        function applyFilters() {
             const selectedType = select.value;
             const priceChecked = priceCheck.checked;
+            const search = searchInput.value.toLowerCase();
+
             const cards = document.querySelectorAll('.card');
 
             cards.forEach(card => {
                 const type = card.dataset.type;
                 const price = parseFloat(card.dataset.price);
+                const title = card.querySelector('.heading')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('.description')?.textContent.toLowerCase() || '';
+                const category = card.querySelector('.category')?.textContent.toLowerCase() || '';
+                const offerBy = card.querySelector('.creator-name')?.textContent.toLowerCase() || '';
+
                 const matchesType = selectedType === 'all' || selectedType === type;
                 const matchesPrice = !priceChecked || price <= 200;
+                const matchesSearch =
+                    title.includes(search) ||
+                    description.includes(search) ||
+                    category.includes(search) ||
+                    offerBy.includes(search);
 
-                card.style.display = (matchesType && matchesPrice) ? 'flex' : 'none';
+                const shouldShow = matchesType && matchesPrice && matchesSearch;
+
+                card.style.display = shouldShow ? 'flex' : 'none';
             });
         }
 
-        $.get("./Blocks/sme /get_product_cards.php?type=product", function (data) {
-            $("#product-card-grid").html(data);
+        // Load product cards first
+        $.get("./Blocks/sme/get_product_cards.php?type=product", function (productData) {
+            $("#product-card-grid").html(productData);
 
-            filterCards(); // run filters after load
+            // Then load service cards
+            $.get("./Blocks/sme/get_product_cards.php?type=service", function (serviceData) {
+                $("#product-card-grid").append(serviceData);
 
-            // Trigger on filter change
-            select.addEventListener('change', filterCards);
-            priceCheck.addEventListener('change', filterCards);
+                // Apply filters once both types are loaded
+                applyFilters();
 
-            // Once cards are loaded, enable filtering
-            $('#catgories').on('input', function () {
-                const search = $(this).val().toLowerCase();
-
-                $('#product-card-grid .card').each(function () {
-                    const title = $(this).find('.heading').text().toLowerCase();
-                    const description = $(this).find('.description').text().toLowerCase();
-                    const category = $(this).find('.category').text().toLowerCase();
-
-                    const match = title.includes(search) || description.includes(search) || category.includes(search);
-
-                    $(this).toggle(match);
-                });
+                // Attach events
+                select.addEventListener('change', applyFilters);
+                priceCheck.addEventListener('change', applyFilters);
+                searchInput.addEventListener('input', applyFilters);
             });
         });
     });
+
+
 </script>

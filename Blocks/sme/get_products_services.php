@@ -12,14 +12,13 @@ function get_user_items($type, $auth_required = false)
 
     global $conn;
 
-    $user_id = null;
     $user_role = $_SESSION['user_role'] ?? null;
+    $user_id = $_SESSION['user_id'] ?? null;
 
     if ($auth_required) {
         if (!isset($_SESSION['user_id']) || !in_array($user_role, ['business', 'admin'])) {
             return ['error' => 'unauthorized'];
         }
-        $user_id = $_SESSION['user_id'];
     }
 
     switch ($type) {
