@@ -5,6 +5,19 @@
 }
 body{
     background-color: var(--soft-cream);
+    scrollbar-width: thin;
+    scrollbar-color: #00000011 #00000011; 
+
+    &::-webkit-scrollbar {
+        width: 2px; 
+    }
+    &::-webkit-scrollbar-track {
+        background: black;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: black;
+    }
+
     a{
         text-decoration: none;
         color: inherit;

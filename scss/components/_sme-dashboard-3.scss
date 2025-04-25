@@ -182,6 +182,7 @@
                             }
                             &.extra-small{
                                 width: 10px;
+                                overflow: auto;
                                 @include responsive(lg){
                                     width: 8px;
                                 }
@@ -191,18 +192,21 @@
                             }
                             &.small{
                                 width: 85px;
+                                overflow: auto;
                                 @include responsive(sm){
                                     width: 70px;
                                 }
                             }
                             &.medium{
-                                width: 105px;    
+                                width: 105px;
+                                overflow: auto;
                                 @include responsive(sm){
                                     width: 80px;
                                 }
                             }
                             &.large{
                                 width: 175px;
+                                overflow: auto;
                                 @include responsive(xl){
                                     width: 150px;
                                 }
@@ -212,6 +216,7 @@
                             }
                             &.extra-large{
                                 width: 190px;
+                                overflow: auto;
                                 @include responsive(xl){
                                     width: 170px;
                                 }
