@@ -226,7 +226,7 @@ body.noscroll {
   display: flex;
   align-items: center;
 }
-.sidenav ul.nav li.has-sublinks a .dropdown-icon-user {
+.sidenav ul.nav li.has-sublinks a .dropdown-icon-user, .sidenav ul.nav li.has-sublinks a .dropdown-icon-listing, .sidenav ul.nav li.has-sublinks a .dropdown-icon-product {
   margin-left: auto;
   transition: 0.5s ease;
 }

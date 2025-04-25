@@ -81,7 +81,8 @@
                 a{
                     display: flex;
                     align-items: center;
-                    .dropdown-icon-user{    
+                    .dropdown-icon-user,.dropdown-icon-listing,.dropdown-icon-product{   
+                         
                         margin-left: auto;     
                         transition: 0.5s ease;
                     }
