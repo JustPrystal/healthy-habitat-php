@@ -46,7 +46,7 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
                         Add New Product/Service
                     </a>
                 </li>
-                <li class="has-sublinks">
+                <li class="has-sublinks listing-drop">
                     <a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
                             viewBox="0 0 20 16" fill="none">
@@ -56,7 +56,7 @@ $current_block = $_GET['block'] ?? 'dashboard-1';
                         </svg>
                         My Listings
 
-                        <svg class="dropdown-icon" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="dropdown-icon-listing" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.3953 6.7002L6.69767 1.3002L1 6.7002" stroke="#134027" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
 
