@@ -118,6 +118,15 @@
             </div> -->
           </div>
         </div>
+
+        <!-- Simple Delete Confirmation -->
+        <div id="delete-modal" class="modal hidden">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Are you sure you want to delete this item?</p>
+            <button id="confirm-delete">Yes, Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -126,6 +135,12 @@
 </div>
 
 <script>
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'exists'): ?>
+        alert("⚠️ Category already exists!");
+    <?php endif; ?>
+    <?php if (isset($_GET['deleted']) && $_GET['deleted'] === 'true'): ?>
+        alert("Category has been deleted!");
+    <?php endif; ?>
     $.get("./Blocks/admin/get_categories.php?type=product", function (data) {
      $("#product-categories-body").html(data);
     });
@@ -157,4 +172,29 @@
     <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
       alert('Category has been added.')
     <?php endif; ?>
+
+    /*Edit table logic*/
+    let currentId = null;
+    $('#product-categories-body, #service-categories-body').on('click', '.delete', function () {
+      const row = $(this).closest('.row');
+      currentId = row.data('id');
+      $('#delete-modal').addClass('show');
+    });
+
+    $(document).on('click', '.close', function () {
+      $('.modal').removeClass('show');
+    });
+    $('#confirm-delete').click(function () {
+      const tableName = 'categories'; 
+      $.post('./Blocks/sme/delete_item.php', {
+        id: currentId,
+        table: tableName
+      }, function (res) {
+        const baseUrl = window.location.origin + window.location.pathname;
+        window.location.href = `${baseUrl}?block=admin-dashboard-3&deleted=true`;
+      }).fail(function () {
+        alert('❌ Delete failed');
+      });
+    });
+    /*Edit table logic End*/
 </script>

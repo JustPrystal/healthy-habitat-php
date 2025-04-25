@@ -63,9 +63,23 @@ function get_items_rows($items)
           </div>
         </div>
       </div>
+      <div class="body-cell small hidden">
+        <?= htmlspecialchars($row['description']) ?>
+      </div>
+      <div class="body-cell small hidden">
+        <?= htmlspecialchars($row['benefits']) ?>
+      </div>
     </div>
     <?php
   }
+  ?>
+    
+    <script>
+        $('#products-body').on('click', '.circle-wrap .actions-wrap .edit', function () {
+          console.log('hello');
+        });
+    </script>
+  <?php
   return ob_get_clean();
 }
 ?>

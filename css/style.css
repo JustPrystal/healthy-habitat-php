@@ -875,6 +875,9 @@ body.noscroll {
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.email {
   text-transform: lowercase;
 }
+.dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.hidden {
+  display: none;
+}
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap {
   display: flex;
   justify-content: center;
@@ -924,6 +927,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap .actions-wrap .edit, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap .actions-wrap .delete {
   width: fit-content;
+  cursor: pointer;
 }
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap .actions-wrap .edit p, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap .actions-wrap .delete p {
   font-size: var(--text14);
@@ -1038,6 +1042,100 @@ body.noscroll {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-large {
     width: 150px;
   }
+}
+.dashboard-content.my-listings .inner .table-wrap .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text20);
+  font-family: var(--geist-medium);
+  padding: 10px;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal.show {
+  display: flex;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal .modal-content {
+  background: white;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal .modal-content .close {
+  float: right;
+  cursor: pointer;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-width: 400px;
+}
+@media (max-width: 1279px) {
+  .dashboard-content.my-listings .inner .table-wrap .modal form {
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .dashboard-content.my-listings .inner .table-wrap .modal form {
+    min-width: unset;
+  }
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form input, .dashboard-content.my-listings .inner .table-wrap .modal form textarea, .dashboard-content.my-listings .inner .table-wrap .modal form select {
+  font-family: var(--geist-medium);
+  font-size: var(--text16);
+  line-height: 100%;
+  padding: 13px 20px;
+  border: 1px solid var(--forest-depth);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--forest-depth);
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form select {
+  text-transform: capitalize;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form select option {
+  font-size: var(--text16);
+  color: var(--geist-medium);
+  padding: 10px 25px;
+  color: var(--forest-depth);
+  background-color: var(--snow-veil);
+  text-transform: capitalize;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form select option:disabled, .dashboard-content.my-listings .inner .table-wrap .modal form select option:hover {
+  background-color: var(--mint-whisper);
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form select option:checked {
+  background-color: var(--forest-depth);
+  color: var(--soft-cream);
+}
+.dashboard-content.my-listings .inner .table-wrap .modal button {
+  font-size: var(--text20);
+  font-family: var(--geist-medium);
+  width: fit-content;
+  padding: 12px 40px;
+  border-radius: 32px;
+  background-color: var(--forest-depth);
+  color: var(--snow-veil);
+  text-transform: capitalize;
+  border: none;
+  cursor: pointer;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal p {
+  margin-bottom: 20px;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal .heading {
+  margin-bottom: 40px;
 }
 
 .dashboard-content.votes-and-interest .inner .content-main-heading {

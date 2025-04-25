@@ -52,7 +52,7 @@ function get_category_rows($categories) {
   $i = 1;
   foreach ($categories as $cat) {
     ?>
-    <div class="row">
+    <div class="row" data-id="<?= $cat['id'] ?>">
       <div class="body-cell small"><?= $i++ ?></div>
       <div class="body-cell extra-large"><?= htmlspecialchars($cat['category']) ?></div>
       <div class="body-cell extra-small">
@@ -61,8 +61,6 @@ function get_category_rows($categories) {
           <div class="circle"></div>
           <div class="circle"></div>
           <div class="actions-wrap">
-            <div class="edit"><p>edit</p></div>
-            <div class="line"></div>
             <div class="delete"><p>delete</p></div>
           </div>
         </div>
