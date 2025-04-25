@@ -18,11 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $postal_code = $_POST['postal-code'];
     $region = $_POST['region'];
+    $type = $_POST['type'];
     $description = $_POST['description']; 
 
-    $sql = "UPDATE locations SET name = ?, postal_code = ?, region = ?, description = ? WHERE id = ? AND user_id = ?";
+    $sql = "UPDATE locations SET name = ?, postal_code = ?, region = ?, location_type = ?, description = ? WHERE id = ? AND user_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssii", $name, $postal_code, $region, $description, $id, $_SESSION['user_id']);
+    $stmt->bind_param("sssssii", $name, $postal_code, $region, $type, $description, $id, $_SESSION['user_id']);
 
     if ($stmt->execute()) {
         echo "✅ Updated successfully";
