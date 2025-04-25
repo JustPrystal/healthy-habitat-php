@@ -26,9 +26,6 @@
             <div class="header-cell large">
               Interests
             </div>
-            <div class="header-cell xs">
-
-            </div>
           </div>
         </div>
         <div class="body" id="residents" >

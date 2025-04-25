@@ -25,6 +25,13 @@
             <option value="cheshire">Cheshire</option>
           </select>
         </div>
+        <div class="input-wrap location-type">
+          <label for="location-type">Type</label>
+          <select name="location-type" id="location-type" required>
+            <option value="urban">Urban</option>
+            <option value="rural">Rural</option>
+          </select>
+        </div>
         <div class="input-wrap">
           <label for="description">Brief Description</label>
           <textarea name="description" id="description" placeholder='"Suburban neighborhood focused on sustainable housing"'></textarea>

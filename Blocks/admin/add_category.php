@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $check->store_result();
 
     if ($check->num_rows > 0) {
-        echo "⚠️ Category already exists!";
+        header("Location: ../../admin.php?block=admin-dashboard-3&status=exists");
         $check->close();
         $conn->close();
         exit;

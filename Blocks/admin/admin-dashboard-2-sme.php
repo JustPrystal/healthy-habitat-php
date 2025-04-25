@@ -29,9 +29,6 @@
             <div class="header-cell small">
               No Votes
             </div>
-            <div class="header-cell xs">
-
-            </div>
           </div>
         </div>
         <div class="body">

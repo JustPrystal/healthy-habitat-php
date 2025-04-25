@@ -17,9 +17,6 @@
             <div class="header-cell large">
               region
             </div>
-            <div class="header-cell large">
-              Population Estimate
-            </div>
             <div class="header-cell extra-large">
               Assigned Council
             </div>

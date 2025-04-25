@@ -9,7 +9,16 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Fetch all locations (no user filter)
-$sql = "SELECT name, region FROM locations";
+$sql = "
+    SELECT 
+        l.id, 
+        l.name, 
+        l.region, 
+        l.location_type,
+        u.name AS user_name
+    FROM locations l
+    LEFT JOIN users u ON u.id = l.user_id
+";
 $result = $conn->query($sql);
 
 $locations = [];
@@ -32,10 +41,9 @@ function get_location_rows($locations)
 ?>
         <div class="row">
             <div class="body-cell medium"><?= htmlspecialchars($row['name']) ?></div>
-            <div class="body-cell small">urban</div>
+            <div class="body-cell small"><?= htmlspecialchars($row['location_type']) ?></div>
             <div class="body-cell large"><?= htmlspecialchars($row['region']) ?></div>
-            <div class="body-cell large">12,400</div>
-            <div class="body-cell extra-large">Camden Borough Council</div>
+            <div class="body-cell extra-large"><?= htmlspecialchars($row['user_name'] ?? 'Unknown') ?></div>
             <div class="body-cell extra-small">
                 <div class="circle-wrap">
                     <div class="circle"></div>

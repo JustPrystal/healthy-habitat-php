@@ -46,7 +46,7 @@
                             width: 100%;
                         }
                     }
-                    &.type{
+                    &.type, &.location-type{
                         width: calc(50% - 12.5px);
                         @include responsive(lg){
                             width: calc(50% - 10px);
