@@ -85,7 +85,7 @@ function get_items_cards($items, $type)
         </div>
         <div class="offer-wrap">
           <p class="offer text">
-            Offered by: <?= getBusinessUserById($row['user_id'])['name'] ?>
+            Offered by: <span class="creator-name"><?= getBusinessUserById($row['user_id'])['name'] ?></span>
           </p>
         </div>
       </div>

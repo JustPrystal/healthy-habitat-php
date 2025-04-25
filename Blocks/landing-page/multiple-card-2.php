@@ -48,52 +48,55 @@
     document.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('type-filter');
         const priceCheck = document.getElementById('price-check');
+        const searchInput = document.getElementById('catgories');
 
-        function filterCards() {
+        function applyFilters() {
             const selectedType = select.value;
             const priceChecked = priceCheck.checked;
+            const search = searchInput.value.toLowerCase();
+
             const cards = document.querySelectorAll('.card');
 
             cards.forEach(card => {
                 const type = card.dataset.type;
                 const price = parseFloat(card.dataset.price);
+                const title = card.querySelector('.heading')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('.description')?.textContent.toLowerCase() || '';
+                const category = card.querySelector('.category')?.textContent.toLowerCase() || '';
+                const offerBy = card.querySelector('.creator-name')?.textContent.toLowerCase() || '';
+
                 const matchesType = selectedType === 'all' || selectedType === type;
                 const matchesPrice = !priceChecked || price <= 200;
+                const matchesSearch =
+                    title.includes(search) ||
+                    description.includes(search) ||
+                    category.includes(search) ||
+                    offerBy.includes(search);
 
-                card.style.display = (matchesType && matchesPrice) ? 'flex' : 'none';
+                const shouldShow = matchesType && matchesPrice && matchesSearch;
+
+                card.style.display = shouldShow ? 'flex' : 'none';
             });
         }
 
-        function setupSearchFilter() {
-            $('#catgories').on('input', function () {
-                const search = $(this).val().toLowerCase();
-
-                $('#product-card-grid .card').each(function () {
-                    const title = $(this).find('.heading').text().toLowerCase();
-                    const description = $(this).find('.description').text().toLowerCase();
-                    const category = $(this).find('.category').text().toLowerCase();
-
-                    const match = title.includes(search) || description.includes(search) || category.includes(search);
-
-                    $(this).toggle(match);
-                });
-            });
-        }
-
-        // Load products and services
+        // Load product cards first
         $.get("./Blocks/sme/get_product_cards.php?type=product", function (productData) {
-            $("#product-card-grid").html(productData); // Load products first
+            $("#product-card-grid").html(productData);
 
+            // Then load service cards
             $.get("./Blocks/sme/get_product_cards.php?type=service", function (serviceData) {
-                $("#product-card-grid").append(serviceData); // Append services after
+                $("#product-card-grid").append(serviceData);
 
-                filterCards(); // Apply filters
-                setupSearchFilter(); // Activate search
+                // Apply filters once both types are loaded
+                applyFilters();
+
+                // Attach events
+                select.addEventListener('change', applyFilters);
+                priceCheck.addEventListener('change', applyFilters);
+                searchInput.addEventListener('input', applyFilters);
             });
         });
-
-        select.addEventListener('change', filterCards);
-        priceCheck.addEventListener('change', filterCards);
     });
+
 
 </script>
