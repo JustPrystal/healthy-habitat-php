@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <div class="password-wrap">
                 <input type="password" id="password" name="password">
               </div>
-              <span class="error-message"><?php echo $errors['password']; ?></span>
+              <span class="error-message"></span>
             </div> -->
 
 
