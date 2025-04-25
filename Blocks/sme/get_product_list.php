@@ -27,16 +27,16 @@ function get_items_rows($items)
   foreach ($items as $row) {
     ?>
     <div class="row" data-id="<?= $row['id'] ?>">
-      <div class="body-cell medium">
+      <div class="body-cell medium" data-field="name">
         <?= htmlspecialchars($row['name']) ?>
       </div>
       <div class="body-cell small">
         <?= htmlspecialchars($row['type']) ?>
       </div>
-      <div class="body-cell large">
+      <div class="body-cell large" data-field="category">
         <?= htmlspecialchars($row['category']) ?>
       </div>
-      <div class="body-cell small">
+      <div class="body-cell small" data-field="price">
         <?= htmlspecialchars($row['price']) ?>
       </div>
       <div class="body-cell small">
@@ -67,10 +67,10 @@ function get_items_rows($items)
           </div>
         </div>
       </div>
-      <div class="body-cell small hidden">
+      <div class="body-cell small hidden" data-field="description">
         <?= htmlspecialchars($row['description']) ?>
       </div>
-      <div class="body-cell small hidden">
+      <div class="body-cell small hidden" data-field="benefits">
         <?= htmlspecialchars($row['benefits']) ?>
       </div>
     </div>

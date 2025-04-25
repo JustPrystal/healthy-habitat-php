@@ -86,17 +86,32 @@
       <div id="edit-modal" class="modal hidden">
         <div class="modal-content">
           <span class="close" onclick="closeModal()">&times;</span>
-          <h3 class="heading">Edit Product/Service</h3>
+          <h3 class="heading">Edit Product</h3>
           <form id="edit-form">
             <input type="hidden" name="id" id="edit-id">
             <input type="hidden" name="table" value="products">
-            <input type="text" name="name" id="edit-name" placeholder="Name" required>
-            <select name="category" id="edit-category" required>
-              <option value="">Loading categories...</option>
-            </select>
-            <input type="number" name="price" id="edit-price" placeholder="Price" required>
-            <textarea rows="5" name="description" id="edit-description" placeholder="Description" required></textarea>
-            <textarea rows="5" name="benefits" id="edit-benefits" placeholder="Benefits" required></textarea>
+            <div class="input-wrap">
+              <label for="edit-name">Edit Name</label>
+              <input type="text" name="name" id="edit-name" placeholder="Name" required>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-category">Edit Category</label>
+              <select name="category" id="edit-category" required>
+                <option value="">Loading categories...</option>
+              </select>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-price">Edit Price</label>
+              <input type="number" name="price" id="edit-price" placeholder="Price" required>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-description">Edit description</label>
+              <textarea rows="5" name="description" id="edit-description" placeholder="Description" required></textarea>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-benefits">Edit benifits</label>
+              <textarea rows="5" name="benefits" id="edit-benefits" placeholder="Benefits" required></textarea>
+            </div>
             <button type="submit">Save Changes</button>
           </form>
         </div>
@@ -144,6 +159,9 @@
     <?php if (isset($_GET['edited']) && $_GET['edited'] === 'success'): ?>
       alert('Product has been edited.')
     <?php endif; ?>
+    <?php if (isset($_GET['deleted']) && $_GET['deleted'] === 'success'): ?>
+      alert('Product has been deleted.')
+    <?php endif; ?>
 
     /*Edit table logic*/
     function loadCategoriesIntoSelect(callback) {
@@ -160,11 +178,15 @@
       const row = $(this).closest('.row');
       currentId = row.data('id');
 
+      //prepend values in form
       $('#edit-id').val(currentId);
-      $('#edit-name').val(row.find('.body-cell').eq(0).text().trim());
-      $('#edit-price').val(row.find('.body-cell').eq(3).text().trim());
-      $('#edit-description').val(row.find('.body-cell').eq(9).text().trim());
-      $('#edit-benefits').val(row.find('.body-cell').eq(10  ).text().trim());
+      row.find('.body-cell').each(function () {
+        const field = $(this).data('field');
+        if (field) {
+          $(`#edit-${field}`).val($(this).text().trim());
+        }
+      });
+      $('body').addClass('noscroll');
 
       loadCategoriesIntoSelect(function () {
         const currentCategory = row.find('.body-cell').eq(2).text().trim();
@@ -178,17 +200,20 @@
       const row = $(this).closest('.row');
       currentId = row.data('id');
       $('#delete-modal').addClass('show');
+      $('body').addClass('noscroll');
     });
 
-    $(document).on('click', '.close', function () {
+    $(document).on('click', '.modal-content .close', function () {
       $('.modal').removeClass('show');
+      $('body').removeClass('noscroll');
     });
 
+    const baseUrl = window.location.origin + window.location.pathname;
     $('#edit-form').submit(function (e) {
       e.preventDefault();
-
       $.post('./Blocks/sme/update_item.php', $(this).serialize(), function (res) {
-        location.reload();  
+        // Redirect to the new URL with query parameters
+        window.location.href = `${baseUrl}?block=dashboard-3-products&edited=success`; 
       }).fail(function () {
         alert('❌ Update failed');
       });
@@ -201,7 +226,9 @@
         table: tableName
       }, function (res) {
         console.log(res);
-        location.reload();
+        // location.reload();
+        // Redirect to the new URL with query parameters
+        window.location.href = `${baseUrl}?block=dashboard-3-products&deleted=success`;
       }).fail(function () {
         alert('❌ Delete failed');
       });

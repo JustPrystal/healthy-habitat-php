@@ -1079,7 +1079,7 @@ body.noscroll {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 9999;
+  z-index: 999999;
   justify-content: center;
   align-items: center;
   font-size: var(--text20);
@@ -1096,10 +1096,13 @@ body.noscroll {
   border-radius: 8px;
   width: 100%;
   max-width: 500px;
+  max-height: 100%;
+  overflow: auto;
 }
 .dashboard-content.my-listings .inner .table-wrap .modal .modal-content .close {
   float: right;
   cursor: pointer;
+  font-size: 24px;
 }
 .dashboard-content.my-listings .inner .table-wrap .modal form {
   display: flex;
@@ -1119,7 +1122,20 @@ body.noscroll {
     min-width: unset;
   }
 }
-.dashboard-content.my-listings .inner .table-wrap .modal form input, .dashboard-content.my-listings .inner .table-wrap .modal form textarea, .dashboard-content.my-listings .inner .table-wrap .modal form select {
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap label, .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap .type-label, .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap .upload-label {
+  font-size: var(--text20);
+  font-family: var(--geist-medium);
+  text-transform: capitalize;
+  color: var(--forest-depth);
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap input, .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap textarea, .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select {
   font-family: var(--geist-medium);
   font-size: var(--text16);
   line-height: 100%;
@@ -1129,10 +1145,10 @@ body.noscroll {
   background-color: transparent;
   color: var(--forest-depth);
 }
-.dashboard-content.my-listings .inner .table-wrap .modal form select {
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select {
   text-transform: capitalize;
 }
-.dashboard-content.my-listings .inner .table-wrap .modal form select option {
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select option {
   font-size: var(--text16);
   color: var(--geist-medium);
   padding: 10px 25px;
@@ -1140,12 +1156,15 @@ body.noscroll {
   background-color: var(--snow-veil);
   text-transform: capitalize;
 }
-.dashboard-content.my-listings .inner .table-wrap .modal form select option:disabled, .dashboard-content.my-listings .inner .table-wrap .modal form select option:hover {
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select option:disabled, .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select option:hover {
   background-color: var(--mint-whisper);
 }
-.dashboard-content.my-listings .inner .table-wrap .modal form select option:checked {
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select option:checked {
   background-color: var(--forest-depth);
   color: var(--soft-cream);
+}
+.dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap textarea {
+  resize: none;
 }
 .dashboard-content.my-listings .inner .table-wrap .modal button {
   font-size: var(--text20);
@@ -1164,6 +1183,13 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .modal .heading {
   margin-bottom: 40px;
+  font-size: var(--heading28);
+  font-family: var(--clash-display);
+}
+@media (max-width: 767px) {
+  .dashboard-content.my-listings .inner .table-wrap .modal .heading {
+    margin-bottom: 20px;
+  }
 }
 
 .dashboard-content.votes-and-interest .inner .content-main-heading {

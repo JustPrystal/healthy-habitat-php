@@ -179,10 +179,12 @@
       const row = $(this).closest('.row');
       currentId = row.data('id');
       $('#delete-modal').addClass('show');
+      $('body').addClass('noscroll');
     });
 
     $(document).on('click', '.close', function () {
       $('.modal').removeClass('show');
+      $('body').removeClass('noscroll');
     });
     $('#confirm-delete').click(function () {
       const tableName = 'categories'; 
