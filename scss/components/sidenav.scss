@@ -86,13 +86,7 @@
                         margin-left: auto;     
                         transition: 0.5s ease;
                     }
-                    .rotate-user{
-                        transform: rotate(180deg);
-                    }
-                    .rotate-product{
-                        transform: rotate(180deg);
-                    }
-                    .rotate-listing{
+                    .rotate-user,.rotate-product,.rotate-listing{
                         transform: rotate(180deg);
                     }
                 }
