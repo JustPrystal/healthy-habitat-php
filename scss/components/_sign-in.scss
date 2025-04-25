@@ -56,6 +56,10 @@
                                         svg{
                                             display: block;
                                             height: 21px;
+                                            &:focus{
+                                                outline: unset;
+                                                box-shadow: unset;
+                                            }
                                         }
                                     }
                                 }
@@ -140,6 +144,10 @@
                                         svg{
                                             display: block;
                                             height: 21px;
+                                            &:focus{
+                                                outline: unset;
+                                                box-shadow: unset;
+                                            }
                                         }
                                     }
                                 }

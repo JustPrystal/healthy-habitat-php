@@ -79,6 +79,17 @@
 
 body {
   background-color: var(--soft-cream);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.0666666667) rgba(0, 0, 0, 0.0666666667);
+}
+body::-webkit-scrollbar {
+  width: 2px;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: black;
 }
 body a {
   text-decoration: none;
@@ -215,11 +226,17 @@ body.noscroll {
   display: flex;
   align-items: center;
 }
-.sidenav ul.nav li.has-sublinks a .dropdown-icon {
+.sidenav ul.nav li.has-sublinks a .dropdown-icon-user, .sidenav ul.nav li.has-sublinks a .dropdown-icon-listing, .sidenav ul.nav li.has-sublinks a .dropdown-icon-product {
   margin-left: auto;
   transition: 0.5s ease;
 }
-.sidenav ul.nav li.has-sublinks a .rotate {
+.sidenav ul.nav li.has-sublinks a .rotate-user {
+  transform: rotate(180deg);
+}
+.sidenav ul.nav li.has-sublinks a .rotate-product {
+  transform: rotate(180deg);
+}
+.sidenav ul.nav li.has-sublinks a .rotate-listing {
   transform: rotate(180deg);
 }
 .sidenav ul.nav li.has-sublinks .sub-links {
@@ -1002,6 +1019,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-small {
   width: 10px;
+  overflow: auto;
 }
 @media (max-width: 1279px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-small {
@@ -1015,6 +1033,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.small {
   width: 85px;
+  overflow: auto;
 }
 @media (max-width: 767px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.small {
@@ -1023,6 +1042,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.medium {
   width: 105px;
+  overflow: auto;
 }
 @media (max-width: 767px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.medium, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.medium {
@@ -1031,6 +1051,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.large {
   width: 175px;
+  overflow: auto;
 }
 @media (max-width: 1499px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.large {
@@ -1044,6 +1065,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-large {
   width: 190px;
+  overflow: auto;
 }
 @media (max-width: 1499px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-large, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-large {
@@ -1548,6 +1570,10 @@ body.noscroll {
   letter-spacing: 0%;
   text-align: center;
 }
+.dashboard-content .overview-container .lc-card-container .card .total span {
+  font-size: var(--heading22);
+  font-weight: 400;
+}
 .dashboard-content .overview-container .most-popular {
   margin-top: 40px;
   width: 100%;
@@ -1625,6 +1651,10 @@ body.noscroll {
   line-height: 100%;
   letter-spacing: 0%;
   text-align: left;
+}
+.dashboard-content .overview-container .most-popular .card-content-wrapper .card-left .card .total span {
+  font-size: var(--heading22);
+  font-weight: 400;
 }
 .dashboard-content .overview-container .most-popular .card-content-wrapper .card-right {
   width: 100%;
@@ -1708,21 +1738,21 @@ body.noscroll {
     width: 100%;
   }
 }
-.dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+.dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
   width: calc(50% - 12.5px);
 }
 @media (max-width: 1279px) {
-  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
     width: calc(50% - 10px);
   }
 }
 @media (max-width: 767px) {
-  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
     justify-content: flex-start;
   }
 }
 @media (max-width: 575px) {
-  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
     width: 100%;
   }
 }
@@ -3865,6 +3895,10 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   display: block;
   height: 21px;
 }
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg:focus {
+  outline: unset;
+  box-shadow: unset;
+}
 .register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap a.forgot-pass {
   font-size: var(--text14);
   color: var(--forest-depth);
@@ -3944,6 +3978,10 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg {
   display: block;
   height: 21px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg:focus {
+  outline: unset;
+  box-shadow: unset;
 }
 .register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap a.forgot-pass {
   font-size: var(--text14);

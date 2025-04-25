@@ -18,6 +18,9 @@
               Region
             </div>
             <div class="header-cell medium">
+              Type
+            </div>
+            <div class="header-cell medium">
               Date Added
             </div>
             <div class="header-cell extra-large">

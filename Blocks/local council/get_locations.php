@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'council') {
 $user_id = $_SESSION['user_id'];
 
 // Fetch locations added by this user
-$sql = "SELECT id, name, postal_code, region, description, created_at 
+$sql = "SELECT id, name, postal_code, region, location_type, description, created_at 
         FROM locations 
         WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
@@ -42,6 +42,7 @@ function get_location_rows($locations) {
       <div class="body-cell medium" data-field="name"><?= htmlspecialchars($row['name']) ?></div>
       <div class="body-cell medium" data-field="postal-code"><?= htmlspecialchars($row['postal_code']) ?></div>
       <div class="body-cell large" data-field="region"><?= htmlspecialchars($row['region']) ?></div>
+      <div class="body-cell medium"><?= htmlspecialchars($row['location_type']) ?></div>
       <div class="body-cell medium"><?= date('d M Y', strtotime($row['created_at'])) ?></div>
       <div class="body-cell extra-large light" data-field="description"><?= htmlspecialchars($row['description']) ?></div>
       <div class="body-cell extra-small">
