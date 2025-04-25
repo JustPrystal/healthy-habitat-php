@@ -1585,21 +1585,21 @@ body.noscroll {
     width: 100%;
   }
 }
-.dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+.dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
   width: calc(50% - 12.5px);
 }
 @media (max-width: 1279px) {
-  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
     width: calc(50% - 10px);
   }
 }
 @media (max-width: 767px) {
-  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
     justify-content: flex-start;
   }
 }
 @media (max-width: 575px) {
-  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type {
+  .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.type, .dashboard-content.add-new-area-form .inner .lc-form-container form .input-wrap.location-type {
     width: 100%;
   }
 }
