@@ -1538,6 +1538,10 @@ body.noscroll {
   letter-spacing: 0%;
   text-align: center;
 }
+.dashboard-content .overview-container .lc-card-container .card .total span {
+  font-size: var(--heading22);
+  font-weight: 400;
+}
 .dashboard-content .overview-container .most-popular {
   margin-top: 40px;
   width: 100%;
@@ -1615,6 +1619,10 @@ body.noscroll {
   line-height: 100%;
   letter-spacing: 0%;
   text-align: left;
+}
+.dashboard-content .overview-container .most-popular .card-content-wrapper .card-left .card .total span {
+  font-size: var(--heading22);
+  font-weight: 400;
 }
 .dashboard-content .overview-container .most-popular .card-content-wrapper .card-right {
   width: 100%;
