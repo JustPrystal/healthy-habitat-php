@@ -69,6 +69,39 @@
 
         </div>
       </div>
+       <!-- Edit Popup Modal -->
+       <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close" >&times;</span>
+          <h3 class="heading">Edit Product/Service</h3>
+          <form id="edit-location-form">
+            <input type="hidden" name="id" id="edit-id">  
+            <input type="hidden" name="table" value="locations">
+            <input type="text" name="name" id="edit-name" placeholder="Name" required>
+            <input type="text" name="postal-code" id="edit-postal-code" placeholder="Postal Code" pattern="[0-9]*" required>
+            <select name="region" id="edit-region" required>
+              <option value="" disabled selected>E.g., Greater London, West Yorkshire, Lancashire</option>
+              <option value="bedfordshire">Bedfordshire</option>
+              <option value="berkshire">Berkshire</option>
+              <option value="bristol">Bristol</option>
+              <option value="buckinghamshire">Buckinghamshire</option>
+              <option value="Cambridgeshire">Cambridgeshire</option>
+              <option value="cheshire">Cheshire</option>
+            </select>
+            <textarea rows="5" name="description" id="edit-description" placeholder="Brief Description" required></textarea>
+            <button type="submit">Save Changes</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Simple Delete Confirmation -->
+      <div id="delete-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close" >&times;</span>
+          <p>Are you sure you want to delete this item?</p>
+          <button id="confirm-delete">Yes, Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -102,5 +135,56 @@
     <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
       alert('Area has been added.')
     <?php endif; ?>
+
+
+    /*Edit table logic*/
+    let currentId = null;
+
+    // Use event delegation for dynamically generated rows
+    $('#locations-body'  ).on('click', '.circle-wrap .actions-wrap .edit', function () {
+      const row = $(this).closest('.row');
+      currentId = row.data('id');
+
+      $('#edit-id').val(currentId);
+      $('#edit-name').val(row.find('.body-cell').eq(0).text().trim());
+      $('#edit-postal-code').val(row.find('.body-cell').eq(1).text().trim());
+      $('#edit-region').val(row.find('.body-cell').eq(2).text().trim());
+      $('#edit-description').val(row.find('.body-cell').eq(4).text().trim());
+
+      $('#edit-modal').addClass('show');
+    });
+
+    $('#locations-body').on('click', '.delete', function () {
+      const row = $(this).closest('.row');
+      currentId = row.data('id');
+      $('#delete-modal').addClass('show');
+    });
+
+    $(document).on('click', '.close', function () {
+      $('.modal').removeClass('show');
+    });
+    $('#edit-location-form').submit(function (e) {
+      console.log('submitting');
+      e.preventDefault();
+      $.post('./Blocks/local%20council/update_location.php', $(this).serialize(), function (res) {
+        location.reload();
+      }).fail(function () {
+        alert('❌ Update failed');
+      });
+    }); 
+
+    $('#confirm-delete').click(function () {
+      const tableName = $('#edit-modal input[name="table"]').val(); 
+      $.post('./Blocks/sme/delete_item.php', {
+        id: currentId,
+        table: tableName
+      }, function (res) {
+        console.log(res);
+        location.reload();
+      }).fail(function () {
+        alert('❌ Delete failed');
+      });
+    });
+    /*Edit table logic End*/
   });
 </script>

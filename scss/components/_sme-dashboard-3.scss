@@ -38,7 +38,7 @@
                     margin: 0 auto;
                 }
                 .header{
-                    margin-bottom: 40px;
+                    margin-bottom: 20px;
                     overflow: hidden;
                     background-color: var(--snow-veil);
                     @include responsive(xl){
@@ -68,6 +68,9 @@
                         .body-cell{
                             &.email{
                                 text-transform: lowercase;
+                            }
+                            &.hidden{
+                                display: none;
                             }
                             &.status{
                                 text-transform: uppercase;
@@ -218,6 +221,95 @@
                             }
                         }
                     }
+                }
+            }
+            .modal{
+                display: none;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: rgba(0,0,0,0.4);
+                z-index: 9999;
+                justify-content: center;
+                align-items: center;
+                font-size: var(--text20);
+                font-family: var(--geist-medium);
+                padding: 10px;
+                &.show{
+                    display: flex;
+                }
+                .modal-content{
+                    background: white;
+                    padding: 20px;
+                    width: fit-content;
+                    border-radius: 8px;
+                    width: 100%;
+                    max-width: 500px;
+                    .close{
+                        float: right;
+                        cursor: pointer;
+                    }
+                }
+                form{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 25px;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    min-width: 400px;
+                    @include responsive(lg){
+                        gap: 20px;
+                    }
+                    @include responsive(sm){
+                        min-width: unset;
+                    }
+                    input, textarea,select{
+                        font-family: var(--geist-medium);
+                        font-size: var(--text16);
+                        line-height: 100%;
+                        padding: 13px 20px;
+                        border: 1px solid var(--forest-depth);
+                        border-radius: 8px;
+                        background-color: transparent;
+                        color: var(--forest-depth);
+                    }
+                    select{
+                        text-transform: capitalize;
+                        option{
+                            font-size: var(--text16);
+                            color: var(--geist-medium);
+                            padding: 10px 25px;
+                            color: var(--forest-depth);
+                            background-color: var(--snow-veil);
+                            text-transform: capitalize;
+                            &:disabled, &:hover{
+                                background-color: var(--mint-whisper);
+                            }
+                            &:checked{
+                                background-color: var(--forest-depth);
+                                color: var(--soft-cream);
+                            }
+                        }
+                    }
+                }
+                button{
+                    font-size: var(--text20);
+                    font-family: var(--geist-medium);
+                    width: fit-content;
+                    padding: 12px 40px;
+                    border-radius: 32px;
+                    background-color: var(--forest-depth);
+                    color: var(--snow-veil);
+                    text-transform: capitalize;
+                    border: none;
+                    cursor: pointer;
+                }
+                p{
+                    margin-bottom: 20px;
+                }
+                .heading{
+                    margin-bottom: 40px;
+
                 }
             }
         }

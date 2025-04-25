@@ -38,7 +38,7 @@ function get_location_rows($locations) {
   ob_start();
   foreach ($locations as $row) {
     ?>
-    <div class="row">
+    <div class="row" data-id="<?= $row['id'] ?>">
       <div class="body-cell medium"><?= htmlspecialchars($row['name']) ?></div>
       <div class="body-cell medium"><?= htmlspecialchars($row['postal_code']) ?></div>
       <div class="body-cell large"><?= htmlspecialchars($row['region']) ?></div>

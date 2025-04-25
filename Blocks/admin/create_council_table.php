@@ -33,17 +33,5 @@ foreach ($councils as $council) {
     <div class="body-cell large">
         ' . htmlspecialchars($council['region']) . '
     </div>
-    <div class="body-cell extra-small">
-      <div class="circle-wrap">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="actions-wrap">
-          <div class="edit"><p>edit</p></div>
-          <div class="line"></div>
-          <div class="delete"><p>delete</p></div>
-        </div>
-      </div>
-    </div>
   </div>';
 }

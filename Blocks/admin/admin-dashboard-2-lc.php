@@ -23,9 +23,6 @@
             <div class="header-cell large">
               Region
             </div>
-            <div class="header-cell xs">
-
-            </div>
           </div>
         </div>
         <div class="body">
