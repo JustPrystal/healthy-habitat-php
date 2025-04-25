@@ -529,10 +529,10 @@ body.noscroll {
   padding: 6px 15px;
 }
 .dashboard-content .overview-container .highest-voted .card-content-wrapper .card-left .vote-btn-wrapper .vote-button.yes-btn {
-  background-color: var(--crimson-blaze);
+  background-color: var(--leafy-green);
 }
 .dashboard-content .overview-container .highest-voted .card-content-wrapper .card-left .vote-btn-wrapper .vote-button.no-btn {
-  background-color: var(--leafy-green);
+  background-color: var(--crimson-blaze);
 }
 .dashboard-content .overview-container .highest-voted .card-content-wrapper .card-left .vote-btn-wrapper .vote-button .btn-wrapper {
   display: flex;
