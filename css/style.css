@@ -3866,6 +3866,10 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
   display: block;
   height: 21px;
 }
+.register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg:focus {
+  outline: unset;
+  box-shadow: unset;
+}
 .register-section.sign-in .inner .content-wrap .form-wrap .form-container .input-wrap a.forgot-pass {
   font-size: var(--text14);
   color: var(--forest-depth);
@@ -3945,6 +3949,10 @@ section.multiple-cards-section .inner .content-wrap .content .card .content-wrap
 .register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg {
   display: block;
   height: 21px;
+}
+.register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap.password .password-wrap #togglePassword svg:focus {
+  outline: unset;
+  box-shadow: unset;
 }
 .register-section.forgot-password .inner .content-wrap .form-wrap .form-container .input-wrap a.forgot-pass {
   font-size: var(--text14);
