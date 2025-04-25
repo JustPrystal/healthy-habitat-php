@@ -6,6 +6,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+$user_id = $_SESSION['user_id'] ?? null;
+if (!$user_id) {
+    echo '<p>Please <a href="/registration.php?block=sign-in">sign in</a> to view your dashboard.</p>';
+    exit;
+}
+
 // Query to count rows in the locations table
 $query = "SELECT COUNT(*) AS total_locations FROM locations";
 $result = $conn->query($query);
@@ -16,6 +22,52 @@ if ($result) {
     echo "Total rows in locations table: " . $totalLocations;
 } else {
     echo "Query failed: " . $conn->error;
+}
+
+// Residents Registered in Your Areas
+$queryRegisteredAreaResidents = "
+ SELECT COUNT(*) AS registered_residents_in_area FROM user_meta um WHERE um.meta_key='location' AND um.meta_value IN (SELECT name FROM locations l WHERE l.user_id=$user_id);";
+
+$RegisteredAreaResidentTopInterest = $conn->query($queryRegisteredAreaResidents);
+
+if ($RegisteredAreaResidentTopInterest && $row = $RegisteredAreaResidentTopInterest->fetch_assoc()) {
+    $registerdUser      = $row['registered_residents_in_area'];
+} else {
+    $registerdUser      = null;
+}
+
+
+// your residents average age 
+$queryresidentsAge = "
+SELECT 
+    meta_value AS age_group,
+    COUNT(*) AS frequency
+FROM 
+    user_meta
+WHERE 
+    meta_key = 'age_group' 
+    AND user_id IN (
+        SELECT user_id 
+        FROM user_meta um 
+        WHERE um.meta_key = 'location' 
+        AND um.meta_value IN (
+            SELECT name 
+            FROM locations l 
+            WHERE l.user_id =$user_id
+        )
+    )
+GROUP BY 
+    meta_value
+ORDER BY 
+    frequency DESC
+LIMIT 1;";
+
+$residentsAge = $conn->query($queryresidentsAge);
+
+if ($residentsAge && $row = $residentsAge->fetch_assoc()) {
+    $areaAge      = $row['age_group'];
+} else {
+    $areaAge      = null;
 }
 
 
@@ -63,7 +115,6 @@ if ($resultTopProduct && $row = $resultTopProduct->fetch_assoc()) {
     $productName      = null;
     $ProductVotes = 0;
     $productImage      = null;
-
 }
 
 // Top service
@@ -88,15 +139,13 @@ if ($resultTopService && $row = $resultTopService->fetch_assoc()) {
     $serviceName      = null;
     $serviceVotes = 0;
     $serviceImage      = null;
-
 }
 
-if ($serviceVotes >= $ProductVotes){
+if ($serviceVotes >= $ProductVotes) {
     $name = $serviceName;
     $votes = $serviceVotes;
     $image = $serviceImage;
-}
-else{
+} else {
     $name = $productName;
     $votes = $productVotes;
     $image = $productImage;
@@ -133,15 +182,15 @@ $conn->close();
                     Residents Registered in Your Areas
                 </h3>
                 <p class="total-registered total">
-                    Residents Registered: 346
+                    Residents Registered: <?php echo $registerdUser; ?>
                 </p>
             </div>
             <div class="card total-products">
                 <h3 class="card-heading">
-                    Total Votes from Your Areas
+                    Average Residents Age from Your Area
                 </h3>
                 <p class="total- total">
-                    Votes Cast: 1,129
+                    Age Group: <?php echo $areaAge; ?>
                 </p>
             </div>
             <div class="card total-votes">
@@ -158,11 +207,11 @@ $conn->close();
                 <div class="card-left">
                     <div class="card total-votes">
                         <h3 class="card-heading">
-                        Most Popular Product/Service <br class="word-break">in Your Areas
+                            Most Popular Product/Service <br class="word-break">in Your Areas
                         </h3>
                         <p class="total-votes total">
                             Top Voted Item: <?php echo $name; ?> (<?php echo $votes; ?> votes)
-                            
+
                         </p>
                     </div>
                 </div>
