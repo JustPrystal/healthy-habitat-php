@@ -44,6 +44,9 @@ $all_items = get_user_items('product');
               Yes/No Votes
             </div>
             <div class="header-cell medium">
+              Score
+            </div>
+            <div class="header-cell medium">
               Status
             </div>
             <div class="header-cell xs">
@@ -51,11 +54,18 @@ $all_items = get_user_items('product');
             </div>
           </div>
         </div>
+        <div class="checkbox-wrap"
+          style="display: flex; gap: 10px; flex-direction: row; margin-bottom: 10px; justify-content: flex-end;">
+          <input id="sort-by-score" name="sort-by-score" type="checkbox">
+          <label for="sort-by-score">Sort by score</label>
+        </div>
         <div class="body">
 
           <?php foreach ($all_items as $item): ?>
             <?php
             // Get SME name by user_id (you may want to JOIN this in SQL instead)
+            $total_votes = intval($item['upvotes']) + intval($item['downvotes']);
+            $score = $total_votes > 0 ? (intval($item['upvotes']) / $total_votes) * 100 : 0; // Calculate percentage
             $sme_name = $business_map[$item['user_id']] ?? 'Unknown';
             ?>
             <div class="row" key="<?= htmlspecialchars($item['id']) ?>">
@@ -65,6 +75,7 @@ $all_items = get_user_items('product');
               <div class="body-cell small">£<?= htmlspecialchars($item['price']) ?></div>
               <div class="body-cell large"><?= htmlspecialchars($sme_name) ?></div>
               <div class="body-cell medium"><?= intval($item['upvotes']) ?> / <?= intval($item['downvotes']) ?></div>
+              <div class="body-cell medium"><?= number_format($score, 2) ?>%</div>
               <div class="body-cell medium status <?= htmlspecialchars($item['status']) ?>">
                 <?= htmlspecialchars($item['status']) ?>
               </div>
@@ -101,6 +112,11 @@ $all_items = get_user_items('product');
 
 <script>
   $(document).ready(function () {
+
+    $('.body .row').each(function (index) {
+      $(this).attr('data-original-index', index);
+    });
+
     $('.table').on('click', '.circle-wrap', function (e) {
       e.stopPropagation(); // Prevent bubbling to document
 
@@ -136,6 +152,28 @@ $all_items = get_user_items('product');
           console.error(xhr.responseText);
           alert("Failed to approve item.");
         });
+    });
+
+
+    // Sort by score functionality
+    $('#sort-by-score').on('change', function () {
+      const $rows = $('.body .row');
+
+      if ($(this).is(':checked')) {
+        const sorted = $rows.sort(function (a, b) {
+          const aScore = parseFloat($(a).find('.body-cell.medium').eq(1).text()) || 0;
+          const bScore = parseFloat($(b).find('.body-cell.medium').eq(1).text()) || 0;
+          return bScore - aScore; // Sort by score descending
+        });
+
+        $('.body').html(sorted); // Show sorted
+      } else {
+        const reset = $rows.sort(function (a, b) {
+          return $(a).data('original-index') - $(b).data('original-index');
+        });
+
+        $('.body').html(reset); // Show original order
+      }
     });
 
   });
