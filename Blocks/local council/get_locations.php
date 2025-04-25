@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'council') {
 $user_id = $_SESSION['user_id'];
 
 // Fetch locations added by this user
-$sql = "SELECT name, postal_code, region, location_type, description, created_at 
+$sql = "SELECT id name, postal_code, region, location_type, description, created_at 
         FROM locations 
         WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
