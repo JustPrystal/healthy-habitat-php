@@ -1,10 +1,10 @@
-<section class="multiple-cards-section" id="products">
+<section class="multiple-cards-section" id="solutions">
     <div class="inner">
         <h2 class="heading">
-            Curated Products for a Healthier Life
+            Curated Solutions for a Healthier Life
         </h2>
         <p class="text">
-            Explore eco-conscious and health-first products chosen to improve your everyday well-being. Each product
+            Explore eco-conscious and health-first solutions chosen to improve your everyday well-being. Each solution
             is crafted with care for you and the planet.
         </p>
         <div class="content-wrap">
@@ -19,74 +19,84 @@
                                 stroke="#134027" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg></label>
                 </div>
-                <!-- <div class="dropdown-wrap" id="product-category-dropdown" style="display: none;">HEllo</div> -->
                 <div class="button-wrap">
-                    <button class="filter" id="product-filter">
+                    <div class="checkbox-wrap">
+                        <input id="price-check" name="price-range" type="checkbox" value="price">
+                        <label for="price-range">Under £200</label>
+                    </div>
+                    <div class="filter" id="product-filter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
                             <path d="M1.5 1H16.5M4 6H14M7 11H11" stroke="#134027" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span>Filters</span>
-                    </button>
+                        <select name="filter-type" class="select-filter" id="type-filter">
+                            <option value="all" selected>Filters</option>
+                            <option value="product">Products</option>
+                            <option value="service">Services</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <div id="product-card-grid" class="content">
 
             </div>
-            <div class="view-all-wrap">
-                <a href="#" class="view-all">
-                    View all Products
-                </a>
-            </div>
         </div>
     </div>
 </section>
 <script>
-    $(document).ready(function () {
-        $.get("./Blocks/sme /get_product_cards.php?type=product", function (data) {
-            $("#product-card-grid").html(data);
+    document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('type-filter');
+        const priceCheck = document.getElementById('price-check');
+        const searchInput = document.getElementById('catgories');
 
-            // Once cards are loaded, enable filtering
-            $('#catgories').on('input', function () {
-                const search = $(this).val().toLowerCase();
+        function applyFilters() {
+            const selectedType = select.value;
+            const priceChecked = priceCheck.checked;
+            const search = searchInput.value.toLowerCase();
 
-                $('#product-card-grid .card').each(function () {
-                    const title = $(this).find('.heading').text().toLowerCase();
-                    const description = $(this).find('.text').text().toLowerCase();
-                    const category = $(this).find('.category').text().toLowerCase();
+            const cards = document.querySelectorAll('.card');
 
-                    const match = title.includes(search) || description.includes(search) || category.includes(search);
+            cards.forEach(card => {
+                const type = card.dataset.type;
+                const price = parseFloat(card.dataset.price);
+                const title = card.querySelector('.heading')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('.description')?.textContent.toLowerCase() || '';
+                const category = card.querySelector('.category')?.textContent.toLowerCase() || '';
+                const offerBy = card.querySelector('.creator-name')?.textContent.toLowerCase() || '';
 
-                    $(this).toggle(match);
-                });
+                const matchesType = selectedType === 'all' || selectedType === type;
+                const matchesPrice = !priceChecked || price <= 200;
+                const matchesSearch =
+                    title.includes(search) ||
+                    description.includes(search) ||
+                    category.includes(search) ||
+                    offerBy.includes(search);
+
+                const shouldShow = matchesType && matchesPrice && matchesSearch;
+
+                card.style.display = shouldShow ? 'flex' : 'none';
+            });
+        }
+
+        // Load product cards first
+        $.get("./Blocks/sme/get_product_cards.php?type=product", function (productData) {
+            $("#product-card-grid").html(productData);
+
+            // Then load service cards
+            $.get("./Blocks/sme/get_product_cards.php?type=service", function (serviceData) {
+                $("#product-card-grid").append(serviceData);
+
+                // Apply filters once both types are loaded
+                applyFilters();
+
+                // Attach events
+                select.addEventListener('change', applyFilters);
+                priceCheck.addEventListener('change', applyFilters);
+                searchInput.addEventListener('input', applyFilters);
             });
         });
-
-        //  // Toggle dropdown visibility
-        // $('#product-filter').on('click', function (e) {
-        //     e.preventDefault();
-        //     $('#product-category-dropdown').toggle();
-        //     fetchCategories('product'); // change to 'service' if needed
-        // });
-
-        // // Fetch categories from PHP and populate dropdown
-        // function fetchCategories(type = 'product') {
-        //     $.get(`./Blocks/sme/get_categories.php?type=${type}`, function (data) {
-        //     const categories = JSON.parse(data);
-        //     const dropdown = $('#product-category-dropdown');
-        //     dropdown.empty(); // clear existing
-        //     categories.forEach(cat => {
-        //         dropdown.append(`<div class="dropdown-item">${cat}</div>`);
-        //     });
-        //     });
-        // }
-
-        // // Populate input field when a category is clicked
-        // $(document).on('click', '.dropdown-item', function () {
-        //     const selected = $(this).text();
-        //     $('#catgories').val(selected);
-        //     $('#product-category-dropdown').hide();
-        // });
     });
+
+
 </script>

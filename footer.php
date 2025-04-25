@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/script.js"></script>
 </head>
+
 <body>
-<footer class="footer">
+    <footer class="footer">
         <div class="inner">
             <div class="content">
                 <div class="left">
@@ -20,12 +22,14 @@
                     <div class="link-wrapper left-links ">
                         <a href="#Home" class="each-link">Home</a>
                         <a href="#About" class="each-link">About</a>
-                        <a href="#services" class="each-link">Services</a>
-                        <a href="#products" class="each-link">Products</a>
+                        <a href="#solutions" class="each-link">Solutions</a>
+                        <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
                     </div>
                     <div class="link-wrapper right-links">
-                        <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
-                        <a href="registration.php?block=select-role" class="each-link">Register</a>
+                        <?php if (!isset($_SESSION['user_id'])) { ?>
+                            <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
+                            <a href="registration.php?block=select-role" class="each-link">Register</a>
+                        <?php } ?>
                         <a href="./privacy-policy.php" class="each-link">Privacy Policy</a>
                         <a href="./terms-and-condition.php" class="each-link">Terms of Service</a>
                     </div>
@@ -41,4 +45,5 @@
         </div>
     </footer>
 </body>
+
 </html>

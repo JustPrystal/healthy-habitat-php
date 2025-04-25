@@ -6,6 +6,7 @@ include('./Blocks/registration/is_logged_in.php');
 
 include('db.php');
 require_once('utils/helpers.php');
+require_once('./helpers.php');
 
 // Initialize error array
 $errors = [
