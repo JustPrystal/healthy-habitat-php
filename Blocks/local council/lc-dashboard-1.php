@@ -12,6 +12,12 @@ if (!$user_id) {
     exit;
 }
 
+$user_name = $_SESSION['user_name'] ?? null;
+if (!$user_id) {
+    echo '<p>Please <a href="/registration.php?block=sign-in">sign in</a> to view your dashboard.</p>';
+    exit;
+}
+
 // Query to count rows in the locations table
 $query = "SELECT COUNT(*) AS total_locations FROM locations";
 $result = $conn->query($query);
@@ -164,7 +170,7 @@ $conn->close();
                 Dashboard Overview
             </h2>
             <p class="content-text">
-                Welcome, Camden Council. Add and manage your local areas to ensure better community
+                Welcome, <strong><?php echo $user_name; ?></strong> Council. Add and manage your local areas to ensure better community
                 participation in Healthy Habitat Network.</p>
         </div>
         <div class="lc-card-container">
