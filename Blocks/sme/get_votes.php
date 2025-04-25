@@ -1,12 +1,22 @@
 <?php 
 require_once '../../db.php';
 
+// Get current user ID
+session_start();
+$current_user_id = $_SESSION['user_id'] ?? null;
+
+if (!$current_user_id) {
+    echo json_encode(['error' => 'User not logged in']);
+    exit;
+}
+
+// Modify queries to filter by user_id
 // Fetch products
-$sql1 = "SELECT name, upvotes, downvotes FROM products";
+$sql1 = "SELECT name, upvotes, downvotes FROM products WHERE user_id = $current_user_id AND status = 'live'";
 $result1 = $conn->query($sql1);
 
 // Fetch services
-$sql2 = "SELECT name, upvotes, downvotes FROM services";
+$sql2 = "SELECT name, upvotes, downvotes FROM services WHERE user_id = $current_user_id AND status = 'live'";
 $result2 = $conn->query($sql2);
 
 $data = [];
