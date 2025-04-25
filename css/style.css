@@ -843,6 +843,7 @@ body.noscroll {
   width: 100%;
   padding: 5px 60px 5px 5px;
   overflow-y: auto;
+  width: fit-content;
 }
 @media (max-width: 767px) {
   .dashboard-content.my-listings .inner .table-wrap {
@@ -1019,7 +1020,6 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-small {
   width: 10px;
-  overflow: auto;
 }
 @media (max-width: 1279px) {
   .dashboard-content.my-listings .inner .table-wrap .table .header .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .header .row .body-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .header-cell.extra-small, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.extra-small {
@@ -1150,6 +1150,7 @@ body.noscroll {
   border-radius: 8px;
   background-color: transparent;
   color: var(--forest-depth);
+  text-transform: capitalize;
 }
 .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap select {
   text-transform: capitalize;

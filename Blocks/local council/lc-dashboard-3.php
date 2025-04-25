@@ -98,6 +98,14 @@
               </select>
             </div>
             <div class="input-wrap">
+              <label for="edit-type">Edit type</label>
+              <select name="type" id="edit-type" required>
+                <option value="" disabled selected>Select Type</option>
+                <option value="urban">Urban</option>
+                <option value="rural">Rural</option>
+              </select>
+            </div>
+            <div class="input-wrap">
               <label for="edit-description">Edit Description</label>
               <textarea rows="5" name="description" id="edit-description" placeholder="Brief Description" required></textarea>
             </div>

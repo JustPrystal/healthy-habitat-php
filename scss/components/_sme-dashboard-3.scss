@@ -25,6 +25,7 @@
             width: 100%;
             padding: 5px 60px 5px 5px;
             overflow-y: auto;
+            width: fit-content;
             @include responsive(sm){
                 padding: 5px 45px 5px 5px;
             }
@@ -182,7 +183,7 @@
                             }
                             &.extra-small{
                                 width: 10px;
-                                overflow: auto;
+                                // overflow: auto;
                                 @include responsive(lg){
                                     width: 8px;
                                 }
@@ -292,6 +293,7 @@
                             border-radius: 8px;
                             background-color: transparent;
                             color: var(--forest-depth);
+                            text-transform: capitalize;
                         }
                         select{
                             text-transform: capitalize;
