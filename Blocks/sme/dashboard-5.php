@@ -80,7 +80,7 @@ $conn->close();
       </div>
     </div>
     <div class="certifications">
-      <div class="wrap" style="">
+      <div class="wrap">
         <h3 class="certifications-heading">
           Certifications
         </h3>
