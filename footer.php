@@ -23,7 +23,6 @@
                         <a href="#Home" class="each-link">Home</a>
                         <a href="#About" class="each-link">About</a>
                         <a href="#solutions" class="each-link">Solutions</a>
-                        <a href="registration.php?block=sign-in" class="each-link">Sign in</a>
                     </div>
                     <div class="link-wrapper right-links">
                         <?php if (!isset($_SESSION['user_id'])) { ?>
