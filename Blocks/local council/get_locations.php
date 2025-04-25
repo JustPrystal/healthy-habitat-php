@@ -39,11 +39,11 @@ function get_location_rows($locations) {
   foreach ($locations as $row) {
     ?>
     <div class="row" data-id="<?= $row['id'] ?>">
-      <div class="body-cell medium"><?= htmlspecialchars($row['name']) ?></div>
-      <div class="body-cell medium"><?= htmlspecialchars($row['postal_code']) ?></div>
-      <div class="body-cell large"><?= htmlspecialchars($row['region']) ?></div>
+      <div class="body-cell medium" data-field="name"><?= htmlspecialchars($row['name']) ?></div>
+      <div class="body-cell medium" data-field="postal-code"><?= htmlspecialchars($row['postal_code']) ?></div>
+      <div class="body-cell large" data-field="region"><?= htmlspecialchars($row['region']) ?></div>
       <div class="body-cell medium"><?= date('d M Y', strtotime($row['created_at'])) ?></div>
-      <div class="body-cell extra-large light"><?= htmlspecialchars($row['description']) ?></div>
+      <div class="body-cell extra-large light" data-field="description"><?= htmlspecialchars($row['description']) ?></div>
       <div class="body-cell extra-small">
         <div class="circle-wrap">
           <div class="circle"></div>

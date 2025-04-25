@@ -70,22 +70,34 @@
        <div id="edit-modal" class="modal hidden">
         <div class="modal-content">
           <span class="close" >&times;</span>
-          <h3 class="heading">Edit Product/Service</h3>
+          <h3 class="heading">Edit Areas</h3>
           <form id="edit-location-form">
             <input type="hidden" name="id" id="edit-id">  
             <input type="hidden" name="table" value="locations">
-            <input type="text" name="name" id="edit-name" placeholder="Name" required>
-            <input type="text" name="postal-code" id="edit-postal-code" placeholder="Postal Code" pattern="[0-9]*" required>
-            <select name="region" id="edit-region" required>
-              <option value="" disabled selected>E.g., Greater London, West Yorkshire, Lancashire</option>
-              <option value="bedfordshire">Bedfordshire</option>
-              <option value="berkshire">Berkshire</option>
-              <option value="bristol">Bristol</option>
-              <option value="buckinghamshire">Buckinghamshire</option>
-              <option value="Cambridgeshire">Cambridgeshire</option>
-              <option value="cheshire">Cheshire</option>
-            </select>
-            <textarea rows="5" name="description" id="edit-description" placeholder="Brief Description" required></textarea>
+            <div class="input-wrap">
+              <label for="edit-name">Edit Name</label>
+              <input type="text" name="name" id="edit-name" placeholder="Name" required>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-postal-code">Edit Postal Code</label>
+              <input type="text" name="postal-code" id="edit-postal-code" placeholder="Postal Code" pattern="[0-9]*" required>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-region">Edit Region</label>
+              <select name="region" id="edit-region" required>
+                <option value="" disabled selected>E.g., Greater London, West Yorkshire, Lancashire</option>
+                <option value="bedfordshire">Bedfordshire</option>
+                <option value="berkshire">Berkshire</option>
+                <option value="bristol">Bristol</option>
+                <option value="buckinghamshire">Buckinghamshire</option>
+                <option value="Cambridgeshire">Cambridgeshire</option>
+                <option value="cheshire">Cheshire</option>
+              </select>
+            </div>
+            <div class="input-wrap">
+              <label for="edit-description">Edit Description</label>
+              <textarea rows="5" name="description" id="edit-description" placeholder="Brief Description" required></textarea>
+            </div>
             <button type="submit">Save Changes</button>
           </form>
         </div>
@@ -132,6 +144,12 @@
     <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
       alert('Area has been added.')
     <?php endif; ?>
+    <?php if (isset($_GET['edited']) && $_GET['edited'] === 'success'): ?>
+      alert('Area has been edited.')
+    <?php endif; ?>
+    <?php if (isset($_GET['deleted']) && $_GET['deleted'] === 'success'): ?>
+      alert('Area has been deleted.')
+    <?php endif; ?>
 
 
     /*Edit table logic*/
@@ -142,11 +160,15 @@
       const row = $(this).closest('.row');
       currentId = row.data('id');
 
+      //prepend values in form
       $('#edit-id').val(currentId);
-      $('#edit-name').val(row.find('.body-cell').eq(0).text().trim());
-      $('#edit-postal-code').val(row.find('.body-cell').eq(1).text().trim());
-      $('#edit-region').val(row.find('.body-cell').eq(2).text().trim());
-      $('#edit-description').val(row.find('.body-cell').eq(4).text().trim());
+      row.find('.body-cell').each(function () {
+        const field = $(this).data('field');
+        if (field) {
+          $(`#edit-${field}`).val($(this).text().trim());
+        }
+      });
+      $('body').addClass('noscroll');
 
       $('#edit-modal').addClass('show');
     });
@@ -155,16 +177,20 @@
       const row = $(this).closest('.row');
       currentId = row.data('id');
       $('#delete-modal').addClass('show');
+      $('body').addClass('noscroll');
     });
 
     $(document).on('click', '.close', function () {
       $('.modal').removeClass('show');
+      $('body').removeClass('noscroll');
     });
+    const baseUrl = window.location.origin + window.location.pathname;
     $('#edit-location-form').submit(function (e) {
       console.log('submitting');
       e.preventDefault();
       $.post('./Blocks/local%20council/update_location.php', $(this).serialize(), function (res) {
-        location.reload();
+        // location.reload();
+        window.location.href = `${baseUrl}?block=lc-dashboard-3&edited=success`;
       }).fail(function () {
         alert('❌ Update failed');
       });
@@ -177,7 +203,8 @@
         table: tableName
       }, function (res) {
         console.log(res);
-        location.reload();
+        // location.reload();
+        window.location.href = `${baseUrl}?block=lc-dashboard-3&deleted=success`;
       }).fail(function () {
         alert('❌ Delete failed');
       });

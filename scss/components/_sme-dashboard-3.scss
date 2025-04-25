@@ -229,7 +229,7 @@
                 top: 0; left: 0;
                 width: 100%; height: 100%;
                 background: rgba(0,0,0,0.4);
-                z-index: 9999;
+                z-index: 999999;
                 justify-content: center;
                 align-items: center;
                 font-size: var(--text20);
@@ -245,9 +245,12 @@
                     border-radius: 8px;
                     width: 100%;
                     max-width: 500px;
+                    max-height: 100%;
+                    overflow: auto;
                     .close{
                         float: right;
                         cursor: pointer;
+                        font-size: 24px;
                     }
                 }
                 form{
@@ -263,32 +266,48 @@
                     @include responsive(sm){
                         min-width: unset;
                     }
-                    input, textarea,select{
-                        font-family: var(--geist-medium);
-                        font-size: var(--text16);
-                        line-height: 100%;
-                        padding: 13px 20px;
-                        border: 1px solid var(--forest-depth);
-                        border-radius: 8px;
-                        background-color: transparent;
-                        color: var(--forest-depth);
-                    }
-                    select{
-                        text-transform: capitalize;
-                        option{
-                            font-size: var(--text16);
-                            color: var(--geist-medium);
-                            padding: 10px 25px;
-                            color: var(--forest-depth);
-                            background-color: var(--snow-veil);
+                    .input-wrap{
+                        width: 100%;
+                        flex-direction: column;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 10px;
+                        label , .type-label, .upload-label{
+                            font-size: var(--text20);
+                            font-family: var(--geist-medium);
                             text-transform: capitalize;
-                            &:disabled, &:hover{
-                                background-color: var(--mint-whisper);
+                            color: var(--forest-depth);
+                        }
+                        input, textarea,select{
+                            font-family: var(--geist-medium);
+                            font-size: var(--text16);
+                            line-height: 100%;
+                            padding: 13px 20px;
+                            border: 1px solid var(--forest-depth);
+                            border-radius: 8px;
+                            background-color: transparent;
+                            color: var(--forest-depth);
+                        }
+                        select{
+                            text-transform: capitalize;
+                            option{
+                                font-size: var(--text16);
+                                color: var(--geist-medium);
+                                padding: 10px 25px;
+                                color: var(--forest-depth);
+                                background-color: var(--snow-veil);
+                                text-transform: capitalize;
+                                &:disabled, &:hover{
+                                    background-color: var(--mint-whisper);
+                                }
+                                &:checked{
+                                    background-color: var(--forest-depth);
+                                    color: var(--soft-cream);
+                                }
                             }
-                            &:checked{
-                                background-color: var(--forest-depth);
-                                color: var(--soft-cream);
-                            }
+                        }
+                        textarea{
+                            resize: none;
                         }
                     }
                 }
@@ -309,7 +328,11 @@
                 }
                 .heading{
                     margin-bottom: 40px;
-
+                    font-size: var(--heading28);
+                    font-family: var(--clash-display);
+                    @include responsive(sm){
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }
