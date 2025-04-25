@@ -14,6 +14,11 @@ $(document).ready(function () {
       $('.has-sublinks .dropdown-icon-product').toggleClass('rotate-product');
   });
 
+    $('.sidenav .nav li.listing-drop').on('click', function() {
+      $(this).closest('li').find('.sub-links').slideToggle();
+      $('.has-sublinks .dropdown-icon-listing').toggleClass('rotate-listing');
+  });
+
     $('.landing-page-header .hamburger-wrap').click(function(){
         $('.landing-page-header .inner').toggleClass('open');
         $('.landing-page-header').toggleClass('active');

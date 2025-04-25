@@ -236,6 +236,9 @@ body.noscroll {
 .sidenav ul.nav li.has-sublinks a .rotate-product {
   transform: rotate(180deg);
 }
+.sidenav ul.nav li.has-sublinks a .rotate-listing {
+  transform: rotate(180deg);
+}
 .sidenav ul.nav li.has-sublinks .sub-links {
   margin-left: 60px;
   gap: 10px;
