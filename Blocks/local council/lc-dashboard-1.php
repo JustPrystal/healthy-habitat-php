@@ -19,7 +19,6 @@ $result = $conn->query($query);
 if ($result) {
     $row = $result->fetch_assoc();
     $totalLocations = $row['total_locations'];
-    echo "Total rows in locations table: " . $totalLocations;
 } else {
     echo "Query failed: " . $conn->error;
 }
@@ -187,7 +186,7 @@ $conn->close();
             </div>
             <div class="card total-products">
                 <h3 class="card-heading">
-                    Average Residents Age from Your Area
+                    Average Residents Age Group from Your Area
                 </h3>
                 <p class="total- total">
                     Age Group: <?php echo $areaAge; ?>
@@ -195,10 +194,10 @@ $conn->close();
             </div>
             <div class="card total-votes">
                 <h3 class="card-heading">
-                    Top Interest Area Among Residents
+                    Top Interest Among Your Residents
                 </h3>
                 <p class="total-votes total">
-                    Top Interest: <?php echo $areaOfInterest; ?> & <br class="word-break"> (<?php echo $countAreaOfInterest; ?> residents)
+                    Top Interest: <?php echo $areaOfInterest; ?> with <br class="word-break"> <span>(<?php echo $countAreaOfInterest; ?> residents)</span>
                 </p>
             </div>
         </div>
@@ -207,10 +206,10 @@ $conn->close();
                 <div class="card-left">
                     <div class="card total-votes">
                         <h3 class="card-heading">
-                            Most Popular Product/Service <br class="word-break">in Your Areas
+                            Most Popular Product/Service 
                         </h3>
                         <p class="total-votes total">
-                            Top Voted Item: <?php echo $name; ?> (<?php echo $votes; ?> votes)
+                            Top Voted Item: <?php echo $name; ?> with <span> (<?php echo $votes; ?> votes) </span>
 
                         </p>
                     </div>
