@@ -3,11 +3,17 @@ $(document).ready(function () {
         $('.sidenav').toggleClass('open');
         $('body').toggleClass('noscroll')
       });
-      $('.sidenav .nav li.has-sublinks').on('click', function() {
+      $('.sidenav .nav li.user-drop').on('click', function() {
         $(this).closest('li').find('.sub-links').slideToggle();
-        $('.has-sublinks .dropdown-icon').toggleClass('rotate');
-        
+        $('.has-sublinks .dropdown-icon-user').toggleClass('rotate-user');
     });
+
+
+    $('.sidenav .nav li.product-drop').on('click', function() {
+      $(this).closest('li').find('.sub-links').slideToggle();
+      $('.has-sublinks .dropdown-icon-product').toggleClass('rotate-product');
+  });
+
     $('.landing-page-header .hamburger-wrap').click(function(){
         $('.landing-page-header .inner').toggleClass('open');
         $('.landing-page-header').toggleClass('active');

@@ -34,7 +34,7 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                         Dashboard Overview
                     </a>
                 </li>
-                <li class="has-sublinks">
+                <li class="has-sublinks user-drop">
                     <a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18"
                             fill="none">
@@ -44,7 +44,7 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                         </svg>
                         User Management
 
-                        <svg class="dropdown-icon" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="dropdown-icon-user" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.3953 6.7002L6.69767 1.3002L1 6.7002" stroke="#134027" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
@@ -67,9 +67,9 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                         </svg>
                         Categories</a>
                 </li>
-                <li class="has-sublinks">
+                <li class="has-sublinks product-drop">
                     <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <rect width="24" height="24" fill="url(#pattern0_2001_555)" />
                             <defs>
                                 <pattern id="pattern0_2001_555" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -79,6 +79,10 @@ $current_block = $_GET['block'] ?? 'admin-dashboard-1';
                             </defs>
                         </svg>
                         Products & Services
+
+                        <svg class="dropdown-icon-product" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.3953 6.7002L6.69767 1.3002L1 6.7002" stroke="#134027" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </a>
                     <div class="sub-links">
                         <a href="admin.php?block=admin-dashboard-4-product" class="sublink <?= ($current_block == 'admin-dashboard-4-product') ? 'active' : '' ?>">

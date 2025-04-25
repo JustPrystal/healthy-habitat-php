@@ -226,11 +226,14 @@ body.noscroll {
   display: flex;
   align-items: center;
 }
-.sidenav ul.nav li.has-sublinks a .dropdown-icon {
+.sidenav ul.nav li.has-sublinks a .dropdown-icon-user {
   margin-left: auto;
   transition: 0.5s ease;
 }
-.sidenav ul.nav li.has-sublinks a .rotate {
+.sidenav ul.nav li.has-sublinks a .rotate-user {
+  transform: rotate(180deg);
+}
+.sidenav ul.nav li.has-sublinks a .rotate-product {
   transform: rotate(180deg);
 }
 .sidenav ul.nav li.has-sublinks .sub-links {

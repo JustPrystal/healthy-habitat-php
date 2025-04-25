@@ -81,11 +81,14 @@
                 a{
                     display: flex;
                     align-items: center;
-                    .dropdown-icon{    
+                    .dropdown-icon-user{    
                         margin-left: auto;     
                         transition: 0.5s ease;
                     }
-                    .rotate{
+                    .rotate-user{
+                        transform: rotate(180deg);
+                    }
+                    .rotate-product{
                         transform: rotate(180deg);
                     }
                 }
