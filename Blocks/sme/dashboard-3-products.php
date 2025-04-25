@@ -188,7 +188,7 @@
       e.preventDefault();
 
       $.post('./Blocks/sme/update_item.php', $(this).serialize(), function (res) {
-        location.reload();
+        location.reload();  
       }).fail(function () {
         alert('❌ Update failed');
       });
