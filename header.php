@@ -52,7 +52,7 @@ session_start(); // make sure session is started
                        <?php echo htmlspecialchars($_SESSION['user_name']); ?>
                     </a>
 
-                    <a href="logout.php" class="button">Logout</a>
+                    <a href="#" id="logout-link" class="btn button">Logout</a>
                 <?php else: ?>
                     <a href="registration.php?block=sign-in" class="sign-in">
                         Sign in
@@ -80,6 +80,7 @@ session_start(); // make sure session is started
                 </svg>
             </div>
         </div>
+        
 </section>
     
 </body>
