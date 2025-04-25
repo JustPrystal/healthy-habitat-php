@@ -230,13 +230,7 @@ body.noscroll {
   margin-left: auto;
   transition: 0.5s ease;
 }
-.sidenav ul.nav li.has-sublinks a .rotate-user {
-  transform: rotate(180deg);
-}
-.sidenav ul.nav li.has-sublinks a .rotate-product {
-  transform: rotate(180deg);
-}
-.sidenav ul.nav li.has-sublinks a .rotate-listing {
+.sidenav ul.nav li.has-sublinks a .rotate-user, .sidenav ul.nav li.has-sublinks a .rotate-product, .sidenav ul.nav li.has-sublinks a .rotate-listing {
   transform: rotate(180deg);
 }
 .sidenav ul.nav li.has-sublinks .sub-links {

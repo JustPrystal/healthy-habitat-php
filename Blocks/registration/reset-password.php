@@ -69,9 +69,9 @@ if (!empty($token)) {
                                 <div class="password-wrap">
                                     <input type="password" id="password" name="password" required minlength="8">
                                     <span class="toggle-password">
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path fill="#134027" d="M12 9.005a4 4 0 1 1 0 8a4 4 0 0 1 0-8M12 5.5c4.613 0 8.596 3.15 9.701 7.564a.75.75 0 1 1-1.455.365a8.504 8.504 0 0 0-16.493.004a.75.75 0 0 1-1.456-.363A10 10 0 0 1 12 5.5"/>
-                                        </svg> -->
+                                        </svg>
                                     </span>
                                 </div>
                             </div>
@@ -81,9 +81,9 @@ if (!empty($token)) {
                                 <div class="password-wrap">
                                     <input type="password" id="confirm_password" name="confirm_password" required minlength="8">
                                     <span class="toggle-password">
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path fill="#134027" d="M12 9.005a4 4 0 1 1 0 8a4 4 0 0 1 0-8M12 5.5c4.613 0 8.596 3.15 9.701 7.564a.75.75 0 1 1-1.455.365a8.504 8.504 0 0 0-16.493.004a.75.75 0 0 1-1.456-.363A10 10 0 0 1 12 5.5"/>
-                                        </svg> -->
+                                        </svg>
                                     </span>
                                 </div>
                             </div>
