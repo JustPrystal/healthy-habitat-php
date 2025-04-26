@@ -870,6 +870,9 @@ body.noscroll {
     margin-bottom: 20px;
   }
 }
+.dashboard-content.my-listings .inner .table-wrap .table .checkbox-wrap input {
+  accent-color: var(--leafy-green);
+}
 .dashboard-content.my-listings .inner .table-wrap .table .body .row:nth-child(even) {
   background-color: var(--snow-veil);
 }

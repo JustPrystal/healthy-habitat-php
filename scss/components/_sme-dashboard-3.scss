@@ -49,6 +49,11 @@
                         margin-bottom: 20px;    
                     }
                 }
+                .checkbox-wrap{
+                    input{
+                        accent-color: var(--leafy-green);
+                    }
+                }
                 .body{              
                     .row{
                         &:nth-child(even){

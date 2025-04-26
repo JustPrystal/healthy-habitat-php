@@ -29,7 +29,7 @@
             <div class="header-cell small">
               Votes: No
             </div>
-            <div class="header-cell small">
+            <div class="header-cell medium">
               Status
             </div>
             <div class="header-cell xs">

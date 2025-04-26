@@ -22,7 +22,7 @@
                 <div class="button-wrap">
                     <div class="checkbox-wrap">
                         <input id="price-check" name="price-range" type="checkbox" value="price">
-                        <label for="price-range">Under £200</label>
+                        <label for="price-range">Under £<span id="price-label">200</span></label>
                     </div>
                     <div class="filter" id="product-filter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
@@ -37,9 +37,9 @@
                     </div>
                 </div>
             </div>
-
+            
             <div id="product-card-grid" class="content">
-
+            
             </div>
         </div>
     </div>
@@ -55,6 +55,9 @@
             const priceChecked = priceCheck.checked;
             const search = searchInput.value.toLowerCase();
 
+            const rawText = document.getElementById('price-label').textContent;
+            const numericPrice = parseFloat(rawText.replace(/[^\d.]/g, ''));
+
             const cards = document.querySelectorAll('.card');
 
             cards.forEach(card => {
@@ -65,37 +68,39 @@
                 const category = card.querySelector('.category')?.textContent.toLowerCase() || '';
                 const offerBy = card.querySelector('.creator-name')?.textContent.toLowerCase() || '';
 
-                const matchesType = selectedType === 'all' || selectedType === type;
-                const matchesPrice = !priceChecked || price <= 200;
+                const matchesPrice = !priceChecked || price <= numericPrice;
                 const matchesSearch =
                     title.includes(search) ||
                     description.includes(search) ||
                     category.includes(search) ||
                     offerBy.includes(search);
 
-                const shouldShow = matchesType && matchesPrice && matchesSearch;
+                const shouldShow = matchesPrice && matchesSearch;
 
                 card.style.display = shouldShow ? 'flex' : 'none';
             });
         }
 
-        // Load product cards first
-        $.get("./Blocks/sme/get_product_cards.php?type=product", function (productData) {
-            $("#product-card-grid").html(productData);
+        function loadCards() {
+            const selectedType = select.value;
 
-            // Then load service cards
-            $.get("./Blocks/sme/get_product_cards.php?type=service", function (serviceData) {
-                $("#product-card-grid").append(serviceData);
-
-                // Apply filters once both types are loaded
-                applyFilters();
-
-                // Attach events
-                select.addEventListener('change', applyFilters);
-                priceCheck.addEventListener('change', applyFilters);
-                searchInput.addEventListener('input', applyFilters);
+            $.get(`./Blocks/sme/get_product_cards.php?type=${encodeURIComponent(selectedType)}`, function (data) {
+                $("#product-card-grid").html(data);
+                applyFilters(); // Re-apply filters to the newly loaded cards
             });
+        }
+
+        // Initial load
+        loadCards();
+
+        // Re-load cards and re-filter on type change
+        select.addEventListener('change', () => {
+            loadCards();
         });
+
+        // Filter only (no reload needed)
+        priceCheck.addEventListener('change', applyFilters);
+        searchInput.addEventListener('input', applyFilters);
     });
 
 

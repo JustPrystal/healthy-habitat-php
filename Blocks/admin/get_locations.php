@@ -44,18 +44,6 @@ function get_location_rows($locations)
             <div class="body-cell small"><?= htmlspecialchars($row['location_type']) ?></div>
             <div class="body-cell large"><?= htmlspecialchars($row['region']) ?></div>
             <div class="body-cell extra-large"><?= htmlspecialchars($row['user_name'] ?? 'Unknown') ?></div>
-            <div class="body-cell extra-small">
-                <div class="circle-wrap">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="actions-wrap">
-                        <div class="edit"><p>edit</p></div>
-                        <div class="line"></div>
-                        <div class="delete"><p>delete</p></div>
-                    </div>
-                </div>
-            </div>
         </div>
 <?php
     }

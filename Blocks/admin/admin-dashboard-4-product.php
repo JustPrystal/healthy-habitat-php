@@ -85,13 +85,6 @@ $all_items = get_user_items('product');
                   <div class="circle"></div>
                   <div class="circle"></div>
                   <div class="actions-wrap">
-                    <div class="edit">
-                      <p>edit</p>
-                    </div>
-                    <div class="line"></div>
-                    <div class="delete">
-                      <p>delete</p>
-                    </div>
                     <?php if ($item['status'] == "pending") { ?>
                       <div class="line"></div>
                       <div class="approve">

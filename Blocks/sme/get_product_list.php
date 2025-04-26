@@ -48,7 +48,7 @@ function get_items_rows($items)
       <div class="body-cell small">
         <?= htmlspecialchars($row['downvotes']) ?>
       </div>
-      <div class="body-cell small status <?= htmlspecialchars($row['status']) ?>">
+      <div class="body-cell medium status <?= htmlspecialchars($row['status']) ?>">
         <?= htmlspecialchars($row['status']) ?>
       </div>
       <div class="body-cell extra-small">
