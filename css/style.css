@@ -905,6 +905,8 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status.live {
   background: #a0fab3;
+}
+.dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status.pending, .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status.live {
   height: fit-content;
   margin: auto;
 }

@@ -89,9 +89,11 @@
                                 }
                                 &.live{
                                     background: #a0fab3;
+                                }                
+                                &.pending , &.live{
                                     height: fit-content;
                                     margin: auto;
-                                }                              
+                                }               
                             }
                             .circle-wrap{
                                 display: flex;
