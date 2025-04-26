@@ -902,6 +902,8 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell.status.live {
   background: #a0fab3;
+  height: fit-content;
+  margin: auto;
 }
 .dashboard-content.my-listings .inner .table-wrap .table .body .row .body-cell .circle-wrap {
   display: flex;
