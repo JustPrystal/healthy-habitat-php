@@ -41,9 +41,6 @@
             <div id="product-card-grid" class="content">
             
             </div>
-            <div id="no-products-message" style="display: none;">No products available</div>
-            <div id="no-services-message" style="display: none;">No services available</div>
-            <div id="no-results-message" style="display: none;">No products/services available</div>
         </div>
     </div>
 </section>
