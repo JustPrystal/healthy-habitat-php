@@ -160,7 +160,7 @@ $pass4 = password_hash('admin123', PASSWORD_DEFAULT);
 $conn->query("INSERT INTO users (name, email, password, role) VALUES 
     ('Alice Johnson', 'alice@gmail.com', '$pass1', 'resident'),
     ('Camden Borough Council', 'council@gmail.com', '$pass2', 'council'),
-    ('Carol Lee', 'sme@gmail.com', '$pass3', 'business'),
+    ('ZenGlow Yoga Studio', 'sme@gmail.com', '$pass3', 'business'),
     ('Admin Joe', 'admin@gmail.com', '$pass4', 'admin'),
     ('HerbalWhiff Co.', 'info@herbalwhiff.org', '$pass4', 'business')
 ");
@@ -172,10 +172,10 @@ $conn->query("INSERT INTO user_meta (user_id, meta_key, meta_value) VALUES
     (1, 'areas_of_interest', 'Home Wellness'),
     (1, 'gender', 'female'),
     (2, 'contact_person_name', 'Sarah Thompson'),
-    (2, 'phone', '123-456-7890'),
+    (2, 'phone_number', '123-456-7890'),
     (2, 'designation', 'Community Wellness Officer'),
     (2, 'region', 'Greater London'),
-    (2, 'website', 'www.camden.gov.uk'),
+    (2, 'council_website', 'www.camden.gov.uk'),
     (3, 'phone', '07912345678'),
     (3, 'website', 'https://zenglow.co.uk'),
     (3, 'address', '12 Wellness Street, Northbridge'),
@@ -198,28 +198,28 @@ $conn->query("INSERT INTO categories (user_id, type, category) VALUES
 
 // Insert mock products
 $conn->query("INSERT INTO products (user_id, name, type, category, price, description, benefits, image_path, status, stock) VALUES 
-    (3, 'PureAir HEPA Filter Purifier', 'product', 'Home Wellness', 3.99, 'Hepa filter description', 'It is very Eco-friendly and durable', './assets/wellness services/PureAir HEPA Filter Purifiers.png', 'live', 50),
-    (3, 'NatureMat Cork Yoga Mat', 'product', 'Eco-Friendly Fitness Gear', 5.50, 'This is a very good mat', 'It is very sustainable and stylish', './assets/wellness services/NatureMat Cork Yoga Mats.png', 'pending', 100),
-    (5, 'AloeSheer Body Lotion', 'product', 'Organic Personal Care', 5.50, 'This is a very good lotion.', 'It is very sustainable and organic', './assets/wellness services/AloeSheer Body Lotion.png', 'live', 70)
+    (3, 'PureAir HEPA Filter Purifier', 'product', 'Home Wellness', 4, 'Hepa filter description', 'It is very Eco-friendly and durable', './assets/wellness services/PureAir HEPA Filter Purifiers.png', 'live', 50),
+    (3, 'NatureMat Cork Yoga Mat', 'product', 'Eco-Friendly Fitness Gear', 10, 'This is a very good mat', 'It is very sustainable and stylish', './assets/wellness services/NatureMat Cork Yoga Mats.png', 'pending', 100),
+    (5, 'AloeSheer Body Lotion', 'product', 'Home Wellness', 12, 'This is a very good lotion.', 'It is very sustainable and organic', './assets/wellness services/AloeSheer Body Lotion.png', 'live', 70)
 ");
 
 // Insert mock services
 $conn->query("INSERT INTO services (user_id, name, type, category, price, description, benefits, image_path, status, stock) VALUES 
-    (3, 'ZenGlow Yoga Studio', 'service', 'Eco-Friendly Fitness Gear', 75.00, 'This is a very good yoga studio', 'It is very sustainable and stylish', './assets/wellness services/ZenGlow Yoga Studio.png', 'live', 10),
+    (3, 'ZenGlow Yoga Studio', 'service', 'Organic Personal Care', 75.00, 'This is a very good yoga studio', 'It is very sustainable and stylish', './assets/wellness services/ZenGlow Yoga Studio.png', 'live', 10),
     (3, 'EcoClean Home Services', 'service', 'Sustainable Living', 50.00, 'Seasonal home maintenance', 'Experienced cleaners, Tools included', './assets/wellness services/GreenNest Home Cleaning.png', 'pending', 5),
-    (5, 'UrbanSprout Gardening Workshops', 'service', 'Organic Personal Care', 20.00, 'Seasonal garden maintenance', 'Experienced gardeners, Tools included', './assets/wellness services/PlantPure Subscription.png', 'live', 10)
+    (5, 'UrbanSprout Gardening Workshops', 'service', 'Sustainable Living', 20.00, 'Seasonal garden maintenance', 'Experienced gardeners, Tools included', './assets/wellness services/PlantPure Subscription.png', 'live', 10)
 ");
 // Insert mock certifications
 $conn->query("INSERT INTO certifications (user_id, title, issuer, image_path) VALUES 
-    (3, 'Eco Vendor Certified', 'Carol Lee', './assets/certifiedImage.png'),
-    (3, 'Sustainable Service Badge', 'Carol Lee', './assets/naturalImage.png'),
-    (5, 'HerbalWhiff Co.', 'Carol Lee', './assets/organic.png')
+    (3, 'Eco Vendor Certified', 'ZenGlow Yoga Studio', './assets/certifiedImage.png'),
+    (3, 'Sustainable Service Badge', 'ZenGlow Yoga Studio', './assets/naturalImage.png'),
+    (5, 'HerbalWhiff Co.', 'HerbalWhiff Co.', './assets/organic.png')
 ");
 
 // Insert mock locations
 $conn->query("INSERT INTO locations (user_id, name, postal_code, region, location_type, description) VALUES 
-    (2, 'North Valley', '12345', 'North Region', 'Urban', 'Serving North Valley residents'),
-    (2, 'Eastside District', '67890', 'East Region', 'Rural', 'Serving Eastside communities')
+    (2, 'North Valley', '12345', 'bedfordshire', 'urban', 'Serving North Valley residents'),
+    (2, 'Eastside District', '67890', 'berkshire', 'rural', 'Serving Eastside communities')
 ");
 
 echo "✅ Mock data inserted successfully!";

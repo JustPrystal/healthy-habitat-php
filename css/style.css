@@ -1173,6 +1173,7 @@ body.noscroll {
 }
 .dashboard-content.my-listings .inner .table-wrap .modal form .input-wrap textarea {
   resize: none;
+  text-transform: unset;
 }
 .dashboard-content.my-listings .inner .table-wrap .modal button {
   font-size: var(--text20);
