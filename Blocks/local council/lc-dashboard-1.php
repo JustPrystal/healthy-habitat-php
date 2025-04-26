@@ -220,9 +220,11 @@ $conn->close();
                         </p>
                     </div>
                 </div>
-                <div class="card-right">
-                    <img src="<?php echo $image; ?>" alt="air Purifier" class="card-image">
-                </div>
+                <?php if ($image) { ?>
+                    <div class="card-right">
+                        <img src="<?php echo $image; ?>" alt="air Purifier" class="card-image">
+                    </div>
+                <?php } ?>
             </div>
         </div>
 

@@ -6,7 +6,15 @@ require_once '../../helpers.php';
 
 
 $type = $_GET['type'] ?? 'product';
-$data = get_user_items($type);
+if ($type === 'all') {
+  $productData = get_user_items('product');
+  $serviceData = get_user_items('service');
+
+  // Combine both arrays
+  $data = array_merge($productData, $serviceData);
+} else {
+  $data = get_user_items($type);
+}
 
 if (isset($data['error'])) {
   if ($data['error'] === 'unauthorized') {
@@ -18,12 +26,18 @@ if (isset($data['error'])) {
 }
 
 if (count($data) > 0) {
-  echo get_items_cards($data, $type);
+  echo get_items_cards($data);
 } else {
-  echo '<div class="row"><div class="body-cell">No products/services found.</div></div>';
+  if ($type === 'product') {
+    echo '<div class="row"><div class="body-cell">No products found.</div></div>';
+  } else if ($type === 'service') {
+    echo '<div class="row"><div class="body-cell">No services found.</div></div>';
+  } else {
+    echo '<div class="row"><div class="body-cell">No products/services found.</div></div>';
+  }
 }
 
-function get_items_cards($items, $type)
+function get_items_cards($items)
 {
   ob_start();
   foreach ($items as $row) {
@@ -70,16 +84,16 @@ function get_items_cards($items, $type)
           <?= htmlspecialchars($row['description']) ?>
         </p>
         <p class="price text">
-          <?= '£' . htmlspecialchars($row['price']) . ($type === 'service' ? '/week' : '') ?>
+          <?= '£' . htmlspecialchars($row['price']) . ($row['type'] === 'service' ? '/week' : '') ?>
         </p>
         <div class="vote-wrap">
           <span class="text">
             Vote:
           </span>
-          <button class="vote-button <?= $type ?> yes" data-id="<?= $row['id'] ?>" data-vote="up" data-type="<?= $type ?>">
+          <button class="vote-button <?= $row['type'] ?> yes" data-id="<?= $row['id'] ?>" data-vote="up" data-type="<?= $row['type'] ?>">
             Yes
           </button>
-          <button class="vote-button <?= $type ?> no" data-id="<?= $row['id'] ?>" data-vote="down" data-type="<?= $type ?>">
+          <button class="vote-button <?= $row['type'] ?> no" data-id="<?= $row['id'] ?>" data-vote="down" data-type="<?= $row['type'] ?>">
             No
           </button>
         </div>
@@ -94,7 +108,7 @@ function get_items_cards($items, $type)
   }
   ?>
   <script>
-    document.querySelectorAll(".vote-button.<?= $type ?>").forEach(button => {
+    document.querySelectorAll(".vote-button.<?= $row['type'] ?>").forEach(button => {
       button.addEventListener("click", async function () {
         const id = this.getAttribute("data-id");
         const type = this.getAttribute("data-type");
