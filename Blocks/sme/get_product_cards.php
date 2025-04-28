@@ -108,7 +108,7 @@ function get_items_cards($items)
   }
   ?>
   <script>
-    document.querySelectorAll(".vote-button.<?= $row['type'] ?>").forEach(button => {
+    document.querySelectorAll(".vote-button").forEach(button => {
       button.addEventListener("click", async function () {
         const id = this.getAttribute("data-id");
         const type = this.getAttribute("data-type");
